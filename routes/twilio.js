@@ -30,7 +30,7 @@ router.post('/task', function(req, res, next) {
     var profile = profiles[0]
     task['profile'] = {
       id: profile.id,
-      username=profile.username
+      username: profile.username
     }
     return controllers.task.post(task, false)
 
