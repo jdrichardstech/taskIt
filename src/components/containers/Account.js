@@ -7,7 +7,10 @@ import actions from '../../actions'
 
 class Account extends Component{
 
-
+  componentDidMount(){
+    if(this.props.user==null)
+    this.props.checkCurrentUser()
+  }
   register(credentials){
     // console.log("REGISTER CONT: " + JSON.stringify(credentials))
     this.props.register(credentials)
@@ -29,9 +32,10 @@ class Account extends Component{
 
       <div>
         <h3>Account</h3>
-        <Authenticate
-          onLogin={this.login.bind(this)}
-          onRegister={this.register.bind(this)} />
+        {(this.props.user==null) ?
+          <Authenticate onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
+          : <h2>Hello {this.props.user.username}</h2>
+        }
 
       </div>
 
@@ -48,7 +52,8 @@ const stateToProps = (state) =>{
 const dispatchToProps = (dispatch) => {
   return{
     register: (credentials)=>dispatch(actions.register(credentials)),
-    login: (credentials)=>dispatch(actions.login(credentials))
+    login: (credentials)=>dispatch(actions.login(credentials)),
+    checkCurrentUser: (credentials)=>dispatch(actions.checkCurrentUser(credentials))
   }
 }
 

@@ -32382,6 +32382,11 @@
 	  }
 	
 	  _createClass(Account, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      if (this.props.user == null) this.props.checkCurrentUser();
+	    }
+	  }, {
 	    key: 'register',
 	    value: function register(credentials) {
 	      // console.log("REGISTER CONT: " + JSON.stringify(credentials))
@@ -32406,9 +32411,12 @@
 	          null,
 	          'Account'
 	        ),
-	        _react2.default.createElement(_view.Authenticate, {
-	          onLogin: this.login.bind(this),
-	          onRegister: this.register.bind(this) })
+	        this.props.user == null ? _react2.default.createElement(_view.Authenticate, { onLogin: this.login.bind(this), onRegister: this.register.bind(this) }) : _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Hello ',
+	          this.props.user.username
+	        )
 	      );
 	    }
 	  }]);
@@ -32429,6 +32437,9 @@
 	    },
 	    login: function login(credentials) {
 	      return dispatch(_actions2.default.login(credentials));
+	    },
+	    checkCurrentUser: function checkCurrentUser(credentials) {
+	      return dispatch(_actions2.default.checkCurrentUser(credentials));
 	    }
 	  };
 	};
@@ -32573,7 +32584,7 @@
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -32596,10 +32607,12 @@
 	  var updated = Object.assign({}, state);
 	  switch (action.type) {
 	    case _constants2.default.PROFILE_CREATED:
-	      console.log("PROFILE_CREATED: " + JSON.stringify(action.payload));
+	      // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))
+	      updated['user'] = action.payload;
 	      return updated;
 	    case _constants2.default.USER_LOGGED_IN:
-	      console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload));
+	      // console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload))
+	      updated['user'] = action.payload;
 	
 	      return updated;
 	    default:
