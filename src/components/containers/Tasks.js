@@ -68,7 +68,7 @@ class Tasks extends Component {
             <h2>Tasks</h2>
             <ul>
             {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
-              return <li key={task.id}>{task.title}, {task.category}</li>
+              return <li key={task.id}>{task.title}, {task.category}: {task.description}</li>
             })}
             </ul>
               <CreateTask onSubmitTask={this.createTask.bind(this)} />
