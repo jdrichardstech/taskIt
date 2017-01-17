@@ -19,17 +19,31 @@ router.post('/task', function(req, res, next) {
     category:'delivery',
     description: message
   }
-  var from = req.body['From']
-  controllers.task.post(task, false)
+  var from = req.body['From'].replace('+1', '')
+
+
+  controllers.get({phone:from}, false)
+  .then(function(profiles){
+    if(profiles.length==0){
+      throw new Error('Go Away')
+    }
+    var profile = profiles[0]
+    task['profile'] = {
+      id: profile.id,
+      username=profile.username
+    }
+    return controllers.task.post(task, false)
+
+  })
   .then(function(result){
     console.log("Success: "+ JSON.stringify(result))
     res.send("Hello")
   })
   .catch(function(err){
-    console.log("Error: " + err)
+    console.log("Error: " + err.message)
   })
 
-});
+})
 
 
 
