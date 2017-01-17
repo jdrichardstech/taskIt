@@ -65,7 +65,7 @@ class Tasks extends Component {
       render(){
           return(
             <div>
-            <h2>Tasks</h2>
+            <h4>Tasks</h4>
             <ul>
             {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
               return <li key={task.id}>{task.title}, {task.category}: {task.description}</li>

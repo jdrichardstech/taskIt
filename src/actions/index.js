@@ -7,7 +7,7 @@ const getRequest = (path, params, actionType) => {
   return (dispatch) =>
     APIManager.get(path, params)
       .then((response)=>{
-        const payload= response.results || response.result
+        const payload= response.results || response.result || response.user
         // console.log('Response getRequest: ' + JSON.stringify(response))
         dispatch({
           type: actionType,
@@ -16,7 +16,7 @@ const getRequest = (path, params, actionType) => {
         })
       })
       .catch((err)=>{
-        console.log("Error" + JSON.stringify(err))
+        throw err
       })
 
 }
@@ -26,8 +26,8 @@ const postRequest = (path, params, actionType) => {
   return (dispatch) =>
     APIManager.post(path, params)
       .then((response)=>{
-        const payload= response.results || response.result
-        console.log('Response getRequest: ' + JSON.stringify(response))
+        const payload= response.results || response.result || response.user
+        // console.log('Response getRequest: ' + JSON.stringify(response))
         dispatch({
           type: actionType,
           payload: payload,
@@ -35,7 +35,7 @@ const postRequest = (path, params, actionType) => {
         })
       })
       .catch((err)=>{
-        console.log("Error" + JSON.stringify(err))
+        throw err
       })
 
 }
@@ -68,7 +68,28 @@ export default{
       type: constants.CATEGORY_SELECTED,
       payload: category
     }
+  },
+
+  register: (credentials)=>{
+    return(dispatch) => {
+      return dispatch(postRequest('account/register', credentials, constants.PROFILE_CREATED))
+    }
+  },
+
+  login: (credentials)=>{
+    return(dispatch) => {
+      return dispatch(postRequest('account/login', credentials, constants.USER_LOGGED_IN))
+    }
+  },
+
+  checkCurrentUser: () => {
+  return (dispatch) => {
+    return dispatch(getRequest('/account/currentuser', {}, constants.USER_LOGGED_IN))
   }
+},
+
+
+
 
   // taskCreated: (task) =>{
   //   return{

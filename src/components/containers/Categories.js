@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
 import { APIManager } from '../../utils'
-
 import { connect } from 'react-redux'
 import actions from '../../actions'
 
@@ -31,7 +29,7 @@ class Categories extends Component{
 
 
         <div>
-        <h1>Categories</h1>
+        <h4>Categories</h4>
         <ul>{content}</ul>
 
           </div>

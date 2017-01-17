@@ -16,7 +16,8 @@ get:(url, params)=>{
         return
       }
       if(response.body.confirmation !='success'){
-        reject({message:response.body.message})
+        // reject({message:response.body.message})
+        reject (new Error(response.body.message))
         return
       }
       resolve(response.body)
@@ -37,7 +38,8 @@ post:(url, params)=>{
       }
 
       if(response.body.confirmation !='success'){
-        reject({message:response.body.message})
+        // reject({message:response.body.message})
+        reject(new Error(response.body.message))
         return
       }
       resolve(response.body)
@@ -45,31 +47,55 @@ post:(url, params)=>{
 
   })
 },
+uploadFile: (url, file, params) => {
+  return new Promise((resolve, reject) => {
 
-put: (url, body, callback) => {
-		superagent
-		.put(url)
-		.send(body)
-		.set('Accept', 'application/json')
-		.end((err, response) => {
-			if (err){
-				callback(err, null)
-				return
-			}
+        let uploadRequest = superagent.post(url)
+        uploadRequest.attach('file', file)
 
-			const confirmation = response.body.confirmation
-			if (confirmation != 'success'){
-				callback({message: response.body.message}, null)
-				return
-			}
+        if (params != null){
+          Object.keys(params).forEach((key) => {
+            uploadRequest.field(key, params[key])
+          })
+        }
 
-			callback(null, response.body)
-		})
-	},
+        uploadRequest.end((err, resp) => {
+          if (err){
+        reject(err)
+                return
+          }
 
-	delete: () => {
+          const uploaded = resp.body
+          console.log('UPLOAD COMPLETE: '+JSON.stringify(uploaded))
+          resolve(uploaded)
+        })
+  })
+},
 
-	},
+// put: (url, body, callback) => {
+// 		superagent
+// 		.put(url)
+// 		.send(body)
+// 		.set('Accept', 'application/json')
+// 		.end((err, response) => {
+// 			if (err){
+// 				callback(err, null)
+// 				return
+// 			}
+//
+// 			const confirmation = response.body.confirmation
+// 			if (confirmation != 'success'){
+// 				callback({message: response.body.message}, null)
+// 				return
+// 			}
+//
+// 			callback(null, response.body)
+// 		})
+// 	},
+//
+// 	delete: () => {
+//
+// 	},
 
 	upload: (endpoint, file, params, callback) => {
 		console.log('APIManager - upload: ')
@@ -89,17 +115,6 @@ put: (url, body, callback) => {
 		})
 	}
 
-// uploadFile: (url, file, params) => {
-//   return new Promise((resolve reject)=>{
-//     let uploadRequest = superagent.post(endpoint)
-//     uploadRequest.attach('file', file)
-//     if(params !=null){
-//       Object.keys(params).forEach((key)=>{
-//         uploadRequest.field(key, params[key])
-//       })
-//     }
-//   })
-// }
 
 
 

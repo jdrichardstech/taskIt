@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
- import { Tasks, Categories } from '../containers'
+ import { Tasks, Categories, Account } from '../containers'
 
 
 
@@ -9,11 +9,14 @@ class Home extends Component {
       <div>
         <div className="container">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-2">
                   <Categories />
             </div>
             <div className="col-md-8">
                 <Tasks />
+            </div>
+            <div className="col-md-2">
+              < Account />
             </div>
           </div>
         </div>
