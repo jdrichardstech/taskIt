@@ -22,7 +22,7 @@ router.post('/task', function(req, res, next) {
   var from = req.body['From'].replace('+1', '')
 
 
-  controllers.get({phone:from}, false)
+  controllers.profile.get({phone:from}, false)
   .then(function(profiles){
     if(profiles.length==0){
       throw new Error('Go Away')
