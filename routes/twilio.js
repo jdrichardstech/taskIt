@@ -14,10 +14,17 @@ router.post('/task', function(req, res, next) {
   console.log("TWILIO" + JSON.stringify(req.body))
   var message = req.body['Body']
 
+  //Title.Category. task description
+
+  var parts = message.split('.') // hopefully 3 parts
+  var category = (parts.length ==1) ? 'misc': parts[1].trim().toLowerCase()
+  var description = (parts.length < 3) ? '' : parts[2].trim()
+
+
   var task = {
-    title:'Twilio Task',
-    category:'delivery',
-    description: message
+    title:parts[0],
+    category: category,
+    description: description
   }
   var from = req.body['From'].replace('+1', '')
 
