@@ -16,9 +16,19 @@ router.post('/task', function(req, res, next) {
 
   //Title.Category. task description
 
+  var validCategories = ['delivery', 'house cleaning', 'dog walking', 'misc']
   var parts = message.split('.') // hopefully 3 parts
   var category = (parts.length ==1) ? 'misc': parts[1].trim().toLowerCase()
-  var description = (parts.length < 3) ? '' : parts[2].trim()
+  var description
+  if(validCategories.indexOf(category) == -1){
+    category='misc'
+    description = parts[1].trim()
+  }else{
+    description = (parts.length < 3) ? '' : parts[2].trim()
+  }
+
+
+
 
 
   var task = {
