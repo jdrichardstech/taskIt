@@ -12,6 +12,7 @@ var TasksSchema = new mongoose.Schema({
 
 TasksSchema.methods.summary=function(){
 var summary = {
+  profile: this.profile,
   title: this.title,
   description: this.description,
   category: this.category,
