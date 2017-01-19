@@ -32539,7 +32539,7 @@
 	
 	  selectedCategory: 'delivery',
 	  selected: 0,
-	  categories: ['delivery', 'dog walking', 'house cleaning']
+	  categories: ['delivery', 'dog walking', 'house cleaning', 'misc']
 	};
 	
 	exports.default = function () {

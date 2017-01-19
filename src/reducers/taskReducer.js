@@ -8,7 +8,8 @@ var initialState={
   categories:[
     'delivery',
     'dog walking',
-    'house cleaning'
+    'house cleaning',
+    'misc'
   ]
 }
 
