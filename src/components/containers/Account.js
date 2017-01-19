@@ -19,7 +19,6 @@ class Account extends Component{
   			console.log('ERROR: '+err.message)
   		})
   	}
-    
   register(credentials){
     // console.log("REGISTER CONT: " + JSON.stringify(credentials))
     this.props.register(credentials)

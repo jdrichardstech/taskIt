@@ -37478,7 +37478,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -37486,6 +37486,8 @@
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _utils = __webpack_require__(182);
 	
 	var _reactRedux = __webpack_require__(197);
 	
@@ -37502,69 +37504,63 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var Task = function (_Component) {
-		_inherits(Task, _Component);
+	  _inherits(Task, _Component);
 	
-		function Task() {
-			_classCallCheck(this, Task);
+	  function Task() {
+	    _classCallCheck(this, Task);
 	
-			return _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).apply(this, arguments));
-		}
+	    return _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).apply(this, arguments));
+	  }
 	
-		_createClass(Task, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				console.log('componentDidMount: ' + JSON.stringify(this.props));
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				// grab the task from the store:
-				var taskId = this.props.params.id;
-				var task = this.props.tasks[taskId];
+	  _createClass(Task, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log("PROPS: " + JSON.stringify(this.props));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var taskId = this.props.params.id;
+	      var task = this.props.tasks[taskId];
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Title:',
+	        task.title,
+	        _react2.default.createElement('br', null),
+	        ' Description: ',
+	        task.description,
+	        _react2.default.createElement('br', null),
+	        ' Category: ',
+	        task.category,
+	        _react2.default.createElement('br', null),
+	        this.props.account.user == null ? _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Please login or register to reply '
+	        ) : _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement('textarea', { placeholder: 'enter message to respond' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'button',
+	            null,
+	            'Submit'
+	          )
+	        )
+	      );
+	    }
+	  }]);
 	
-				return _react2.default.createElement(
-					'div',
-					null,
-					task.title,
-					_react2.default.createElement('br', null),
-					task.description,
-					_react2.default.createElement('br', null),
-					task.category,
-					_react2.default.createElement('br', null),
-					task.profile.username,
-					_react2.default.createElement('br', null),
-					this.props.account.user == null ? _react2.default.createElement(
-						'h3',
-						null,
-						'Please Log in or Register to Reply'
-					) : _react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'h3',
-							null,
-							'Reply'
-						),
-						_react2.default.createElement('textarea', { placeholder: 'Enter Message to Respond' }),
-						_react2.default.createElement('br', null),
-						_react2.default.createElement(
-							'button',
-							null,
-							'Submit'
-						)
-					)
-				);
-			}
-		}]);
-	
-		return Task;
+	  return Task;
 	}(_react.Component);
 	
 	var stateToProps = function stateToProps(state) {
-		return {
-			tasks: state.task,
-			account: state.account
-		};
+	  return {
+	    tasks: state.task,
+	    account: state.account
+	  };
 	};
 	
 	exports.default = (0, _reactRedux.connect)(stateToProps)(Task);
