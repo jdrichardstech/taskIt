@@ -7,7 +7,7 @@ import actions from '../../actions'
 
 class Task extends Component {
   componentDidMount(){
-
+console.log("PROPS: "+ this.props)
 
 
   }

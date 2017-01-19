@@ -37514,7 +37514,9 @@
 	
 	  _createClass(Task, [{
 	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
+	    value: function componentDidMount() {
+	      console.log("PROPS: " + this.props);
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {

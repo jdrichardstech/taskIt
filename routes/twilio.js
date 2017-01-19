@@ -47,6 +47,7 @@ router.post('/task', function(req, res, next) {
   .then(function(profiles){
     if(profiles.length==0){
       throw new Error('Go Away')
+      return
     }
     var profile = profiles[0]
     task['profile'] = {
@@ -63,7 +64,6 @@ router.post('/task', function(req, res, next) {
   .catch(function(err){
     console.log("Error: " + err.message)
   })
-
 })
 
 
