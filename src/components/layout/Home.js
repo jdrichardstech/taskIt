@@ -17,6 +17,7 @@ class Home extends Component {
             </div>
             <div className="col-md-2">
               < Account />
+
             </div>
           </div>
         </div>

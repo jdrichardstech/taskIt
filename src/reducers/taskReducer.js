@@ -31,6 +31,10 @@ export default(state=initialState, action)=>{
       const value = action.params[key]//delivery, dog walking...etc
       updated[value]=action.payload
     })
+
+    action.payload.forEach((task, i)=>{
+      updated[task.id]=task
+    })
     console.log('TASKS_RECEIVED:' + JSON.stringify(updated))
       return updated
 
