@@ -21,7 +21,7 @@ export default(state=initialState, action)=>{
     case constants.CATEGORY_SELECTED:
     updated['selectedCategory']= action.payload
 
-    console.log('CATEGORY_SELECTED: '+JSON.stringify(action.payload))
+    // console.log('CATEGORY_SELECTED: '+JSON.stringify(action.payload))
     return updated
 
     case constants.TASKS_RECEIVED:
@@ -35,7 +35,7 @@ export default(state=initialState, action)=>{
     action.payload.forEach((task, i)=>{
       updated[task.id]=task
     })
-    console.log('TASKS_RECEIVED:' + JSON.stringify(updated))
+    console.log('TASKS:' + JSON.stringify(updated))
       return updated
 
 

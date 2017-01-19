@@ -37710,7 +37710,7 @@
 	    case _constants2.default.CATEGORY_SELECTED:
 	      updated['selectedCategory'] = action.payload;
 	
-	      console.log('CATEGORY_SELECTED: ' + JSON.stringify(action.payload));
+	      // console.log('CATEGORY_SELECTED: '+JSON.stringify(action.payload))
 	      return updated;
 	
 	    case _constants2.default.TASKS_RECEIVED:
@@ -37724,7 +37724,7 @@
 	      action.payload.forEach(function (task, i) {
 	        updated[task.id] = task;
 	      });
-	      console.log('TASKS_RECEIVED:' + JSON.stringify(updated));
+	      console.log('TASKS:' + JSON.stringify(updated));
 	      return updated;
 	
 	    // console.log('UPDATED IN REDUCER:' + JSON.stringify(updated['all']))
