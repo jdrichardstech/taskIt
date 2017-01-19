@@ -16,7 +16,7 @@ console.log("PROPS: "+ JSON.stringify(this.props))
     const task = this.props.tasks[taskId]
     return(
       <div>
-      {/*}  <h2>Hi {task.profile.username}</h2>*/}
+        <h2>Hi {task.profile.username}</h2>
         Title:{task.title}<br /> Description: {task.description}<br /> Category: {task.category}
         <br />
 
