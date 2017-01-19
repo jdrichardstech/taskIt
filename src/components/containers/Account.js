@@ -10,6 +10,15 @@ class Account extends Component{
   componentDidMount(){
     if(this.props.user==null)
     this.props.checkCurrentUser()
+    // if(this.props.user!=null)
+    // return
+    // this.props.checkCurrentUser()
+    // .then(response=>{
+    //
+    // })
+    // .catch(err=>{
+    //   console.log("Error: " + err)
+    // })
   }
   register(credentials){
     // console.log("REGISTER CONT: " + JSON.stringify(credentials))
