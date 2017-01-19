@@ -59,7 +59,7 @@ router.post('/task', function(req, res, next) {
 			username: profile.username
 		}
 
-    console.log("ANYTHING?___"+ JSON.stringify(task['profile']))
+    console.log("ANYTHING?___"+ JSON.stringify(task))
 
 		return controllers.task.post(task, false)
 	})
