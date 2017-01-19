@@ -16,8 +16,17 @@ class Task extends Component {
     const task = this.props.tasks[taskId]
     return(
       <div>
-        {/*<h2>Hi {task.profile.username}</h2>*/}
+        <h2>Hi {task.profile.username}</h2>
         Title:{task.title}<br /> Description: {task.description}<br /> Category: {task.category}
+        <br />
+
+      {(this.props.account.user == null) ? <h3>Please login or register to reply </h3>:
+      <div>
+        <textarea placeholder="enter message to respond">
+        </textarea><br />
+        <button>Submit</button>
+      </div>
+    }
       </div>
     )
   }
@@ -25,7 +34,8 @@ class Task extends Component {
 
 const stateToProps = (state) => {
   return{
-    tasks: state.task
+    tasks: state.task,
+    account: state.account
   }
 }
 

@@ -8,18 +8,18 @@ import actions from '../../actions'
 class Account extends Component{
 
   componentDidMount(){
-    if(this.props.user==null)
-    this.props.checkCurrentUser()
-    // if(this.props.user!=null)
-    // return
-    // this.props.checkCurrentUser()
-    // .then(response=>{
-    //
-    // })
-    // .catch(err=>{
-    //   console.log("Error: " + err)
-    // })
-  }
+  		if (this.props.user != null)
+  			return
+
+  		this.props.checkCurrentUser()
+  		.then(response => {
+
+  		})
+  		.catch(err => {
+  			console.log('ERROR: '+err.message)
+  		})
+  	}
+    
   register(credentials){
     // console.log("REGISTER CONT: " + JSON.stringify(credentials))
     this.props.register(credentials)
@@ -62,7 +62,7 @@ const dispatchToProps = (dispatch) => {
   return{
     register: (credentials)=>dispatch(actions.register(credentials)),
     login: (credentials)=>dispatch(actions.login(credentials)),
-    checkCurrentUser: (credentials)=>dispatch(actions.checkCurrentUser(credentials))
+    checkCurrentUser: ()=>dispatch(actions.checkCurrentUser())
   }
 }
 

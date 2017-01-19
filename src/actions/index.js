@@ -72,13 +72,13 @@ export default{
 
   register: (credentials)=>{
     return(dispatch) => {
-      return dispatch(postRequest('account/register', credentials, constants.PROFILE_CREATED))
+      return dispatch(postRequest('/account/register', credentials, constants.PROFILE_CREATED))
     }
   },
 
   login: (credentials)=>{
     return(dispatch) => {
-      return dispatch(postRequest('account/login', credentials, constants.USER_LOGGED_IN))
+      return dispatch(postRequest('/account/login', credentials, constants.USER_LOGGED_IN))
     }
   },
 
@@ -86,7 +86,7 @@ export default{
   return (dispatch) => {
     return dispatch(getRequest('/account/currentuser', {}, constants.USER_LOGGED_IN))
   }
-},
+}
 
 
 
