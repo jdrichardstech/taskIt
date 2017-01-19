@@ -37684,6 +37684,12 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Hi ',
+	          task.profile.username
+	        ),
 	        'Title:',
 	        task.title,
 	        _react2.default.createElement('br', null),
