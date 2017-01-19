@@ -22,10 +22,9 @@ class Tasks extends Component {
 
       this.props.fetchTasks({category: this.props.tasks.selectedCategory})
       .then(results => {
-        console.log("FETCH CONTAINER" +JSON.stringify(results))
+
       })
       .catch(err => {
-        console.log(JSON.stringify(err))
         alert(err)
       })
   }
@@ -54,7 +53,7 @@ class Tasks extends Component {
         //   })
         this.props.submitTask(task)
         .then(result=>{
-            console.log("SUBMIT TASK: " +JSON.stringify(result))
+            // console.log("SUBMIT TASK: " +JSON.stringify(result))
         })
         .catch(err => {
           console.log('ERROR:' + JSON.stringify(err))
@@ -93,7 +92,7 @@ class Tasks extends Component {
   const dispatchToProps=(dispatch)=>{
     return{
       tasksReceived: (tasks)=>dispatch(actions.tasksReceived(tasks)),
-      taskCreated: (task)=> dispatch(actions.tasksCreated(task)),
+      // taskCreated: (task)=> dispatch(actions.tasksCreated(task)),
       fetchTasks: (params)=>dispatch(actions.fetchTasks(params)),
       submitTask: (params) => dispatch(actions.submitTask(params))
     }

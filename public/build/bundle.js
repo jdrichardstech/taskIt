@@ -21702,10 +21702,7 @@
 	    value: function getTasks() {
 	      if (this.props.tasks[this.props.tasks.selectedCategory] != null) return;
 	
-	      this.props.fetchTasks({ category: this.props.tasks.selectedCategory }).then(function (results) {
-	        console.log("FETCH CONTAINER" + JSON.stringify(results));
-	      }).catch(function (err) {
-	        console.log(JSON.stringify(err));
+	      this.props.fetchTasks({ category: this.props.tasks.selectedCategory }).then(function (results) {}).catch(function (err) {
 	        alert(err);
 	      });
 	    }
@@ -21734,7 +21731,7 @@
 	      //     console.log("Error" + err)
 	      //   })
 	      this.props.submitTask(task).then(function (result) {
-	        console.log("SUBMIT TASK: " + JSON.stringify(result));
+	        // console.log("SUBMIT TASK: " +JSON.stringify(result))
 	      }).catch(function (err) {
 	        console.log('ERROR:' + JSON.stringify(err));
 	      });
@@ -21786,9 +21783,7 @@
 	    tasksReceived: function tasksReceived(tasks) {
 	      return dispatch(_actions2.default.tasksReceived(tasks));
 	    },
-	    taskCreated: function taskCreated(task) {
-	      return dispatch(_actions2.default.tasksCreated(task));
-	    },
+	    // taskCreated: (task)=> dispatch(actions.tasksCreated(task)),
 	    fetchTasks: function fetchTasks(params) {
 	      return dispatch(_actions2.default.fetchTasks(params));
 	    },
@@ -37525,6 +37520,12 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Hi ',
+	          task.profile.username
+	        ),
 	        'Title:',
 	        task.title,
 	        _react2.default.createElement('br', null),
