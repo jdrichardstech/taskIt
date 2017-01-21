@@ -45,7 +45,7 @@ class CreateTask extends Component {
         <option value="delivery">Delivery</option>
         <option value="dog walking">Dog Walking</option>
         <option value ="house cleaning">House Cleaning</option>
-      </select>
+      </select><br />
       <button onClick={this.submitTask.bind(this)} type="submit">Submit</button>
       </form>
       </div>

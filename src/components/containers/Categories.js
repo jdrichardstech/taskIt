@@ -25,13 +25,20 @@ class Categories extends Component{
         </li>
       )
       })
+
     return(
 
 
         <div>
+          <nav id="menu">
+            <header className="major">
+              <h2>Categories</h2>
+            </header>
+
         <h4>Categories</h4>
         <ul>{content}</ul>
-
+      
+        </nav>
           </div>
     )
   }
