@@ -8,7 +8,7 @@ module.exports = {
       if(recipient.indexOf('+1')==-1)
       recipient = '+1'+recipient
 
-      var client = new twilio.RestClient(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+      var client = new twilio.RestClient(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
 
 
       client.messages.create({
