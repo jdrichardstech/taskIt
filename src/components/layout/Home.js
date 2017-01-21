@@ -36,6 +36,9 @@ return(
                     <h1>Welcome to Tasks</h1>
 
                   </header>
+                  <div>
+                    <Account />
+                  </div>
 
                 <div>
                   <Tasks />

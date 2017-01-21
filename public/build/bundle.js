@@ -21690,6 +21690,11 @@
 	                _react2.default.createElement(
 	                  'div',
 	                  null,
+	                  _react2.default.createElement(_containers.Account, null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
 	                  _react2.default.createElement(_containers.Tasks, null)
 	                )
 	              )
