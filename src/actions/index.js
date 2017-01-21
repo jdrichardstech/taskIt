@@ -14,6 +14,7 @@ const getRequest = (path, params, actionType) => {
           payload: payload,
           params: params
         })
+        return response
       })
       .catch((err)=>{
         throw err
@@ -33,6 +34,7 @@ const postRequest = (path, params, actionType) => {
           payload: payload,
           params: params
         })
+        return response
       })
       .catch((err)=>{
         throw err
@@ -53,6 +55,13 @@ export default{
     return{
       type: constants.TASKS_RECEIVED,
       payload: tasks
+    }
+  },
+
+  submitMessage: (params) => {
+    console.log('submitClaim ACTIONS')
+    return (dispatch) => {
+      return dispatch(postRequest('/api/message', params, constants.MESSAGE_CREATED))
     }
   },
 

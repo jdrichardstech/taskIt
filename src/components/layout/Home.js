@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 
 
+
 class Home extends Component {
   render(){
     return(
@@ -14,9 +15,11 @@ class Home extends Component {
             </div>
             <div className="col-md-8">
                 <Tasks />
+
             </div>
             <div className="col-md-2">
               < Account />
+
 
             </div>
           </div>

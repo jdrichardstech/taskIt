@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { APIManager } from '../../utils'
 import { connect } from 'react-redux'
+ import { ClaimTask } from '../view'
 import actions from '../../actions'
 
 
@@ -11,6 +12,28 @@ console.log("PROPS: "+ JSON.stringify(this.props))
 
 
   }
+
+
+  submitMessage(message){
+    // console.log("CLAIM: " + JSON.stringify(reply))
+    let updated = Object.assign({}, message)
+    const user = this.props.account.user
+    updated['profile'] = {
+      id: user.id,
+      username: user.username
+    }
+
+    updated['task']= this.props.params.id
+    this.props.submitMessage(updated)
+    .then(response=>{
+      console.log("MESSAGE CREATED: " + JSON.stringify(response))
+      alert("Thanks for replying! Good Luck!")
+    })
+    .catch(err=> {
+      console.log("ERROR: "+ err)
+    })
+  }
+
   render(){
     const taskId = this.props.params.id
     const task = this.props.tasks[taskId]
@@ -22,9 +45,8 @@ console.log("PROPS: "+ JSON.stringify(this.props))
 
       {(this.props.account.user == null) ? <h3>Please login or register to reply </h3>:
       <div>
-        <textarea placeholder="enter message to respond">
-        </textarea><br />
-        <button>Submit</button>
+        <ClaimTask onSubmit={this.submitMessage.bind(this)} />
+
       </div>
     }
       </div>
@@ -39,4 +61,10 @@ const stateToProps = (state) => {
   }
 }
 
-export default connect(stateToProps)(Task)
+const dispatchToProps = (dispatch) => {
+  return{
+    submitMessage: (params) => dispatch(actions.submitMessage(params))
+  }
+}
+
+export default connect(stateToProps, dispatchToProps)(Task)
