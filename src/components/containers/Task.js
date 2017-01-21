@@ -34,7 +34,7 @@ console.log("PROPS: "+ JSON.stringify(this.props))
 
     return  this.props.notify({
         recipient: task.profile.id,
-        text: 'Hello from react. Good job'
+        text: updated.text
       })
     })
     .then(response=>{

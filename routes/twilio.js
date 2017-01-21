@@ -52,6 +52,7 @@ router.get('/notify', function(req, res, next) {
     controllers.profile
     .getById(req.body.recipient, false) //get profile first
     .then(function(profile){
+      var msg = 'Someone replied to your task, here is the message:\n\n '+ req.body.tex
       return utils.TwilioHelper.sendSMS(profile.phone, req.body.text)
     })
 

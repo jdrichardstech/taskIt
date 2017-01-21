@@ -37636,7 +37636,7 @@
 	
 	        return _this2.props.notify({
 	          recipient: task.profile.id,
-	          text: 'Hello from react. Good job'
+	          text: updated.text
 	        });
 	      }).then(function (response) {
 	        alert("Thanks for replying! Good Luck!");
