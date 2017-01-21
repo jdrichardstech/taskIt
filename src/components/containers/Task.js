@@ -24,10 +24,21 @@ console.log("PROPS: "+ JSON.stringify(this.props))
     }
 
     updated['task']= this.props.params.id
+
+    const taskId = this.props.params.id
+    const task = this.props.tasks[taskId]
+
     this.props.submitMessage(updated)
     .then(response=>{
       console.log("MESSAGE CREATED: " + JSON.stringify(response))
-      alert("Thanks for replying! Good Luck!")
+
+    return  this.props.notify({
+        recipient: task.profile.id,
+        text: 'Hello from react. Good job'
+      })
+    })
+    .then(response=>{
+        alert("Thanks for replying! Good Luck!")
     })
     .catch(err=> {
       console.log("ERROR: "+ err)
@@ -63,7 +74,8 @@ const stateToProps = (state) => {
 
 const dispatchToProps = (dispatch) => {
   return{
-    submitMessage: (params) => dispatch(actions.submitMessage(params))
+    submitMessage: (params) => dispatch(actions.submitMessage(params)),
+    notify: (params) => dispatch(actions.notify(params))
   }
 }
 

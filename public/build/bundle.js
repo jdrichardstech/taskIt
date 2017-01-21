@@ -32327,6 +32327,11 @@
 	    return function (dispatch) {
 	      return dispatch(getRequest('/account/currentuser', {}, _constants2.default.USER_LOGGED_IN));
 	    };
+	  },
+	  notify: function notify(params) {
+	    return function (dispatch) {
+	      return dispatch(postRequest('/twilio/notify', params, null));
+	    };
 	  }
 	
 	  // taskCreated: (task) =>{
@@ -37611,6 +37616,8 @@
 	  }, {
 	    key: 'submitMessage',
 	    value: function submitMessage(message) {
+	      var _this2 = this;
+	
 	      // console.log("CLAIM: " + JSON.stringify(reply))
 	      var updated = Object.assign({}, message);
 	      var user = this.props.account.user;
@@ -37620,8 +37627,18 @@
 	      };
 	
 	      updated['task'] = this.props.params.id;
+	
+	      var taskId = this.props.params.id;
+	      var task = this.props.tasks[taskId];
+	
 	      this.props.submitMessage(updated).then(function (response) {
 	        console.log("MESSAGE CREATED: " + JSON.stringify(response));
+	
+	        return _this2.props.notify({
+	          recipient: task.profile.id,
+	          text: 'Hello from react. Good job'
+	        });
+	      }).then(function (response) {
 	        alert("Thanks for replying! Good Luck!");
 	      }).catch(function (err) {
 	        console.log("ERROR: " + err);
@@ -37677,6 +37694,9 @@
 	  return {
 	    submitMessage: function submitMessage(params) {
 	      return dispatch(_actions2.default.submitMessage(params));
+	    },
+	    notify: function notify(params) {
+	      return dispatch(_actions2.default.notify(params));
 	    }
 	  };
 	};

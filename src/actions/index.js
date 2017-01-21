@@ -95,6 +95,11 @@ export default{
   return (dispatch) => {
     return dispatch(getRequest('/account/currentuser', {}, constants.USER_LOGGED_IN))
   }
+},
+notify:(params)=>{
+  return(dispatch) =>{
+    return dispatch(postRequest('/twilio/notify', params, null))
+  }
 }
 
 
