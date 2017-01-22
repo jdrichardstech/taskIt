@@ -71,7 +71,7 @@ class Tasks extends Component {
               return (
 
                 <Link  to={'/task/'+task.id}>
-                <div key={task.id} className="box col-md-3"style={{marginRight:40}} >
+                <div key={task.id} className="box col-md-3" style={{marginRight:50}}>
 
                   {/*}    <h3>Category: {task.category}</h3>*/}
                         <h3>Order:<br /> <span style={{color:'#f56a6a'}}>{task.title}</span></h3>

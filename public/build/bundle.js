@@ -21817,7 +21817,7 @@
 	                { to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 40 } },
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 50 } },
 	                  _react2.default.createElement(
 	                    'h3',
 	                    null,
