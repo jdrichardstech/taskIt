@@ -21814,10 +21814,10 @@
 	            this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
 	              return _react2.default.createElement(
 	                _reactRouter.Link,
-	                { style: { marginRight: 20 }, to: '/task/' + task.id },
+	                { to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-3' },
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 25 } },
 	                  _react2.default.createElement(
 	                    'h3',
 	                    null,

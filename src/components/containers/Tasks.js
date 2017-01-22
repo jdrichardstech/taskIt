@@ -69,8 +69,8 @@ class Tasks extends Component {
             <ul>
             {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
               return (
-                <Link style={{marginRight:20}} to={'/task/'+task.id}>
-                <div key={task.id} className="box col-md-3" >
+                <Link  to={'/task/'+task.id}>
+                <div key={task.id} className="box col-md-3"style={{marginRight:25}} >
 
                   {/*}    <h3>Category: {task.category}</h3>*/}
                         <h3>Order: <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
