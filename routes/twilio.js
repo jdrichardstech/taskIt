@@ -14,7 +14,7 @@ router.get('/task', function(req, res, next) {
 })
 
 router.get('/notify', function(req, res, next) {
-  utils.TwilioHelper.sendSMS('9173648790','Is this working')
+  utils.TwilioHelper.sendSMS('9144799155','Is this working')
     .then(function(message){
         res.json({
           confirmation:'success',
