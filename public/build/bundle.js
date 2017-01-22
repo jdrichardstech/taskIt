@@ -21592,13 +21592,9 @@
 	              'header',
 	              { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 50 } },
 	              _react2.default.createElement(
-	                'a',
-	                { href: 'index.html', className: 'logo' },
-	                _react2.default.createElement(
-	                  'h1',
-	                  null,
-	                  'Jobber'
-	                )
+	                'h1',
+	                { className: 'logo' },
+	                'Jobber'
 	              )
 	            ),
 	            _react2.default.createElement(
