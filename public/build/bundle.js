@@ -21607,7 +21607,7 @@
 	              _react2.default.createElement(
 	                'span',
 	                { className: 'image main' },
-	                _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic13.jpg', alt: '' })
+	                _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic12.jpg', alt: '' })
 	              )
 	            ),
 	            _react2.default.createElement(

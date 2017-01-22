@@ -26,7 +26,7 @@ class Home extends Component {
 
 
 
-                  <span className="image main"><img style={{height:150}} src="/images/pic13.jpg" alt="" /></span>
+                  <span className="image main"><img style={{height:150}} src="/images/pic12.jpg" alt="" /></span>
 
                 </section>
         <div className="container">
