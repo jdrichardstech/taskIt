@@ -8,14 +8,15 @@ module.exports = {
       if(recipient.indexOf('+1')==-1)
       recipient = '+1'+recipient
 
-      var client = new twilio.RestClient('ACbef92078becdc5aa7f2fb3fde9bd7968', '0c2e4c7bbf814ef1bf7d00b1285ce4c0')
+      // var client = new twilio.RestClient('ACbef92078becdc5aa7f2fb3fde9bd7968', '0c2e4c7bbf814ef1bf7d00b1285ce4c0')
+      var client = new twilio.RestClient(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN)
 
 
       client.messages.create({
         body:message,
         // to:+19173648790,
         to: recipient,
-        from:+19142186169
+        from:process.env.TWILIO_FROM
 
       }, function(err, message){
         if(err){
