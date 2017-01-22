@@ -66,12 +66,12 @@ class Tasks extends Component {
             <section id="banner" style={{paddingTop:0}}>
               <div className="content">
                 <h2>Category: <span style={{color:'#f56a6a'}}>{this.props.tasks.selectedCategory}</span></h2>
-            <ul style={{display:'block',margin:'0 auto'}}>
+            <ul>
             {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
               return (
 
                 <Link  to={'/task/'+task.id}>
-                <div key={task.id} className="box col-md-3"style={{marginRight:25}} >
+                <div key={task.id} className="box col-md-3"style={{marginRight:40}} >
 
                   {/*}    <h3>Category: {task.category}</h3>*/}
                         <h3>Order:<br /> <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
