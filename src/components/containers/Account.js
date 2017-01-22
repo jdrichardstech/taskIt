@@ -39,10 +39,10 @@ class Account extends Component{
     return(
 
       <div>
-      
+
         {(this.props.user==null) ?
           <Authenticate onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
-          : <h2>Hello {this.props.user.username}</h2>
+          : <h2>Hello <span style={{color:'#f56a6a'}}>{this.props.user.username.toUpperCase()}</span></h2>
         }
 
       </div>

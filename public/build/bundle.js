@@ -21637,7 +21637,7 @@
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'col-md-2 col-md-offset-1', style: { borderLeft: '2px solid red' } },
+	                  { className: 'col-md-2 col-md-offset-1', style: { borderLeft: '2px solid #f56a6a' } },
 	                  _react2.default.createElement(
 	                    'header',
 	                    { className: 'major' },
@@ -21651,6 +21651,11 @@
 	                )
 	              )
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'footer',
+	            { style: { marginBottom: 0, paddingBottom: 0 } },
+	            _react2.default.createElement('hr', { style: { background: '#b22222', height: 100, marginBottom: 0, paddingBottom: 0 } })
 	          )
 	        )
 	      );
@@ -30055,7 +30060,7 @@
 	        _react2.default.createElement(
 	          'label',
 	          null,
-	          'Please respond below bid for this order'
+	          'Please respond below to bid for this order:'
 	        ),
 	        _react2.default.createElement('textarea', { onChange: this.updateMessage.bind(this) }),
 	        _react2.default.createElement('br', null),
@@ -37488,7 +37493,7 @@
 	
 	        return _react2.default.createElement(
 	          'li',
-	          { key: category },
+	          { style: { paddingRight: 15 }, key: category },
 	          _react2.default.createElement(
 	            'a',
 	            { onClick: _this2.selectCategory.bind(_this2, category), style: { color: color }, href: '#' },
@@ -37616,7 +37621,11 @@
 	          'h2',
 	          null,
 	          'Hello ',
-	          this.props.user.username
+	          _react2.default.createElement(
+	            'span',
+	            { style: { color: '#f56a6a' } },
+	            this.props.user.username.toUpperCase()
+	          )
 	        )
 	      );
 	    }
@@ -37784,7 +37793,7 @@
 	          'div',
 	          { style: { marginTop: 30 } },
 	          this.props.account.user == null ? _react2.default.createElement(
-	            'h3',
+	            'h2',
 	            { style: { color: '#f56a6a' } },
 	            'Please login or register to reply '
 	          ) : _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
@@ -37906,6 +37915,11 @@
 	            )
 	          )
 	        )
+	      ),
+	      _react2.default.createElement(
+	        'footer',
+	        { style: { marginBottom: 0, paddingBottom: 0 } },
+	        _react2.default.createElement('hr', { style: { background: '#b22222', height: 100, marginBottom: 0, paddingBottom: 0 } })
 	      )
 	    )
 	  );

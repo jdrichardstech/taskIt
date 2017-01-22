@@ -57,7 +57,7 @@ console.log("PROPS: "+ JSON.stringify(this.props))
           <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Title:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.description}</span></p>
         </div>
         <div style={{marginTop:30}}>
-          {(this.props.account.user == null) ? <h3 style={{color:'#f56a6a'}}>Please login or register to reply </h3>
+          {(this.props.account.user == null) ? <h2 style={{color:'#f56a6a'}}>Please login or register to reply </h2>
             :
           <ClaimTask onSubmit={this.submitMessage.bind(this)} />
         }

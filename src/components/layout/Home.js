@@ -42,7 +42,7 @@ class Home extends Component {
                 <Tasks />
 
             </div>
-            <div className="col-md-2 col-md-offset-1" style={{borderLeft:'2px solid red'}}>
+            <div className="col-md-2 col-md-offset-1" style={{borderLeft:'2px solid #f56a6a'}}>
               <header className="major">
                 <h2>Account</h2>
               </header>
@@ -54,6 +54,9 @@ class Home extends Component {
         </div>
 
       </div>
+      <footer style={{marginBottom:0,paddingBottom:0}}>
+        <hr style={{background:'#b22222',height:100,marginBottom:0,paddingBottom:0}}/>
+      </footer>
     </div>
   </div>
     )

@@ -47,6 +47,9 @@ export default (props)=>{
 
       </div>
     </div>
+    <footer style={{marginBottom:0,paddingBottom:0}}>
+      <hr style={{background:'#b22222',height:100,marginBottom:0,paddingBottom:0}}/>
+    </footer>
   </div>
 </div>
   )
