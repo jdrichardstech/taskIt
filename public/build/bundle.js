@@ -21593,7 +21593,7 @@
 	              { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 50 } },
 	              _react2.default.createElement(
 	                'h1',
-	                { className: 'logo' },
+	                { style: { fontSize: '4em' } },
 	                'Jobber'
 	              )
 	            ),
@@ -21800,7 +21800,7 @@
 	            'Category: ',
 	            _react2.default.createElement(
 	              'span',
-	              { style: { color: '#f56a6a' } },
+	              { style: { color: '#f56a6a', paddingLeft: 15 } },
 	              this.props.tasks.selectedCategory
 	            )
 	          ),

@@ -32,7 +32,7 @@ export default (props)=>{
             <h2>Order</h2>
           </header>
           <div>
-            <Task  {...props} />
+           <Task  {...props} />
           </div>
 
         </div>

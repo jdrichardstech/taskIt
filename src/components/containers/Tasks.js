@@ -65,7 +65,7 @@ class Tasks extends Component {
           return(
             <section id="banner" style={{paddingTop:0}}>
               <div className="content">
-                <h2>Category: <span style={{color:'#f56a6a'}}>{this.props.tasks.selectedCategory}</span></h2>
+                <h2>Category: <span style={{color:'#f56a6a', paddingLeft:15}}>{this.props.tasks.selectedCategory}</span></h2>
             <ul>
             {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
               return (

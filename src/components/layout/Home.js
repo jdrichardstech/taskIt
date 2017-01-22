@@ -16,7 +16,7 @@ class Home extends Component {
 
 
                 <header id="header" style={{paddingBottom:0,marginBottom:0, marginTop:0, paddingTop:50}}>
-              <h1 className="logo">Jobber</h1>
+              <h1 style={{fontSize:'4em'}}>Jobber</h1>
 
                 </header>
 
