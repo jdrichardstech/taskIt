@@ -21810,26 +21810,24 @@
 	          ),
 	          _react2.default.createElement(
 	            'ul',
-	            null,
+	            { style: { display: block, margin: '0 auto' } },
 	            this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
 	              return _react2.default.createElement(
-	                'center',
-	                null,
+	                _reactRouter.Link,
+	                { to: '/task/' + task.id },
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/task/' + task.id },
+	                  'div',
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 25 } },
 	                  _react2.default.createElement(
-	                    'div',
-	                    { key: task.id, className: 'box col-md-3', style: { marginRight: 25 } },
+	                    'h3',
+	                    null,
+	                    'Order:',
+	                    _react2.default.createElement('br', null),
+	                    ' ',
 	                    _react2.default.createElement(
-	                      'h3',
-	                      null,
-	                      'Order: ',
-	                      _react2.default.createElement(
-	                        'span',
-	                        { style: { color: '#f56a6a' } },
-	                        task.title
-	                      )
+	                      'span',
+	                      { style: { color: '#f56a6a' } },
+	                      task.title
 	                    )
 	                  )
 	                )
