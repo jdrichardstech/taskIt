@@ -21810,7 +21810,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'ul',
-	            { style: { display: block, margin: '0 auto' } },
+	            { style: { display: 'block', margin: '0 auto' } },
 	            this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
 	              return _react2.default.createElement(
 	                _reactRouter.Link,
