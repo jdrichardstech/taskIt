@@ -17,7 +17,7 @@ class Categories extends Component{
   render(){
 
     let content =  this.props.tasks.categories.map((category, i)=>{
-      const color = (category==this.props.tasks.selectedCategory) ? 'red' : '#333'
+      const color = (category==this.props.tasks.selectedCategory) ? '#f56a6a' : '#333'
 
       return (
         <li  key={category}>
@@ -29,15 +29,15 @@ class Categories extends Component{
     return(
 
 
-        <div>
-          <nav id="menu">
-            <header className="major">
+        <div >
+          <nav id="menu" >
+            <header className="major" style={{marginRight:200}}>
               <h2>Categories</h2>
             </header>
 
-        <h4>Categories</h4>
+
         <ul>{content}</ul>
-      
+
         </nav>
           </div>
     )

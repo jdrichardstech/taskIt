@@ -39,7 +39,7 @@ class Account extends Component{
     return(
 
       <div>
-        <h3>Account</h3>
+      
         {(this.props.user==null) ?
           <Authenticate onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
           : <h2>Hello {this.props.user.username}</h2>

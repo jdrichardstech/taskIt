@@ -21579,7 +21579,6 @@
 	  _createClass(Home, [{
 	    key: 'render',
 	    value: function render() {
-	
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'wrapper' },
@@ -21591,120 +21590,68 @@
 	            { className: 'inner' },
 	            _react2.default.createElement(
 	              'header',
-	              { id: 'header' },
+	              { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 50 } },
 	              _react2.default.createElement(
 	                'a',
 	                { href: 'index.html', className: 'logo' },
 	                _react2.default.createElement(
-	                  'strong',
+	                  'h1',
 	                  null,
-	                  'Editorial'
-	                ),
-	                ' by HTML5 UP'
-	              ),
-	              _react2.default.createElement(
-	                'ul',
-	                { className: 'icons' },
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#', className: 'icon fa-twitter' },
-	                    _react2.default.createElement(
-	                      'span',
-	                      { className: 'label' },
-	                      'Twitter'
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#', className: 'icon fa-facebook' },
-	                    _react2.default.createElement(
-	                      'span',
-	                      { className: 'label' },
-	                      'Facebook'
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#', className: 'icon fa-snapchat-ghost' },
-	                    _react2.default.createElement(
-	                      'span',
-	                      { className: 'label' },
-	                      'Snapchat'
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#', className: 'icon fa-instagram' },
-	                    _react2.default.createElement(
-	                      'span',
-	                      { className: 'label' },
-	                      'Instagram'
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#', className: 'icon fa-medium' },
-	                    _react2.default.createElement(
-	                      'span',
-	                      { className: 'label' },
-	                      'Medium'
-	                    )
-	                  )
+	                  'Jobber'
 	                )
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'section',
-	              { id: 'banner' },
+	              null,
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'image main' },
+	                _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic13.jpg', alt: '' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'container' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'content' },
+	                { className: 'row' },
 	                _react2.default.createElement(
-	                  'header',
-	                  null,
+	                  'div',
+	                  { className: 'col-md-2' },
+	                  _react2.default.createElement(_containers.Categories, null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(220,220,220,0.1)' } },
 	                  _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'Welcome to Tasks'
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  null,
-	                  _react2.default.createElement(_containers.Account, null)
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  null,
+	                    'header',
+	                    { className: 'major' },
+	                    _react2.default.createElement(
+	                      'h2',
+	                      null,
+	                      'Jobs'
+	                    )
+	                  ),
 	                  _react2.default.createElement(_containers.Tasks, null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-md-2 col-md-offset-1', style: { borderLeft: '2px solid red' } },
+	                  _react2.default.createElement(
+	                    'header',
+	                    { className: 'major' },
+	                    _react2.default.createElement(
+	                      'h2',
+	                      null,
+	                      'Account'
+	                    )
+	                  ),
+	                  _react2.default.createElement(_containers.Account, null)
 	                )
 	              )
 	            )
 	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { id: 'sidebar' },
-	          _react2.default.createElement(_containers.Categories, null)
 	        )
 	      );
 	    }
@@ -21842,40 +21789,44 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'section',
-	        { id: 'banner' },
+	        { id: 'banner', style: { paddingTop: 0 } },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'content' },
 	          _react2.default.createElement(
 	            'h2',
 	            null,
-	            'Tasks'
+	            'Category: ',
+	            _react2.default.createElement(
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              this.props.tasks.selectedCategory
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'ul',
 	            null,
 	            this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
 	              return _react2.default.createElement(
-	                'div',
-	                { key: task.id, className: 'box' },
+	                _reactRouter.Link,
+	                { to: '/task/' + task.id },
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/task/' + task.id },
+	                  'div',
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10 } },
 	                  _react2.default.createElement(
 	                    'h3',
 	                    null,
-	                    task.title
+	                    'Order: ',
+	                    _react2.default.createElement(
+	                      'span',
+	                      { style: { color: '#f56a6a' } },
+	                      task.title
+	                    )
 	                  )
-	                ),
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/task/' + task.id },
-	                  task.category
 	                )
 	              );
 	            })
-	          ),
-	          _react2.default.createElement(_view.CreateTask, { onSubmitTask: this.createTask.bind(this) })
+	          )
 	        )
 	      );
 	    }
@@ -29989,36 +29940,45 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'h4',
+	          'div',
 	          null,
-	          'Register'
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            'Register'
+	          ),
+	          _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'username'), placeholder: 'Username', type: 'text' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'phone'), placeholder: 'Phone', type: 'text' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'email'), placeholder: 'Email', type: 'text' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'password'), placeholder: 'Password', type: 'password' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.register.bind(this) },
+	            'Join'
+	          )
 	        ),
-	        _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'username'), placeholder: 'Username', type: 'text' }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'phone'), placeholder: 'Phone', type: 'text' }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'email'), placeholder: 'Email', type: 'text' }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'password'), placeholder: 'Password', type: 'password' }),
-	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('hr', null),
 	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.register.bind(this) },
-	          'Join'
-	        ),
-	        _react2.default.createElement(
-	          'h4',
-	          null,
-	          'Login'
-	        ),
-	        _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'email'), placeholder: 'Email', type: 'text' }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'password'), placeholder: 'Password', type: 'password' }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.login.bind(this) },
-	          'Login'
+	          'div',
+	          { style: { marginTop: 25 } },
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            'Login'
+	          ),
+	          _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'email'), placeholder: 'Email', type: 'text' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { onChange: this.updateCredentials.bind(this, 'password'), placeholder: 'Password', type: 'password' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.login.bind(this) },
+	            'Login'
+	          )
 	        )
 	      );
 	    }
@@ -30092,7 +30052,12 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement('textarea', { onChange: this.updateMessage.bind(this), placeholder: 'enter message to respond' }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Please respond below bid for this order'
+	        ),
+	        _react2.default.createElement('textarea', { onChange: this.updateMessage.bind(this) }),
 	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
 	          'button',
@@ -37519,7 +37484,7 @@
 	      var _this2 = this;
 	
 	      var content = this.props.tasks.categories.map(function (category, i) {
-	        var color = category == _this2.props.tasks.selectedCategory ? 'red' : '#333';
+	        var color = category == _this2.props.tasks.selectedCategory ? '#f56a6a' : '#333';
 	
 	        return _react2.default.createElement(
 	          'li',
@@ -37540,17 +37505,12 @@
 	          { id: 'menu' },
 	          _react2.default.createElement(
 	            'header',
-	            { className: 'major' },
+	            { className: 'major', style: { marginRight: 200 } },
 	            _react2.default.createElement(
 	              'h2',
 	              null,
 	              'Categories'
 	            )
-	          ),
-	          _react2.default.createElement(
-	            'h4',
-	            null,
-	            'Categories'
 	          ),
 	          _react2.default.createElement(
 	            'ul',
@@ -37652,11 +37612,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Account'
-	        ),
 	        this.props.user == null ? _react2.default.createElement(_view.Authenticate, { onLogin: this.login.bind(this), onRegister: this.register.bind(this) }) : _react2.default.createElement(
 	          'h2',
 	          null,
@@ -37780,28 +37735,59 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Hi ',
-	          task.profile.username
-	        ),
-	        'Title:',
-	        task.title,
-	        _react2.default.createElement('br', null),
-	        ' Description: ',
-	        task.description,
-	        _react2.default.createElement('br', null),
-	        ' Category: ',
-	        task.category,
-	        _react2.default.createElement('br', null),
-	        this.props.account.user == null ? _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Please login or register to reply '
-	        ) : _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
+	          _react2.default.createElement(
+	            'p',
+	            { style: { fontSize: '1.5em', marginBottom: 0 } },
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Category:'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { style: { paddingLeft: 10, color: '#f56a6a' } },
+	              task.category
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { style: { fontSize: '1.5em', marginBottom: 0 } },
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Description:'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { style: { paddingLeft: 10, color: '#f56a6a' } },
+	              task.title
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { style: { fontSize: '1.5em', marginBottom: 0 } },
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Title:'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { style: { paddingLeft: 10, color: '#f56a6a' } },
+	              task.description
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { style: { marginTop: 30 } },
+	          this.props.account.user == null ? _react2.default.createElement(
+	            'h3',
+	            { style: { color: '#f56a6a' } },
+	            'Please login or register to reply '
+	          ) : _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
 	        )
 	      );
 	    }
@@ -37851,19 +37837,75 @@
 	exports.default = function (props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'container' },
+	    { id: 'wrapper' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'row' },
+	      { id: 'main' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'col-md-8' },
-	        _react2.default.createElement(_containers.Task, props)
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'col-md-4' },
-	        _react2.default.createElement(_containers.Account, null)
+	        { className: 'inner' },
+	        _react2.default.createElement(
+	          'header',
+	          { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 50 } },
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'index.html', className: 'logo' },
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'Jobber Order'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'image main' },
+	            _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic13.jpg', alt: '' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-8' },
+	              _react2.default.createElement(
+	                'header',
+	                { className: 'major' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  null,
+	                  'Order'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(_containers.Task, props)
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-3 col-md-offset-1', style: { borderLeft: '2px solid red' } },
+	              _react2.default.createElement(
+	                'header',
+	                { className: 'major' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  null,
+	                  'Account'
+	                )
+	              ),
+	              _react2.default.createElement(_containers.Account, null)
+	            )
+	          )
+	        )
 	      )
 	    )
 	  );

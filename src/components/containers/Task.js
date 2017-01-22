@@ -50,16 +50,18 @@ console.log("PROPS: "+ JSON.stringify(this.props))
     const task = this.props.tasks[taskId]
     return(
       <div>
-        <h2>Hi {task.profile.username}</h2>
-        Title:{task.title}<br /> Description: {task.description}<br /> Category: {task.category}
-        <br />
-
-      {(this.props.account.user == null) ? <h3>Please login or register to reply </h3>:
-      <div>
-        <ClaimTask onSubmit={this.submitMessage.bind(this)} />
-
-      </div>
-    }
+        <div>
+        {/*}  <h2>Hi {task.profile.username}</h2>*/}
+          <p style={{fontSize:'1.5em', marginBottom:0}}><strong>Category:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.category}</span></p>
+          <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Description:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.title}</span></p>
+          <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Title:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.description}</span></p>
+        </div>
+        <div style={{marginTop:30}}>
+          {(this.props.account.user == null) ? <h3 style={{color:'#f56a6a'}}>Please login or register to reply </h3>
+            :
+          <ClaimTask onSubmit={this.submitMessage.bind(this)} />
+        }
+        </div>
       </div>
     )
   }

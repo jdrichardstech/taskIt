@@ -63,27 +63,24 @@ class Tasks extends Component {
 
       render(){
           return(
-            <section id="banner">
+            <section id="banner" style={{paddingTop:0}}>
               <div className="content">
-            <h2>Tasks</h2>
+                <h2>Category: <span style={{color:'#f56a6a'}}>{this.props.tasks.selectedCategory}</span></h2>
             <ul>
             {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
               return (
-                <div key={task.id} className="box">
-                    <Link to={'/task/'+task.id}>
-                      <h3>{task.title}</h3>
+                <Link to={'/task/'+task.id}>
+                <div key={task.id} className="box col-md-3" style={{marginRight:10}}>
 
-                  </Link>
-                  <Link to={'/task/'+task.id}>
-                     {task.category}
-
-                </Link>
+                  {/*}    <h3>Category: {task.category}</h3>*/}
+                        <h3>Order: <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
 
                 </div>
+                  </Link>
               )
             })}
             </ul>
-              <CreateTask onSubmitTask={this.createTask.bind(this)} />
+            {/*  <CreateTask onSubmitTask={this.createTask.bind(this)} />*/}
             </div>
           </section>
           )
