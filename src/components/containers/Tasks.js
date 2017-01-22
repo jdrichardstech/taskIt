@@ -69,6 +69,7 @@ class Tasks extends Component {
             <ul>
             {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
               return (
+                <center>
                 <Link  to={'/task/'+task.id}>
                 <div key={task.id} className="box col-md-3"style={{marginRight:25}} >
 
@@ -77,6 +78,7 @@ class Tasks extends Component {
 
                 </div>
                   </Link>
+                  </center>
               )
             })}
             </ul>
