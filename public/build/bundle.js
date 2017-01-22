@@ -37493,10 +37493,10 @@
 	
 	        return _react2.default.createElement(
 	          'li',
-	          { style: { paddingRight: 15 }, key: category },
+	          { key: category },
 	          _react2.default.createElement(
 	            'a',
-	            { onClick: _this2.selectCategory.bind(_this2, category), style: { color: color }, href: '#' },
+	            { onClick: _this2.selectCategory.bind(_this2, category), style: { color: color, paddingRight: 15 }, href: '#' },
 	            category
 	          )
 	        );
