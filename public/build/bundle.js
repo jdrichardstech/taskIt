@@ -21821,7 +21821,9 @@
 	                  _react2.default.createElement(
 	                    'h3',
 	                    null,
-	                    'Order:',
+	                    'Order ',
+	                    i + 1,
+	                    ':',
 	                    _react2.default.createElement('br', null),
 	                    ' ',
 	                    _react2.default.createElement(

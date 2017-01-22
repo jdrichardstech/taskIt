@@ -74,7 +74,7 @@ class Tasks extends Component {
                 <div key={task.id} className="box col-md-3" style={{marginRight:10, width:'30%'}}>
 
                   {/*}    <h3>Category: {task.category}</h3>*/}
-                        <h3>Order:<br /> <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
+                        <h3>Order {i+1}:<br /> <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
 
                 </div>
                   </Link>
