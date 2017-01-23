@@ -96,6 +96,12 @@ export default{
     return dispatch(getRequest('/account/currentuser', {}, constants.USER_LOGGED_IN))
   }
 },
+
+logout:()=>{
+  return(dispatch)=>{
+    return dispatch(getRequest('/account/logout', {}, constants.USER_LOGGED_IN))
+  }
+},
 notify:(params)=>{
   return(dispatch) =>{
     return dispatch(postRequest('/twilio/notify', params, null))

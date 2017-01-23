@@ -15,7 +15,7 @@ export default (state=initialState, action)=>{
     updated['user']= action.payload
     return updated
     case constants.USER_LOGGED_IN:
-    // console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload))
+   console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload))
     updated['user']= action.payload
 
     return updated

@@ -16,8 +16,8 @@
     <script src="/assets/js/skel.min.js"></script>
     <script src="/assets/js/util.js"></script>
     <![if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
-    <!-- <script src="/assets/js/main.js"></script> --> 
-    <script type=text/javascript src="/build/bundle/js/vendor.min.js"></script>
+    <!-- <script src="/assets/js/main.js"></script> -->
+    <script type=text/javascript src="/build/vendor.min.js"></script>
     <script type="text/javascript" src="/build/bundle.js"></script>
   </body>
 </html>

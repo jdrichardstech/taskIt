@@ -32411,6 +32411,12 @@
 	      return dispatch(getRequest('/account/currentuser', {}, _constants2.default.USER_LOGGED_IN));
 	    };
 	  },
+	
+	  logout: function logout() {
+	    return function (dispatch) {
+	      return dispatch(getRequest('/account/logout', {}, _constants2.default.USER_LOGGED_IN));
+	    };
+	  },
 	  notify: function notify(params) {
 	    return function (dispatch) {
 	      return dispatch(postRequest('/twilio/notify', params, null));
@@ -37611,6 +37617,16 @@
 	      });
 	    }
 	  }, {
+	    key: 'logout',
+	    value: function logout(event) {
+	      // console.log('hello logout')
+	      this.props.logout().then(function (result) {
+	        alert("Goodbye!");
+	      }).catch(function (err) {
+	        alert(err.message);
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	
@@ -37618,13 +37634,22 @@
 	        'div',
 	        null,
 	        this.props.user == null ? _react2.default.createElement(_view.Authenticate, { onLogin: this.login.bind(this), onRegister: this.register.bind(this) }) : _react2.default.createElement(
-	          'h2',
+	          'div',
 	          null,
-	          'Hello ',
 	          _react2.default.createElement(
-	            'span',
-	            { style: { color: '#f56a6a' } },
-	            this.props.user.username.toUpperCase()
+	            'h2',
+	            null,
+	            'Hello ',
+	            _react2.default.createElement(
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              this.props.user.username.toUpperCase()
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.logout.bind(this) },
+	            'Logout'
 	          )
 	        )
 	      );
@@ -37650,6 +37675,9 @@
 	    },
 	    checkCurrentUser: function checkCurrentUser() {
 	      return dispatch(_actions2.default.checkCurrentUser());
+	    },
+	    logout: function logout() {
+	      return dispatch(_actions2.default.logout());
 	    }
 	  };
 	};
@@ -38109,7 +38137,7 @@
 	      updated['user'] = action.payload;
 	      return updated;
 	    case _constants2.default.USER_LOGGED_IN:
-	      // console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload))
+	      console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload));
 	      updated['user'] = action.payload;
 	
 	      return updated;

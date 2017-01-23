@@ -34,6 +34,18 @@ class Account extends Component{
       alert(err.message)
     })
   }
+
+  logout(event){
+    // console.log('hello logout')
+    this.props.logout()
+    .then(result=>{
+      alert("Goodbye!")
+    })
+    .catch(err=>{
+      alert(err.message)
+    })
+  }
+
   render(){
 
     return(
@@ -42,7 +54,11 @@ class Account extends Component{
 
         {(this.props.user==null) ?
           <Authenticate onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
-          : <h2>Hello <span style={{color:'#f56a6a'}}>{this.props.user.username.toUpperCase()}</span></h2>
+          :
+          <div>
+            <h2>Hello <span style={{color:'#f56a6a'}}>{this.props.user.username.toUpperCase()}</span></h2>
+            <button onClick={this.logout.bind(this)}>Logout</button>
+        </div>
         }
 
       </div>
@@ -61,7 +77,8 @@ const dispatchToProps = (dispatch) => {
   return{
     register: (credentials)=>dispatch(actions.register(credentials)),
     login: (credentials)=>dispatch(actions.login(credentials)),
-    checkCurrentUser: ()=>dispatch(actions.checkCurrentUser())
+    checkCurrentUser: ()=>dispatch(actions.checkCurrentUser()),
+    logout: ()=>dispatch(actions.logout())
   }
 }
 
