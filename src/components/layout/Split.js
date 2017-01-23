@@ -12,7 +12,7 @@ export default (props)=>{
 
 
               <header id="header" style={{paddingBottom:0,marginBottom:0, marginTop:0, paddingTop:50}}>
-                <a href="index.html" className="logo"><h2>Jobber Order</h2></a>
+                <h2 style={{fontSize:'2.5em'}}>Jobber Order</h2>
 
               </header>
 

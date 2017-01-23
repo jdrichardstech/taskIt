@@ -22,7 +22,7 @@ class Home extends Component {
                   <Categories />
             </div>
 
-            <div className="col-md-6 col-md-offset-1" style={{background:'rgba(220,220,220,0.2)'}}>
+            <div className="col-md-6 col-md-offset-1" style={{background:'rgba(220,220,220,0.15)'}}>
               <header className="major" style={{paddingTop:10}}>
                 <h2>Jobs Available:</h2>
               </header>

@@ -21619,7 +21619,7 @@
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(220,220,220,0.2)' } },
+	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(220,220,220,0.15)' } },
 	                  _react2.default.createElement(
 	                    'header',
 	                    { className: 'major', style: { paddingTop: 10 } },
@@ -21813,7 +21813,7 @@
 	                { key: i, to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, width: '30%' } },
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, width: '30%', background: 'white' } },
 	                  _react2.default.createElement(
 	                    'h3',
 	                    null,
@@ -37885,13 +37885,9 @@
 	          'header',
 	          { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 50 } },
 	          _react2.default.createElement(
-	            'a',
-	            { href: 'index.html', className: 'logo' },
-	            _react2.default.createElement(
-	              'h2',
-	              null,
-	              'Jobber Order'
-	            )
+	            'h2',
+	            { style: { fontSize: '2.5em' } },
+	            'Jobber Order'
 	          )
 	        ),
 	        _react2.default.createElement(
