@@ -59,7 +59,7 @@ export default{
   },
 
   submitMessage: (params) => {
-    console.log('submitClaim ACTIONS')
+    // console.log('submitClaim ACTIONS')
     return (dispatch) => {
       return dispatch(postRequest('/api/message', params, constants.MESSAGE_CREATED))
     }

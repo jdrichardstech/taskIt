@@ -50,7 +50,7 @@ console.log("PROPS: "+ JSON.stringify(this.props))
     const task = this.props.tasks[taskId]
     return(
       <div>
-        <div style={{background:'rgba(220,220,220,0.2)',padding:10}}>
+        <div style={{background:'rgba(250,250,210,0.5)',padding:10}}>
         {/*}  <h2>Hi {task.profile.username}</h2>*/}
           <p style={{fontSize:'1.5em', marginBottom:0}}><strong>Category:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.category}</span></p>
           <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Title:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.description}</span></p>
