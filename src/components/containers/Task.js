@@ -50,12 +50,13 @@ console.log("PROPS: "+ JSON.stringify(this.props))
     const task = this.props.tasks[taskId]
     return(
       <div>
-        <div>
+        <div style={{background:'rgba(220,220,220,0.2)',padding:10}}>
         {/*}  <h2>Hi {task.profile.username}</h2>*/}
           <p style={{fontSize:'1.5em', marginBottom:0}}><strong>Category:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.category}</span></p>
-          <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Description:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.title}</span></p>
           <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Title:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.description}</span></p>
-        </div>
+          <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Description:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.title}</span></p>
+
+      </div>
         <div style={{marginTop:30}}>
           {(this.props.account.user == null) ? <h2 style={{color:'#f56a6a'}}>Please login or register to reply </h2>
             :

@@ -7,27 +7,14 @@ import React, { Component } from 'react'
 class Home extends Component {
   render(){
     return(
-
       <div id="wrapper">
-
-
           <div id="main">
             <div className="inner">
-
-
                 <header id="header" style={{paddingBottom:0,marginBottom:0, marginTop:0, paddingTop:50}}>
-              <h1 style={{fontSize:'4em'}}>Jobber</h1>
-
+                  <h1 style={{fontSize:'4em'}}>Jobber</h1>
                 </header>
-
-
                 <section>
-
-
-
-
                   <span className="image main"><img style={{height:150}} src="/images/pic12.jpg" alt="" /></span>
-
                 </section>
         <div className="container">
           <div className="row">
@@ -35,15 +22,14 @@ class Home extends Component {
                   <Categories />
             </div>
 
-            <div className="col-md-6 col-md-offset-1" style={{background:'rgba(220,220,220,0.1)'}}>
-              <header className="major">
-                <h2>Jobs</h2>
+            <div className="col-md-6 col-md-offset-1" style={{background:'rgba(220,220,220,0.2)'}}>
+              <header className="major" style={{paddingTop:10}}>
+                <h2>Jobs Available:</h2>
               </header>
                 <Tasks />
-
             </div>
             <div className="col-md-2 col-md-offset-1" style={{borderLeft:'2px solid #f56a6a'}}>
-              <header className="major">
+              <header className="major" style={{paddingTop:10}}>
                 <h2>Account</h2>
               </header>
               < Account />

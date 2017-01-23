@@ -21619,14 +21619,14 @@
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(220,220,220,0.1)' } },
+	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(220,220,220,0.2)' } },
 	                  _react2.default.createElement(
 	                    'header',
-	                    { className: 'major' },
+	                    { className: 'major', style: { paddingTop: 10 } },
 	                    _react2.default.createElement(
 	                      'h2',
 	                      null,
-	                      'Jobs'
+	                      'Jobs Available:'
 	                    )
 	                  ),
 	                  _react2.default.createElement(_containers.Tasks, null)
@@ -21636,7 +21636,7 @@
 	                  { className: 'col-md-2 col-md-offset-1', style: { borderLeft: '2px solid #f56a6a' } },
 	                  _react2.default.createElement(
 	                    'header',
-	                    { className: 'major' },
+	                    { className: 'major', style: { paddingTop: 10 } },
 	                    _react2.default.createElement(
 	                      'h2',
 	                      null,
@@ -21810,7 +21810,7 @@
 	            this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
 	              return _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/task/' + task.id },
+	                { key: i, to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
 	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, width: '30%' } },
@@ -30055,7 +30055,7 @@
 	    value: function render() {
 	
 	      return _react2.default.createElement(
-	        'div',
+	        'form',
 	        null,
 	        _react2.default.createElement(
 	          'label',
@@ -37510,7 +37510,7 @@
 	          { id: 'menu' },
 	          _react2.default.createElement(
 	            'header',
-	            { className: 'major', style: { marginRight: 200 } },
+	            { className: 'major', style: { marginRight: 200, padding: 10 } },
 	            _react2.default.createElement(
 	              'h2',
 	              null,
@@ -37745,7 +37745,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { style: { background: 'rgba(220,220,220,0.2)', padding: 10 } },
 	          _react2.default.createElement(
 	            'p',
 	            { style: { fontSize: '1.5em', marginBottom: 0 } },
@@ -37766,12 +37766,12 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              'Description:'
+	              'Title:'
 	            ),
 	            _react2.default.createElement(
 	              'span',
 	              { style: { paddingLeft: 10, color: '#f56a6a' } },
-	              task.title
+	              task.description
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -37780,12 +37780,12 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              'Title:'
+	              'Description:'
 	            ),
 	            _react2.default.createElement(
 	              'span',
 	              { style: { paddingLeft: 10, color: '#f56a6a' } },
-	              task.description
+	              task.title
 	            )
 	          )
 	        ),

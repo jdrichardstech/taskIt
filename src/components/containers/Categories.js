@@ -31,7 +31,7 @@ class Categories extends Component{
 
         <div >
           <nav id="menu" >
-            <header className="major" style={{marginRight:200}}>
+            <header className="major" style={{marginRight:200, padding:10}}>
               <h2>Categories</h2>
             </header>
 

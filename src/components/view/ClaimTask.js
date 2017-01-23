@@ -30,12 +30,12 @@ class ClaimTask extends Component{
 
 
     return(
-      <div>
+      <form>
       <label>Please respond below to bid for this order:</label>
       <textarea onChange={this.updateMessage.bind(this)} >
       </textarea><br />
       <button onClick={this.submitMessage.bind(this)}>Submit</button>
-      </div>
+      </form>
     )
   }
 }
