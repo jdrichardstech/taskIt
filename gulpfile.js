@@ -39,3 +39,4 @@ gulp.task('build', function(){
 })
 
 gulp.task('default', ['css','build'], function(){})
+gulp.task('prod', ['css', 'copy', 'build'], function(){})
