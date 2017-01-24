@@ -9,10 +9,10 @@ export default{
     //
     // }
     //if date is within 24 hours
-    var l = Date.now()
-    var y = Date.parse(date)
-    var k = '86400000'
-    if((l-y)>k){
+    var rightNow = Date.now()
+    var orderDate = Date.parse(date)
+    var twentyFourHours = '86400000'
+    if((rightNow-orderDate)>twentyFourHours){
       return <Time value={date} format="MMM DD, YYYY"/>
     }
     else{
