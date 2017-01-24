@@ -18,7 +18,14 @@ gulp.task('css', function(){
        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
        .pipe(gp_concat('style.min.css'))
       .pipe(gulp.dest('./public/build/css/'))
-});
+})
+
+gulp.task('copy', function(){
+    return gulp.src(
+            ['./public/assets/fonts/**']
+        )
+        .pipe(gulp.dest('./public/build/fonts/'))
+})
 
 gulp.task('build', function(){
    return gulp.src(
@@ -42,5 +49,5 @@ gulp.task('watch', function() {
     gulp.watch(['./src/*/**.js', './src/*/*/**.js', './src/*/*/*/**.js'], ['css', 'js'])
 })
 
-gulp.task('default', ['css','build'], function(){})
+gulp.task('default', ['css','copy','build'], function(){})
 gulp.task('prod', ['css', 'copy', 'build','watch'], function(){})
