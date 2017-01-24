@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { APIManager } from '../../utils'
+import { APIManager, DateUtils } from '../../utils'
 import { CreateTask} from '../view'
 import {connect } from 'react-redux'
 import actions from '../../actions'
 import {Link} from 'react-router'
+import Time from 'react-time'
 
 
 class Tasks extends Component {
@@ -15,6 +16,7 @@ class Tasks extends Component {
     }
     this.getTasks = this.getTasks.bind(this)
   }
+
 
   getTasks(){
     if(this.props.tasks[this.props.tasks.selectedCategory]!=null)
@@ -31,6 +33,7 @@ class Tasks extends Component {
 
   componentDidMount(){
     this.getTasks()
+    console.log('componentDidMount: '+ this.props.tasks.timestamp)
 
     }
 
@@ -62,6 +65,8 @@ class Tasks extends Component {
 
 
       render(){
+
+
           return(
             <section id="banner" style={{paddingTop:0}}>
               <div className="content">
@@ -76,13 +81,16 @@ class Tasks extends Component {
                   {/*}    <h3>Category: {task.category}</h3>*/}
                         <h3>Order {i+1}:<br /> <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
 
+                    <span style={{float:'right', fontSize:'.9em',paddingTop:25,color:'gray'}}>{DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}</span>
+
                 </div>
+
                   </Link>
 
               )
             })}
             </ul>
-            {/*  <CreateTask onSubmitTask={this.createTask.bind(this)} />*/}
+             <CreateTask onSubmitTask={this.createTask.bind(this)} />
             </div>
           </section>
           )

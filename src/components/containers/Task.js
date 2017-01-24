@@ -59,8 +59,9 @@ console.log("PROPS: "+ JSON.stringify(this.props))
         <div><p>Category: {task.category}</p></div>
         <div style={{border:'1px solid #ddd' ,padding:'10px 0 0 10px',width:'40%'}}>
         {/*}  <h2>Hi {task.profile.username}</h2>*/}
-
-        <h5 style={{marginBottom:0,padding:'0 0 0 5px',background:'rgba(250,250,210,0.5)'}}>{DateUtils.formattedDate(task.timestamp)}</h5>
+        <span className="icon fa-paper-plane fa-2x">
+          <span style={{paddingLeft:20}}>{DateUtils.formattedDate(task.timestamp)}</span>
+        </span>
         <hr />
         <center><h3 style={{marginBottom:20}}><span style={{ color:'#f56a6a'}}>{task.description}</span></h3></center>
       </div>

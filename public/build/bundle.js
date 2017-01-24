@@ -21723,6 +21723,10 @@
 	
 	var _reactRouter = __webpack_require__(352);
 	
+	var _reactTime = __webpack_require__(196);
+	
+	var _reactTime2 = _interopRequireDefault(_reactTime);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21757,6 +21761,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.getTasks();
+	      console.log('componentDidMount: ' + this.props.tasks.timestamp);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
@@ -21786,6 +21791,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+	
 	      return _react2.default.createElement(
 	        'section',
 	        { id: 'banner', style: { paddingTop: 0 } },
@@ -21825,11 +21832,17 @@
 	                      { style: { color: '#f56a6a' } },
 	                      task.title
 	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'span',
+	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
+	                    _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
 	                  )
 	                )
 	              );
 	            })
-	          )
+	          ),
+	          _react2.default.createElement(_view.CreateTask, { onSubmitTask: this.createTask.bind(this) })
 	        )
 	      );
 	    }
@@ -29785,9 +29798,18 @@
 	
 	exports.default = {
 	  formattedDate: function formattedDate(date) {
-	
+	    // if(  <Time value={this.props.tasks[task.id].timestamp}titleFormat="YYYY/MM/DD HH:mm" relative />=='5 days ago'){
+	    //
+	    // }
 	    //if date is within 24 hours
-	    return _react2.default.createElement(_reactTime2.default, { value: date, format: 'MMM DD, YYYY' });
+	    var l = Date.now();
+	    var y = Date.parse(date);
+	    var k = '86400000';
+	    if (l - y > k) {
+	      return _react2.default.createElement(_reactTime2.default, { value: date, format: 'MMM DD, YYYY' });
+	    } else {
+	      return _react2.default.createElement(_reactTime2.default, { value: date, titleFormat: 'YYYY/MM/DD HH:mm', relative: true });
+	    }
 	  }
 	};
 
@@ -52919,9 +52941,13 @@
 	            'div',
 	            { style: { border: '1px solid #ddd', padding: '10px 0 0 10px', width: '40%' } },
 	            _react2.default.createElement(
-	              'h5',
-	              { style: { marginBottom: 0, padding: '0 0 0 5px', background: 'rgba(250,250,210,0.5)' } },
-	              _utils.DateUtils.formattedDate(task.timestamp)
+	              'span',
+	              { className: 'icon fa-paper-plane fa-2x' },
+	              _react2.default.createElement(
+	                'span',
+	                { style: { paddingLeft: 20 } },
+	                _utils.DateUtils.formattedDate(task.timestamp)
+	              )
 	            ),
 	            _react2.default.createElement('hr', null),
 	            _react2.default.createElement(
