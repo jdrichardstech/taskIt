@@ -27,7 +27,7 @@ gulp.task('copy', function(){
         .pipe(gulp.dest('./public/build/fonts/'))
 })
 
-gulp.task('build', function(){
+gulp.task('js', function(){
    return gulp.src(
            [
                 './public/assets/js/jquery.min.js',
@@ -48,5 +48,5 @@ gulp.task('watch', function() {
     gulp.watch(['./src/*/**.js', './src/*/*/**.js', './src/*/*/*/**.js'], ['css', 'js'])
 })
 
-gulp.task('default', ['css','copy','build'], function(){})
-gulp.task('prod', ['css', 'copy', 'build','watch'], function(){})
+gulp.task('default', ['css','copy','js'], function(){})
+gulp.task('prod', ['css', 'copy', 'js','watch'], function(){})
