@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { APIManager } from '../../utils'
+import { APIManager, TextUtils, DateUtils} from '../../utils'
 import { connect } from 'react-redux'
- import { ClaimTask } from '../view'
+import { ClaimTask } from '../view'
 import actions from '../../actions'
+
 
 
 
@@ -50,11 +51,14 @@ console.log("PROPS: "+ JSON.stringify(this.props))
     const task = this.props.tasks[taskId]
     return(
       <div>
-        <div style={{background:'rgba(250,250,210,0.5)',padding:10}}>
+        <h2 style={{marginBottom:0}}><span style={{paddingLeft:10, color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</span></h2>
+        <h5>{DateUtils.formattedDate(task.timestamp)}</h5><br />
+        <div style={{border:'1px solid #f56a6a' ,padding:'10px 0 0 10px',width:'40%'}}>
         {/*}  <h2>Hi {task.profile.username}</h2>*/}
-          <p style={{fontSize:'1.5em', marginBottom:0}}><strong>Category:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.category}</span></p>
-          <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Title:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.description}</span></p>
-          <p style={{fontSize:'1.5em',marginBottom:0}}><strong>Description:</strong><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.title}</span></p>
+
+          <h4 style={{ marginBottom:0}}>Category:<span style={{paddingLeft:10, color:'#f56a6a'}}>{task.category}</span></h4>
+          <hr />
+        <h5 style={{marginBottom:20}}><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.description}</span></h5>
 
       </div>
         <div style={{marginTop:30}}>

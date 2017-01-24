@@ -38,8 +38,4 @@ gulp.task('build', function(){
        .pipe(gulp.dest('./public/build/'));
 })
 
-gulp.task('watch', function(){
-  gulp.watch(['./src/*/**.js','./src/*/*/**.js'],['css','build'])
-})
-gulp.task('prod', ['css','build'], function(){})
-gulp.task('default', ['css','build', 'watch'], function(){})
+gulp.task('default', ['css','build'], function(){})
