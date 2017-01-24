@@ -56,8 +56,6 @@
 	
 	var _layout = __webpack_require__(178);
 	
-	var _containers = __webpack_require__(180);
-	
 	var _reactRedux = __webpack_require__(313);
 	
 	var _store = __webpack_require__(410);
