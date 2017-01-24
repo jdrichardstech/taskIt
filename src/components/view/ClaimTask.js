@@ -23,14 +23,15 @@ class ClaimTask extends Component{
 
   submitMessage(message){
      this.props.onSubmit(this.state.message)
+     this.refs.reply.value=''
     // console.log('handleSubmitClaim: '+ JSON.stringify(this.state.message))
   }
-  
+
   render(){
     return(
       <form>
       <label>Please respond below to bid for this order:</label>
-      <textarea onChange={this.updateMessage.bind(this)} >
+      <textarea ref="reply" onChange={this.updateMessage.bind(this)} >
       </textarea><br />
       <button onClick={this.submitMessage.bind(this)}>Submit</button>
       </form>

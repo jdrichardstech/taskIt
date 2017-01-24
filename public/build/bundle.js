@@ -45185,6 +45185,7 @@
 	    key: 'submitMessage',
 	    value: function submitMessage(message) {
 	      this.props.onSubmit(this.state.message);
+	      this.refs.reply.value = '';
 	      // console.log('handleSubmitClaim: '+ JSON.stringify(this.state.message))
 	    }
 	  }, {
@@ -45198,7 +45199,7 @@
 	          null,
 	          'Please respond below to bid for this order:'
 	        ),
-	        _react2.default.createElement('textarea', { onChange: this.updateMessage.bind(this) }),
+	        _react2.default.createElement('textarea', { ref: 'reply', onChange: this.updateMessage.bind(this) }),
 	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
 	          'button',
