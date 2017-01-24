@@ -38,5 +38,9 @@ gulp.task('build', function(){
        .pipe(gulp.dest('./public/build/'));
 })
 
+gulp.task('watch', function() {
+    gulp.watch(['./src/*/**.js', './src/*/*/**.js', './src/*/*/*/**.js'], ['css', 'js'])
+})
+
 gulp.task('default', ['css','build'], function(){})
-gulp.task('prod', ['css', 'copy', 'build'], function(){})
+gulp.task('prod', ['css', 'copy', 'build','watch'], function(){})
