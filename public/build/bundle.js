@@ -21841,8 +21841,7 @@
 	                )
 	              );
 	            })
-	          ),
-	          _react2.default.createElement(_view.CreateTask, { onSubmitTask: this.createTask.bind(this) })
+	          )
 	        )
 	      );
 	    }

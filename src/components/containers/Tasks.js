@@ -90,7 +90,7 @@ class Tasks extends Component {
               )
             })}
             </ul>
-             <CreateTask onSubmitTask={this.createTask.bind(this)} />
+            {/*} <CreateTask onSubmitTask={this.createTask.bind(this)} />*/}
             </div>
           </section>
           )
