@@ -17,6 +17,7 @@ console.log("PROPS: "+ JSON.stringify(this.props))
 
   submitMessage(message){
     // console.log("CLAIM: " + JSON.stringify(reply))
+    event.preventDefault()
     let updated = Object.assign({}, message)
     const user = this.props.account.user
     updated['profile'] = {
@@ -31,7 +32,7 @@ console.log("PROPS: "+ JSON.stringify(this.props))
 
     this.props.submitMessage(updated)
     .then(response=>{
-      console.log("MESSAGE CREATED: " + JSON.stringify(response))
+      // console.log("MESSAGE CREATED: " + JSON.stringify(response))
 
     return  this.props.notify({
         recipient: task.profile.id,

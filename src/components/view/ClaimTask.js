@@ -25,10 +25,8 @@ class ClaimTask extends Component{
      this.props.onSubmit(this.state.message)
     // console.log('handleSubmitClaim: '+ JSON.stringify(this.state.message))
   }
+  
   render(){
-
-
-
     return(
       <form>
       <label>Please respond below to bid for this order:</label>

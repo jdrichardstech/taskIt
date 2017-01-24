@@ -45190,7 +45190,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	
 	      return _react2.default.createElement(
 	        'form',
 	        null,
@@ -52859,6 +52858,7 @@
 	      var _this2 = this;
 	
 	      // console.log("CLAIM: " + JSON.stringify(reply))
+	      event.preventDefault();
 	      var updated = Object.assign({}, message);
 	      var user = this.props.account.user;
 	      updated['profile'] = {
@@ -52872,7 +52872,7 @@
 	      var task = this.props.tasks[taskId];
 	
 	      this.props.submitMessage(updated).then(function (response) {
-	        console.log("MESSAGE CREATED: " + JSON.stringify(response));
+	        // console.log("MESSAGE CREATED: " + JSON.stringify(response))
 	
 	        return _this2.props.notify({
 	          recipient: task.profile.id,

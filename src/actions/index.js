@@ -102,8 +102,8 @@ logout:()=>{
     return dispatch(getRequest('/account/logout', {}, constants.USER_LOGGED_IN))
   }
 },
-notify:(params)=>{
-  return(dispatch) =>{
+notify:(params) => {
+  return(dispatch) => {
     return dispatch(postRequest('/twilio/notify', params, null))
   }
 }
