@@ -51,15 +51,17 @@ console.log("PROPS: "+ JSON.stringify(this.props))
     const task = this.props.tasks[taskId]
     return(
       <div>
-        <h2 style={{marginBottom:0}}><span style={{paddingLeft:10, color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</span></h2>
-        <h5>{DateUtils.formattedDate(task.timestamp)}</h5><br />
-        <div style={{border:'1px solid #f56a6a' ,padding:'10px 0 0 10px',width:'40%'}}>
+
+      <div>
+        <h2 style={{marginBottom:0}}><span style={{ color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</span></h2>
+
+        <div><p>Category: {task.category}</p></div>
+        <div style={{border:'1px solid #ddd' ,padding:'10px 0 0 10px',width:'40%'}}>
         {/*}  <h2>Hi {task.profile.username}</h2>*/}
 
-          <h4 style={{ marginBottom:0}}>Category:<span style={{paddingLeft:10, color:'#f56a6a'}}>{task.category}</span></h4>
-          <hr />
-        <h5 style={{marginBottom:20}}><span style={{paddingLeft:10, color:'#f56a6a'}}>{task.description}</span></h5>
-
+        <h5 style={{marginBottom:0,padding:'0 0 0 5px',background:'rgba(250,250,210,0.5)'}}>{DateUtils.formattedDate(task.timestamp)}</h5>
+        <hr />
+        <center><h3 style={{marginBottom:20}}><span style={{ color:'#f56a6a'}}>{task.description}</span></h3></center>
       </div>
         <div style={{marginTop:30}}>
           {(this.props.account.user == null) ? <h2 style={{color:'#f56a6a'}}>Please login or register to reply </h2>
@@ -67,6 +69,7 @@ console.log("PROPS: "+ JSON.stringify(this.props))
           <ClaimTask onSubmit={this.submitMessage.bind(this)} />
         }
         </div>
+      </div>
       </div>
     )
   }

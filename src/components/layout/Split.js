@@ -28,7 +28,7 @@ export default (props)=>{
       <div className="container">
         <div className="row">
         <div className="col-md-8" >
-          <header className="major">
+          <header className="major" style={{marginBottom:0, paddingBottom:0}}>
             <h2>Order</h2>
           </header>
           <div>
