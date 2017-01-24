@@ -3,10 +3,11 @@ import constants from '../constants'
 var initialState = {
 	selectedCategory: 'delivery',
 	categories: [
-		'misc',
+
 		'delivery',
 		'dog walking',
-		'house cleaning'
+		'house cleaning',
+		'misc'
 	]
 }
 

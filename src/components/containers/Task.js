@@ -50,7 +50,7 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
   render(){
     const taskId = this.props.params.id
     const task = this.props.tasks[taskId]
-    const categoryIcon = ["icon fa-question-circle fa-2x","icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x"]
+    const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
     let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
     return(
 

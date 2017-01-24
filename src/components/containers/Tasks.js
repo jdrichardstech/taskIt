@@ -65,7 +65,7 @@ class Tasks extends Component {
 
 
       render(){
-        const categoryIcon = ["icon fa-question-circle fa-2x","icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x"]
+        const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
         let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
 
           return(

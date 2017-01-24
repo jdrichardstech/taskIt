@@ -21798,7 +21798,7 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      var categoryIcon = ["icon fa-question-circle fa-2x", "icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x"];
+	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
 	
 	      return _react2.default.createElement(
@@ -52924,7 +52924,7 @@
 	    value: function render() {
 	      var taskId = this.props.params.id;
 	      var task = this.props.tasks[taskId];
-	      var categoryIcon = ["icon fa-question-circle fa-2x", "icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x"];
+	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
 	      return _react2.default.createElement(
 	        'div',
@@ -53233,7 +53233,7 @@
 	
 	var initialState = {
 		selectedCategory: 'delivery',
-		categories: ['misc', 'delivery', 'dog walking', 'house cleaning']
+		categories: ['delivery', 'dog walking', 'house cleaning', 'misc']
 	};
 	
 	exports.default = function () {
