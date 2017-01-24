@@ -21592,7 +21592,12 @@
 	              _react2.default.createElement(
 	                'h1',
 	                { style: { fontSize: '4em' } },
-	                'Jobber'
+	                'Task',
+	                _react2.default.createElement(
+	                  'span',
+	                  { style: { color: '#f56a6a' } },
+	                  'It'
+	                )
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -21617,14 +21622,14 @@
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(254,187,82,0.2)' } },
+	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(253,217,71,0.1)' } },
 	                  _react2.default.createElement(
 	                    'header',
 	                    { className: 'major', style: { paddingTop: 10 } },
 	                    _react2.default.createElement(
 	                      'h2',
 	                      null,
-	                      'Jobs Available:'
+	                      'Tasks Available:'
 	                    )
 	                  ),
 	                  _react2.default.createElement(_containers.Tasks, null)
@@ -21793,6 +21798,9 @@
 	    value: function render() {
 	      var _this2 = this;
 	
+	      var categoryIcon = ["icon fa-question-circle fa-2x", "icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x"];
+	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
+	
 	      return _react2.default.createElement(
 	        'section',
 	        { id: 'banner', style: { paddingTop: 0 } },
@@ -21805,8 +21813,8 @@
 	            'Category: ',
 	            _react2.default.createElement(
 	              'span',
-	              { style: { color: '#f56a6a', paddingLeft: 10 } },
-	              this.props.tasks.selectedCategory
+	              { style: { color: '#f56a6a', paddingLeft: 6, fontSize: '.8em' } },
+	              this.props.tasks.selectedCategory.toUpperCase()
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -21819,19 +21827,24 @@
 	                _react2.default.createElement(
 	                  'div',
 	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, width: '30%', background: 'white', boxShadow: '5px 5px 5px #855541' } },
+	                  _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                  _react2.default.createElement(
-	                    'h3',
+	                    'span',
+	                    { style: { padding: '20px 0 0 10px', marginBottom: 0, fontFamily: 'RobotoSlab-Regular,sans-serif', color: '#000' } },
+	                    ' Task ',
+	                    i + 1
+	                  ),
+	                  _react2.default.createElement('hr', null),
+	                  _react2.default.createElement(
+	                    'center',
 	                    null,
-	                    'Order ',
-	                    i + 1,
-	                    ':',
-	                    _react2.default.createElement('br', null),
-	                    ' ',
+	                    '  ',
 	                    _react2.default.createElement(
-	                      'span',
+	                      'h3',
 	                      { style: { color: '#f56a6a' } },
 	                      task.title
-	                    )
+	                    ),
+	                    '  '
 	                  ),
 	                  _react2.default.createElement(
 	                    'span',
@@ -52917,27 +52930,22 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'h2',
-	          { style: { marginBottom: 0 } },
-	          _react2.default.createElement(
-	            'span',
-	            { style: { color: '#f56a6a' } },
-	            _utils.TextUtils.capitalize(task.title)
-	          )
-	        ),
-	        _react2.default.createElement(
 	          'div',
 	          null,
 	          _react2.default.createElement(
-	            'p',
-	            null,
+	            'h3',
+	            { style: { color: 'gray', paddingTop: 30 } },
 	            'Category: ',
-	            task.category
+	            _react2.default.createElement(
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              task.category
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'box', style: { padding: '10px 0 0 10px', width: '40%' } },
+	          { className: 'box', style: { padding: '10px 0 0 10px', width: '40%', background: 'rgba(253,217,71,0.1)', boxShadow: '5px 5px 5px #855541' } },
 	          _react2.default.createElement(
 	            'div',
 	            { style: { marginBottom: 30 } },
@@ -52953,8 +52961,22 @@
 	            'div',
 	            null,
 	            _react2.default.createElement(
+	              'center',
+	              null,
+	              _react2.default.createElement('hr', { style: { paddingRight: 10, width: '75%' } })
+	            ),
+	            _react2.default.createElement(
+	              'h2',
+	              { style: { marginBottom: 0 } },
+	              _react2.default.createElement(
+	                'span',
+	                { style: { color: '#000' } },
+	                _utils.TextUtils.capitalize(task.title)
+	              )
+	            ),
+	            _react2.default.createElement(
 	              'h3',
-	              { style: { marginBottom: 20 } },
+	              { style: { marginBottom: 50 } },
 	              _react2.default.createElement(
 	                'span',
 	                { style: { color: '#f56a6a' } },
@@ -53034,7 +53056,13 @@
 	          _react2.default.createElement(
 	            'h2',
 	            { style: { fontSize: '2.5em' } },
-	            'Jobber Order'
+	            'Task',
+	            _react2.default.createElement(
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              'It'
+	            ),
+	            ' Order'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -53060,8 +53088,8 @@
 	                { className: 'major', style: { marginBottom: 0, paddingBottom: 0 } },
 	                _react2.default.createElement(
 	                  'h2',
-	                  null,
-	                  'Order'
+	                  { style: { marginBottom: 10 } },
+	                  'Task'
 	                )
 	              ),
 	              _react2.default.createElement(

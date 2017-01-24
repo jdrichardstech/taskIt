@@ -56,18 +56,22 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
 
 
         <div>
-            <h2 style={{marginBottom:0}}><span style={{ color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</span></h2>
 
-            <div><p>Category: {task.category}</p></div>
+            <div>
+              <h3 style={{color:'gray',paddingTop:30}}>Category: <span style={{color:'#f56a6a'}}>{task.category}</span></h3>
+            </div>
 
-          <div className="box" style={{padding:'10px 0 0 10px',width:'40%'}}>
+          <div className="box" style={{padding:'10px 0 0 10px',width:'40%',background:'rgba(253,217,71,0.1)',boxShadow:'5px 5px 5px #855541'}}>
             {/*}  <h2>Hi {task.profile.username}</h2>*/}
             <div style={{marginBottom:30}}>
             <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
              <span style={{padding:'10px 10px 30px 20px'}}>Requested {DateUtils.formattedDate(task.timestamp)}</span>
             </div>
             <div>
-              <h3 style={{marginBottom:20}}><span style={{ color:'#f56a6a'}}>{task.description}</span></h3>
+              <center><hr style={{paddingRight:10,width:'75%'}} /></center>
+                <h2 style={{marginBottom:0}}><span style={{ color:'#000'}}>{TextUtils.capitalize(task.title)}</span></h2>
+
+              <h3 style={{marginBottom:50}}><span style={{ color:'#f56a6a'}}>{task.description}</span></h3>
             </div>
 
           </div>

@@ -12,7 +12,7 @@ export default (props)=>{
 
 
               <header id="header" style={{paddingBottom:0,marginBottom:0, marginTop:0, paddingTop:30}}>
-                <h2 style={{fontSize:'2.5em'}}>Jobber Order</h2>
+                <h2 style={{fontSize:'2.5em'}}>Task<span style={{color:'#f56a6a'}}>It</span> Order</h2>
 
               </header>
 
@@ -29,7 +29,7 @@ export default (props)=>{
         <div className="row">
         <div className="col-md-8" >
           <header className="major" style={{marginBottom:0, paddingBottom:0}}>
-            <h2>Order</h2>
+            <h2 style={{marginBottom:10}}>Task</h2>
           </header>
           <div>
            <Task  {...props} />

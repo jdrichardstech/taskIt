@@ -65,23 +65,31 @@ class Tasks extends Component {
 
 
       render(){
-
+        const categoryIcon = ["icon fa-question-circle fa-2x","icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x"]
+        let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
 
           return(
             <section id="banner" style={{paddingTop:0}}>
               <div className="content">
-                <h2>Category: <span style={{color:'#f56a6a', paddingLeft:10}}>{this.props.tasks.selectedCategory}</span></h2>
+                <h2>Category: <span style={{color:'#f56a6a', paddingLeft:6,fontSize:'.8em'}}>{this.props.tasks.selectedCategory.toUpperCase()}</span></h2>
                 <ul>
                 {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
                   return (
 
                     <Link key={i}  to={'/task/'+task.id}>
+
                     <div key={task.id} className="box col-md-3" style={{marginRight:10, width:'30%',background:'white', boxShadow:'5px 5px 5px #855541'}}>
-
+                      <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
+                        <span style={{padding:'20px 0 0 10px',marginBottom:0,fontFamily:'RobotoSlab-Regular,sans-serif',color:'#000'}}> Task {i+1}</span>
+                        <hr />
                       {/*}    <h3>Category: {task.category}</h3>*/}
-                            <h3>Order {i+1}:<br /> <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
 
-                        <span style={{float:'right', fontSize:'.9em',paddingTop:25,color:'gray'}}>{DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}</span>
+                          <center>  <h3 style={{color:'#f56a6a'}}>{task.title}</h3>  </center>
+
+
+                            <span style={{float:'right', fontSize:'.9em',paddingTop:25,color:'gray'}}>{DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}
+                            </span>
+
 
                     </div>
 
