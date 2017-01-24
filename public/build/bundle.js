@@ -52939,7 +52939,7 @@
 	            _react2.default.createElement(
 	              'span',
 	              { style: { color: '#f56a6a' } },
-	              task.category
+	              task.category.toUpperCase()
 	            )
 	          )
 	        ),
