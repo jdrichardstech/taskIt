@@ -9,7 +9,7 @@ import actions from '../../actions'
 
 class Task extends Component {
   componentDidMount(){
-console.log("PROPS: "+ JSON.stringify(this.props))
+console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)))
 
 
   }
@@ -50,29 +50,36 @@ console.log("PROPS: "+ JSON.stringify(this.props))
   render(){
     const taskId = this.props.params.id
     const task = this.props.tasks[taskId]
+    const categoryIcon = ["icon fa-question-circle fa-2x","icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x"]
+    let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
     return(
-      <div>
 
-      <div>
-        <h2 style={{marginBottom:0}}><span style={{ color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</span></h2>
 
-        <div><p>Category: {task.category}</p></div>
-        <div style={{border:'1px solid #ddd' ,padding:'10px 0 0 10px',width:'40%'}}>
-        {/*}  <h2>Hi {task.profile.username}</h2>*/}
-        <span className="icon fa-paper-plane fa-2x">
-          <span style={{paddingLeft:20}}>{DateUtils.formattedDate(task.timestamp)}</span>
-        </span>
-        <hr />
-        <center><h3 style={{marginBottom:20}}><span style={{ color:'#f56a6a'}}>{task.description}</span></h3></center>
-      </div>
-        <div style={{marginTop:30}}>
-          {(this.props.account.user == null) ? <h2 style={{color:'#f56a6a'}}>Please login or register to reply </h2>
-            :
-          <ClaimTask onSubmit={this.submitMessage.bind(this)} />
-        }
+        <div>
+            <h2 style={{marginBottom:0}}><span style={{ color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</span></h2>
+
+            <div><p>Category: {task.category}</p></div>
+
+          <div className="box" style={{padding:'10px 0 0 10px',width:'40%'}}>
+            {/*}  <h2>Hi {task.profile.username}</h2>*/}
+            <div style={{marginBottom:30}}>
+            <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
+             <span style={{padding:'10px 10px 30px 20px'}}>Requested {DateUtils.formattedDate(task.timestamp)}</span>
+            </div>
+            <div>
+              <h3 style={{marginBottom:20}}><span style={{ color:'#f56a6a'}}>{task.description}</span></h3>
+            </div>
+
+          </div>
+          <hr style={{border:'2px solid #f56a6a',background:'#f56a6a',margin:'50px 0 50px 0'}}/>
+          <div style={{marginBottom:100}}>
+              {(this.props.account.user == null) ? <h2 style={{color:'gray'}}>Please login or register to reply </h2>
+                :
+              <ClaimTask onSubmit={this.submitMessage.bind(this)} />
+            }
+          </div>
         </div>
-      </div>
-      </div>
+
     )
   }
 }

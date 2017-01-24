@@ -70,26 +70,26 @@ class Tasks extends Component {
           return(
             <section id="banner" style={{paddingTop:0}}>
               <div className="content">
-                <h2>Category: <span style={{color:'#f56a6a', paddingLeft:15}}>{this.props.tasks.selectedCategory}</span></h2>
-            <ul>
-            {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
-              return (
+                <h2>Category: <span style={{color:'#f56a6a', paddingLeft:10}}>{this.props.tasks.selectedCategory}</span></h2>
+                <ul>
+                {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
+                  return (
 
-                <Link key={i}  to={'/task/'+task.id}>
-                <div key={task.id} className="box col-md-3" style={{marginRight:10, width:'30%',background:'white'}}>
+                    <Link key={i}  to={'/task/'+task.id}>
+                    <div key={task.id} className="box col-md-3" style={{marginRight:10, width:'30%',background:'white', boxShadow:'5px 5px 5px #855541'}}>
 
-                  {/*}    <h3>Category: {task.category}</h3>*/}
-                        <h3>Order {i+1}:<br /> <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
+                      {/*}    <h3>Category: {task.category}</h3>*/}
+                            <h3>Order {i+1}:<br /> <span style={{color:'#f56a6a'}}>{task.title}</span></h3>
 
-                    <span style={{float:'right', fontSize:'.9em',paddingTop:25,color:'gray'}}>{DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}</span>
+                        <span style={{float:'right', fontSize:'.9em',paddingTop:25,color:'gray'}}>{DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}</span>
 
-                </div>
+                    </div>
 
-                  </Link>
+                      </Link>
 
-              )
-            })}
-            </ul>
+                  )
+                })}
+                </ul>
             {/*} <CreateTask onSubmitTask={this.createTask.bind(this)} />*/}
             </div>
           </section>

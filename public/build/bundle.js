@@ -21588,7 +21588,7 @@
 	            { className: 'inner' },
 	            _react2.default.createElement(
 	              'header',
-	              { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 50 } },
+	              { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 30 } },
 	              _react2.default.createElement(
 	                'h1',
 	                { style: { fontSize: '4em' } },
@@ -21617,7 +21617,7 @@
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(250,250,210,0.5)' } },
+	                  { className: 'col-md-6 col-md-offset-1', style: { background: 'rgba(254,187,82,0.2)' } },
 	                  _react2.default.createElement(
 	                    'header',
 	                    { className: 'major', style: { paddingTop: 10 } },
@@ -21805,7 +21805,7 @@
 	            'Category: ',
 	            _react2.default.createElement(
 	              'span',
-	              { style: { color: '#f56a6a', paddingLeft: 15 } },
+	              { style: { color: '#f56a6a', paddingLeft: 10 } },
 	              this.props.tasks.selectedCategory
 	            )
 	          ),
@@ -21818,7 +21818,7 @@
 	                { key: i, to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, width: '30%', background: 'white' } },
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, width: '30%', background: 'white', boxShadow: '5px 5px 5px #855541' } },
 	                  _react2.default.createElement(
 	                    'h3',
 	                    null,
@@ -52774,7 +52774,7 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { style: { marginBottom: 100 } },
 	        this.props.user == null ? _react2.default.createElement(_view.Authenticate, { onLogin: this.login.bind(this), onRegister: this.register.bind(this) }) : _react2.default.createElement(
 	          'div',
 	          null,
@@ -52872,7 +52872,7 @@
 	  _createClass(Task, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("PROPS: " + JSON.stringify(this.props));
+	      console.log("SELECTED CATEGORY: " + JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)));
 	    }
 	  }, {
 	    key: 'submitMessage',
@@ -52911,67 +52911,67 @@
 	    value: function render() {
 	      var taskId = this.props.params.id;
 	      var task = this.props.tasks[taskId];
+	      var categoryIcon = ["icon fa-question-circle fa-2x", "icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x"];
+	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
+	          'h2',
+	          { style: { marginBottom: 0 } },
+	          _react2.default.createElement(
+	            'span',
+	            { style: { color: '#f56a6a' } },
+	            _utils.TextUtils.capitalize(task.title)
+	          )
+	        ),
+	        _react2.default.createElement(
 	          'div',
 	          null,
 	          _react2.default.createElement(
-	            'h2',
-	            { style: { marginBottom: 0 } },
+	            'p',
+	            null,
+	            'Category: ',
+	            task.category
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'box', style: { padding: '10px 0 0 10px', width: '40%' } },
+	          _react2.default.createElement(
+	            'div',
+	            { style: { marginBottom: 30 } },
+	            _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	            _react2.default.createElement(
 	              'span',
-	              { style: { color: '#f56a6a' } },
-	              _utils.TextUtils.capitalize(task.title)
+	              { style: { padding: '10px 10px 30px 20px' } },
+	              'Requested ',
+	              _utils.DateUtils.formattedDate(task.timestamp)
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            null,
 	            _react2.default.createElement(
-	              'p',
-	              null,
-	              'Category: ',
-	              task.category
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { style: { border: '1px solid #ddd', padding: '10px 0 0 10px', width: '40%' } },
-	            _react2.default.createElement(
-	              'span',
-	              { className: 'icon fa-paper-plane fa-2x' },
+	              'h3',
+	              { style: { marginBottom: 20 } },
 	              _react2.default.createElement(
 	                'span',
-	                { style: { paddingLeft: 20 } },
-	                _utils.DateUtils.formattedDate(task.timestamp)
-	              )
-	            ),
-	            _react2.default.createElement('hr', null),
-	            _react2.default.createElement(
-	              'center',
-	              null,
-	              _react2.default.createElement(
-	                'h3',
-	                { style: { marginBottom: 20 } },
-	                _react2.default.createElement(
-	                  'span',
-	                  { style: { color: '#f56a6a' } },
-	                  task.description
-	                )
+	                { style: { color: '#f56a6a' } },
+	                task.description
 	              )
 	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { style: { marginTop: 30 } },
-	            this.props.account.user == null ? _react2.default.createElement(
-	              'h2',
-	              { style: { color: '#f56a6a' } },
-	              'Please login or register to reply '
-	            ) : _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
 	          )
+	        ),
+	        _react2.default.createElement('hr', { style: { border: '2px solid #f56a6a', background: '#f56a6a', margin: '50px 0 50px 0' } }),
+	        _react2.default.createElement(
+	          'div',
+	          { style: { marginBottom: 100 } },
+	          this.props.account.user == null ? _react2.default.createElement(
+	            'h2',
+	            { style: { color: 'gray' } },
+	            'Please login or register to reply '
+	          ) : _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
 	        )
 	      );
 	    }
@@ -53030,7 +53030,7 @@
 	        { className: 'inner' },
 	        _react2.default.createElement(
 	          'header',
-	          { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 50 } },
+	          { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 30 } },
 	          _react2.default.createElement(
 	            'h2',
 	            { style: { fontSize: '2.5em' } },

@@ -10,7 +10,7 @@ class Home extends Component {
       <div id="wrapper">
           <div id="main">
             <div className="inner">
-                <header id="header" style={{paddingBottom:0,marginBottom:0, marginTop:0, paddingTop:50}}>
+                <header id="header" style={{paddingBottom:0,marginBottom:0, marginTop:0, paddingTop:30}}>
                   <h1 style={{fontSize:'4em'}}>Jobber</h1>
                 </header>
                 <section>
@@ -22,7 +22,7 @@ class Home extends Component {
                   <Categories />
             </div>
 
-            <div className="col-md-6 col-md-offset-1" style={{background:'rgba(250,250,210,0.5)'}}>
+            <div className="col-md-6 col-md-offset-1" style={{background:'rgba(254,187,82,0.2)'}}>
               <header className="major" style={{paddingTop:10}}>
                 <h2>Jobs Available:</h2>
               </header>

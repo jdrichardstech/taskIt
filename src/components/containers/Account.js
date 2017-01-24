@@ -50,7 +50,7 @@ class Account extends Component{
 
     return(
 
-      <div>
+      <div style={{marginBottom:100}}>
 
         {(this.props.user==null) ?
           <Authenticate onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />

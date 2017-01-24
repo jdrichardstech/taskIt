@@ -11,7 +11,7 @@ export default (props)=>{
           <div className="inner">
 
 
-              <header id="header" style={{paddingBottom:0,marginBottom:0, marginTop:0, paddingTop:50}}>
+              <header id="header" style={{paddingBottom:0,marginBottom:0, marginTop:0, paddingTop:30}}>
                 <h2 style={{fontSize:'2.5em'}}>Jobber Order</h2>
 
               </header>
