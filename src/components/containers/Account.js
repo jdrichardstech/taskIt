@@ -26,6 +26,7 @@ class Account extends Component{
 
 
   login(credentials){
+    evernt.preventDefault()
     this.props.login(credentials)
     .then(result=>{
 
@@ -35,7 +36,8 @@ class Account extends Component{
     })
   }
 
-  logout(event){
+  logout(event)
+  event.preventDefault()
     // console.log('hello logout')
     this.props.logout()
     .then(result=>{
