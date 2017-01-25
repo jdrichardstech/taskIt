@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { APIManager, DateUtils } from '../../utils'
+import { APIManager, DateUtils, TextUtils } from '../../utils'
 import { CreateTask} from '../view'
 import {connect } from 'react-redux'
 import actions from '../../actions'
@@ -84,7 +84,7 @@ class Tasks extends Component {
                         <hr />
                       {/*}    <h3>Category: {task.category}</h3>*/}
 
-                          <center>  <h3 style={{color:'#f56a6a'}}>{task.title}</h3>  </center>
+                          <center>  <h3 style={{color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</h3>  </center>
 
 
                             <span style={{float:'right', fontSize:'.9em',paddingTop:25,color:'gray'}}>{DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}

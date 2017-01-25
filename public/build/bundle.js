@@ -21842,7 +21842,7 @@
 	                    _react2.default.createElement(
 	                      'h3',
 	                      { style: { color: '#f56a6a' } },
-	                      task.title
+	                      _utils.TextUtils.capitalize(task.title)
 	                    ),
 	                    '  '
 	                  ),
