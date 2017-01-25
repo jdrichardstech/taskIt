@@ -30,7 +30,7 @@ class ClaimTask extends Component{
   render(){
     return(
       <form>
-      <label>Please respond below to bid for this order:</label>
+      <label style={{fontSize:'1.5em',fontFamily:'RobotoSlab-Bold, serif'}}>Please respond below to bid for this order:</label>
       <textarea ref="reply" onChange={this.updateMessage.bind(this)} >
       </textarea><br />
       <button onClick={this.submitMessage.bind(this)}>Submit</button>

@@ -80,7 +80,7 @@ class Tasks extends Component {
 
                     <div key={task.id} className="box col-md-3" style={{marginRight:10, width:'30%',background:'white', boxShadow:'5px 5px 5px #855541'}}>
                       <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
-                        <span style={{padding:'20px 0 0 10px',marginBottom:0,fontFamily:'RobotoSlab-Regular,sans-serif',color:'#000'}}> Task {i+1}</span>
+                        <span style={{padding:'20px 0 0 10px',marginBottom:0,fontFamily:'OpenSans-Semibold, sans-serif',color:'#000',fontSize:'1.1em'}}> Task {i+1}</span>
                         <hr />
                       {/*}    <h3>Category: {task.category}</h3>*/}
 

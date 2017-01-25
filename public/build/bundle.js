@@ -21830,7 +21830,7 @@
 	                  _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                  _react2.default.createElement(
 	                    'span',
-	                    { style: { padding: '20px 0 0 10px', marginBottom: 0, fontFamily: 'RobotoSlab-Regular,sans-serif', color: '#000' } },
+	                    { style: { padding: '20px 0 0 10px', marginBottom: 0, fontFamily: 'OpenSans-Semibold, sans-serif', color: '#000', fontSize: '1.1em' } },
 	                    ' Task ',
 	                    i + 1
 	                  ),
@@ -45230,7 +45230,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'label',
-	          null,
+	          { style: { fontSize: '1.5em', fontFamily: 'RobotoSlab-Bold, serif' } },
 	          'Please respond below to bid for this order:'
 	        ),
 	        _react2.default.createElement('textarea', { ref: 'reply', onChange: this.updateMessage.bind(this) }),
@@ -52969,7 +52969,7 @@
 	            ),
 	            _react2.default.createElement(
 	              'h2',
-	              { style: { marginBottom: 0 } },
+	              { style: { marginBottom: 15 } },
 	              _react2.default.createElement(
 	                'span',
 	                { style: { color: '#000' } },

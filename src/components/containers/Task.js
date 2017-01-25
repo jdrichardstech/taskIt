@@ -69,7 +69,7 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
             </div>
             <div>
               <center><hr style={{paddingRight:10,width:'75%'}} /></center>
-                <h2 style={{marginBottom:0}}><span style={{ color:'#000'}}>{TextUtils.capitalize(task.title)}</span></h2>
+                <h2 style={{marginBottom:15}}><span style={{ color:'#000'}}>{TextUtils.capitalize(task.title)}</span></h2>
 
               <h3 style={{marginBottom:50}}><span style={{ color:'#f56a6a'}}>{TextUtils.capitalize(task.description)}</span></h3>
             </div>
