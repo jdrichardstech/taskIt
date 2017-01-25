@@ -52980,7 +52980,7 @@
 	              _react2.default.createElement(
 	                'span',
 	                { style: { color: '#f56a6a' } },
-	                task.description
+	                _utils.TextUtils.capitalize(task.description)
 	              )
 	            )
 	          )
