@@ -26,7 +26,7 @@ class Account extends Component{
 
 
   login(credentials){
-    evernt.preventDefault()
+    event.preventDefault()
     this.props.login(credentials)
     .then(result=>{
 
