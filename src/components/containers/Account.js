@@ -36,7 +36,7 @@ class Account extends Component{
     })
   }
 
-  logout(event)
+  logout(event){
   event.preventDefault()
     // console.log('hello logout')
     this.props.logout()
