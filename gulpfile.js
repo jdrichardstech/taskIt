@@ -10,7 +10,7 @@ var path = require('path')
 gulp.task('css', function(){
    return gulp.src(
            [
-                './public//assets/css/main.css'
+                './public/assets/css/main.css'
            ]
 
          )
