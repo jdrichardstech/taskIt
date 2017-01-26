@@ -52,7 +52,7 @@ router.get('/notify', function(req, res, next) {
     controllers.profile
     .getById(req.body.recipient, false) //get profile first
     .then(function(profile){
-      var msg = req.body.taskResponder + ' replied to your task, here is the message:\n\n '+ req.body.text
+      var msg = req.body.taskResponder + ' replied to your task, here is the message:\n\n '+ req.body.text +"\n\nView+"+ req.body.taskResponder+ "profile here: https://jdrichardstech-tasker.herokuapp.com/"
       return utils.TwilioHelper.sendSMS(profile.phone, req.body.text)
     })
 
