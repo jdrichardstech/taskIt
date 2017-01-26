@@ -53022,7 +53022,7 @@
 	      var task = this.props.tasks[taskId];
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
-	      var taskResponder = this.state.updated['profile'].id == null ? null : _react2.default.createElement(
+	      var taskResponder = _react2.default.createElement(
 	        'div',
 	        null,
 	        ' ',
