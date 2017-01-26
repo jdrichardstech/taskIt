@@ -53206,7 +53206,7 @@
 	          phone: phone
 	
 	        });
-	        console.log("RESULTS: " + JSON.stringify(_this2.state.username + ' ' + thie.state.email + ' ' + _this2.state.phone));
+	        console.log("STATE: " + JSON.stringify(_this2.state.username + ' ' + _this2.state.email + ' ' + _this2.state.phone));
 	      });
 	    }
 	  }, {

@@ -40,7 +40,7 @@ class Profile extends Component{
         phone
 
       })
-        console.log("RESULTS: " + JSON.stringify(this.state.username + ' ' + thie.state.email + ' '+ this.state.phone))
+        console.log("STATE: " + JSON.stringify(this.state.username + ' ' + this.state.email + ' '+ this.state.phone))
     })
   }
 
