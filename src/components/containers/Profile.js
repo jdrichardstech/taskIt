@@ -7,14 +7,14 @@ import { connect } from 'react-redux'
 class Profile extends Component{
 
   componentDidMount(){
-    console.log("ID: " + JSON.stringify(this.props.profile))
+    console.log("PROFILECONTAINER: "+JSON.stringify(this.props.id) )
   }
 
   render(){
     return(
       <div>
-      Profile container
-      {}
+      Profile container<br />
+      
       </div>
     )
   }
@@ -23,7 +23,7 @@ class Profile extends Component{
 
 const stateToProps =(state)=>{
   return{
-    profile: state.account.user
+
   }
 }
 

@@ -3,6 +3,7 @@ import { APIManager, TextUtils, DateUtils} from '../../utils'
 import { connect } from 'react-redux'
 import { ClaimTask } from '../view'
 import actions from '../../actions'
+import { Link } from 'react-router'
 
 
 
@@ -24,6 +25,7 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
       id: user.id,
       username: user.username
     }
+  
 
     updated['task']= this.props.params.id
 
@@ -37,7 +39,8 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
     return  this.props.notify({
         recipient: task.profile.id,
         text: updated.text,
-        taskResponder: user.username
+        taskResponder: user.username,
+        taskResponderId:user.id
       })
     })
     .then(response=>{

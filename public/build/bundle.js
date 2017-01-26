@@ -52951,6 +52951,8 @@
 	
 	var _actions2 = _interopRequireDefault(_actions);
 	
+	var _reactRouter = __webpack_require__(352);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52998,7 +53000,8 @@
 	        return _this2.props.notify({
 	          recipient: task.profile.id,
 	          text: updated.text,
-	          taskResponder: user.username
+	          taskResponder: user.username,
+	          taskResponderId: user.id
 	        });
 	      }).then(function (response) {
 	        alert("Thanks for replying! Good Luck!");
@@ -53442,7 +53445,7 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("ID: " + JSON.stringify(this.props.profile));
+	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.id));
 	    }
 	  }, {
 	    key: 'render',
@@ -53450,7 +53453,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Profile container'
+	        'Profile container',
+	        _react2.default.createElement('br', null)
 	      );
 	    }
 	  }]);
@@ -53459,9 +53463,7 @@
 	}(_react.Component);
 	
 	var stateToProps = function stateToProps(state) {
-	  return {
-	    profile: state.account.user
-	  };
+	  return {};
 	};
 	
 	var dispatchToProps = function dispatchToProps(dispatch) {
@@ -53506,6 +53508,11 @@
 	  }
 	
 	  _createClass(ProfileLayout, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log("PROFILELAYOUT: " + JSON.stringify(this.props));
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
