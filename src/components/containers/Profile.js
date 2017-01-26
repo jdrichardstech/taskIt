@@ -9,7 +9,9 @@ class Profile extends Component{
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info) )
   }
-  componentDidUpdate("UPDATEPROFILECONTAINER: " + JSON.stringify(this.props.info))
+  componentDidUpdate(){
+    ("UPDATEPROFILECONTAINER: " + JSON.stringify(this.props.info))
+  }
 
   render(){
     return(
