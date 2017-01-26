@@ -13,7 +13,7 @@ class Profile extends Component{
   }
 
   componentDidMount(){
-    console.log("PROFILECONTAINER: "+JSON.stringify(this.props.params.id))
+    console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
     let responderId = this.props.info.params.id
     var url = '/api/profile/'+responderId
   superagent
