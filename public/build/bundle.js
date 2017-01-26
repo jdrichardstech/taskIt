@@ -21841,7 +21841,7 @@
 	                { key: i, to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, width: '30%', background: 'white', boxShadow: '5px 5px 5px #855541' } },
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, height: 200, width: '30%', background: 'white', boxShadow: '5px 5px 5px #855541' } },
 	                  _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                  _react2.default.createElement(
 	                    'span',
@@ -53214,19 +53214,31 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { style: { pading: 30 } },
+	        { style: { padding: 30 } },
 	        _react2.default.createElement(
 	          'h2',
 	          null,
 	          'Profile for Your Claimaint'
 	        ),
-	        'User Name: ',
+	        _react2.default.createElement(
+	          'strong',
+	          null,
+	          'User Name: '
+	        ),
 	        this.state.username,
 	        _react2.default.createElement('br', null),
-	        'Email: ',
+	        _react2.default.createElement(
+	          'strong',
+	          null,
+	          'Email: '
+	        ),
 	        this.state.email,
 	        _react2.default.createElement('br', null),
-	        'Phone: ',
+	        _react2.default.createElement(
+	          'strong',
+	          null,
+	          'Phone: '
+	        ),
 	        this.state.phone
 	      );
 	    }
