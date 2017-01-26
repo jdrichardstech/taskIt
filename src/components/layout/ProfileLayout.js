@@ -4,13 +4,13 @@ import { Profile } from '../containers'
 
 
 class ProfileLayout extends Component{
-  componentDidMount(){
+  componentDidUpdate(){
     console.log("PROFILELAYOUT: " + JSON.stringify(this.props))
   }
   render(){
     return(
       <div>
-      <Profile {...props}  />
+      <Profile props={this.props}  />
       </div>
     )
   }

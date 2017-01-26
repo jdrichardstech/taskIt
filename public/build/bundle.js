@@ -53533,8 +53533,8 @@
 	  }
 	
 	  _createClass(ProfileLayout, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
 	      console.log("PROFILELAYOUT: " + JSON.stringify(this.props));
 	    }
 	  }, {
@@ -53543,7 +53543,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_containers.Profile, props)
+	        _react2.default.createElement(_containers.Profile, { props: this.props })
 	      );
 	    }
 	  }]);
