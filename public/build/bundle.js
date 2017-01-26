@@ -53013,7 +53013,7 @@
 	          text: updated.text,
 	          taskResponder: user.username,
 	          taskResponderId: user.id,
-	          task: task
+	          taskId: taskId
 	        });
 	        console.log("RESPONDER ID: " + _this2.s);
 	      }).then(function (response) {
@@ -53111,6 +53111,12 @@
 	        'div',
 	        null,
 	        ' ',
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Here is the profile for: ',
+	          _react2.default.createElement('br', null)
+	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/profile/' + this.state.updated['profile'].id },

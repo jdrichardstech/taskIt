@@ -54,7 +54,7 @@ constructor(){
         text: updated.text,
         taskResponder: user.username,
         taskResponderId:user.id,
-        task: task
+        taskId: taskId
       })
       console.log("RESPONDER ID: "+ this.s)
     })
@@ -100,10 +100,12 @@ constructor(){
     </div>
 
     }
+    </div>
   </div>
-</div>
 
-      : <div> <Link to={'/profile/'+this.state.updated['profile'].id}>{this.state.updated['profile'].username.toUpperCase()}</Link></div>
+      :
+
+    <div> <h2>Here is the profile for: <br /></h2><Link to={'/profile/'+this.state.updated['profile'].id}>{this.state.updated['profile'].username.toUpperCase()}</Link></div>
     return(
 
 
