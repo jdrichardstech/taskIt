@@ -18,7 +18,11 @@ constructor(){
   super()
   this.state={
     updated:{
-      profile:{}
+      profile:{
+        id:'',
+        username:'',
+        task:''
+      }
     }
   }
 }
@@ -65,7 +69,7 @@ constructor(){
     const task = this.props.tasks[taskId]
     const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
     let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
-    const taskResponder = <div> <Link to={'/profile/'+this.state.profile.id}>Responder</Link></div>
+    const taskResponder = <div> <Link to={'/profile/'+this.state.updated['profile'].id}>Responder</Link></div>
     return(
 
 

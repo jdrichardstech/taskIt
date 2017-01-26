@@ -52973,7 +52973,11 @@
 	
 	    _this.state = {
 	      updated: {
-	        profile: {}
+	        profile: {
+	          id: '',
+	          username: '',
+	          task: ''
+	        }
 	      }
 	    };
 	    return _this;
@@ -53028,7 +53032,7 @@
 	        ' ',
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/profile/' + this.state.profile.id },
+	          { to: '/profile/' + this.state.updated['profile'].id },
 	          'Responder'
 	        )
 	      );
