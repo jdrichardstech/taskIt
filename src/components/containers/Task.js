@@ -53,10 +53,10 @@ constructor(){
         recipient: task.profile.id,
         text: updated.text,
         taskResponder: user.username,
-        taskResponderId:user.id,
-      
+        taskResponderId:user.id
+
       })
-      console.log("RESPONDER ID: "+ this.s)
+
     })
     .then(response=>{
         alert("Thanks for replying! Good Luck!")

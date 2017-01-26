@@ -53015,7 +53015,6 @@
 	          taskResponderId: user.id
 	
 	        });
-	        console.log("RESPONDER ID: " + _this2.s);
 	      }).then(function (response) {
 	        alert("Thanks for replying! Good Luck!");
 	      }).catch(function (err) {
