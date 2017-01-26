@@ -28,10 +28,12 @@ class Profile extends Component{
     let email = responder.result.email
     let phone = responder.result.phone
       console.log("RESULTS: " + JSON.stringify(username + ' ' + email + ' '+ phone))
-      // this.setState({
-      //
-      //
-      // })
+      this.setState({
+        username,
+        email,
+        phone
+
+      })
     })
   }
 
@@ -39,9 +41,10 @@ class Profile extends Component{
   render(){
     return(
       <div>
-      Profile container<br />
-
-
+      <h2>Responder Profile</h2>
+        User Name:  {this.state.username}<br />
+        Email: {this.state.email}<br />
+        Phone: {this.state.phone}
       </div>
     )
   }

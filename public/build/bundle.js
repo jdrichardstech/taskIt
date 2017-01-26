@@ -53179,6 +53179,8 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var responderId = this.props.info.params.id;
 	      var url = '/api/profile/' + responderId;
@@ -53195,10 +53197,12 @@
 	        var email = responder.result.email;
 	        var phone = responder.result.phone;
 	        console.log("RESULTS: " + JSON.stringify(username + ' ' + email + ' ' + phone));
-	        // this.setState({
-	        //
-	        //
-	        // })
+	        _this2.setState({
+	          username: username,
+	          email: email,
+	          phone: phone
+	
+	        });
 	      });
 	    }
 	  }, {
@@ -53207,8 +53211,19 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Profile container',
-	        _react2.default.createElement('br', null)
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Responder Profile'
+	        ),
+	        'User Name:  ',
+	        this.state.username,
+	        _react2.default.createElement('br', null),
+	        'Email: ',
+	        this.state.email,
+	        _react2.default.createElement('br', null),
+	        'Phone: ',
+	        this.state.phone
 	      );
 	    }
 	  }]);
