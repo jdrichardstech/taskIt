@@ -52959,18 +52959,27 @@
 	var Task = function (_Component) {
 	  _inherits(Task, _Component);
 	
-	  function Task() {
-	    _classCallCheck(this, Task);
-	
-	    return _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).apply(this, arguments));
-	  }
-	
 	  _createClass(Task, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      console.log("SELECTED CATEGORY: " + JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)));
 	    }
-	  }, {
+	  }]);
+	
+	  function Task() {
+	    _classCallCheck(this, Task);
+	
+	    var _this = _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).call(this));
+	
+	    _this.state = {
+	      updated: {
+	        profile: {}
+	      }
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(Task, [{
 	    key: 'submitMessage',
 	    value: function submitMessage(message) {
 	      var _this2 = this;
@@ -52988,7 +52997,9 @@
 	
 	      var taskId = this.props.params.id;
 	      var task = this.props.tasks[taskId];
-	
+	      this.setState({
+	        updated: updated
+	      });
 	      this.props.submitMessage(updated).then(function (response) {
 	        // console.log("MESSAGE CREATED: " + JSON.stringify(response))
 	
@@ -53011,7 +53022,7 @@
 	      var task = this.props.tasks[taskId];
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
-	      var taskResponder = this.state.taskResponderId == null ? null : _react2.default.createElement(
+	      var taskResponder = this.state.updated['profile'].id == null ? null : _react2.default.createElement(
 	        'div',
 	        null,
 	        ' ',

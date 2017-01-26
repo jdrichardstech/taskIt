@@ -14,7 +14,14 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
 
 
   }
-
+constructor(){
+  super()
+  this.state={
+    updated:{
+      profile:{}
+    }
+  }
+}
 
   submitMessage(message){
     // console.log("CLAIM: " + JSON.stringify(reply))
@@ -31,7 +38,9 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
 
     const taskId = this.props.params.id
     const task = this.props.tasks[taskId]
-
+    this.setState({
+      updated: updated
+    })
     this.props.submitMessage(updated)
     .then(response=>{
       // console.log("MESSAGE CREATED: " + JSON.stringify(response))
@@ -56,7 +65,7 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
     const task = this.props.tasks[taskId]
     const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
     let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
-    const taskResponder = (this.state.taskResponderId==null) ? null : <div> <Link to={'/profile/'+this.state.taskResponderId}>Responder</Link></div>
+    const taskResponder = (this.state.updated['profile'].id==null) ? null : <div> <Link to={'/profile/'+this.state.taskResponderId}>Responder</Link></div>
     return(
 
 
