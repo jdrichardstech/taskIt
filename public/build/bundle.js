@@ -53012,8 +53012,10 @@
 	          recipient: task.profile.id,
 	          text: updated.text,
 	          taskResponder: user.username,
-	          taskResponderId: user.id
+	          taskResponderId: user.id,
+	          task: task
 	        });
+	        console.log("RESPONDER ID: " + _this2.s);
 	      }).then(function (response) {
 	        alert("Thanks for replying! Good Luck!");
 	      }).catch(function (err) {
@@ -53028,26 +53030,6 @@
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
 	      var taskResponder = this.state.updated.profile.username.length == 0 ? _react2.default.createElement(
-	        'div',
-	        null,
-	        ' ',
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Respond to message add link to responder will appear here'
-	        ),
-	        ' '
-	      ) : _react2.default.createElement(
-	        'div',
-	        null,
-	        ' ',
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/profile/' + this.state.updated['profile'].id },
-	          'Responder'
-	        )
-	      );
-	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
@@ -53118,10 +53100,24 @@
 	            'div',
 	            null,
 	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) }),
-	            taskResponder
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Respond to message add link to responder will appear here'
+	            )
 	          )
 	        )
+	      ) : _react2.default.createElement(
+	        'div',
+	        null,
+	        ' ',
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/profile/' + this.state.updated['profile'].id },
+	          this.state.updated['profile'].username.toUpperCase()
+	        )
 	      );
+	      return _react2.default.createElement('div', null);
 	    }
 	  }]);
 	
