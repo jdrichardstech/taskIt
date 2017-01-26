@@ -53470,12 +53470,7 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info));
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      "UPDATEPROFILECONTAINER: " + JSON.stringify(this.props.info);
+	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	    }
 	  }, {
 	    key: 'render',

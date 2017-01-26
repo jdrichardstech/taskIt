@@ -7,16 +7,15 @@ import { connect } from 'react-redux'
 class Profile extends Component{
 
   componentDidMount(){
-    console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info) )
+    console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id) )
   }
-  componentDidUpdate(){
-    ("UPDATEPROFILECONTAINER: " + JSON.stringify(this.props.info))
-  }
+
 
   render(){
     return(
       <div>
       Profile container<br />
+
 
       </div>
     )
