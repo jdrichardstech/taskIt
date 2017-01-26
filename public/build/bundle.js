@@ -21841,7 +21841,7 @@
 	                { key: i, to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, height: 200, width: '30%', background: 'white', boxShadow: '5px 5px 5px #855541' } },
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, height: 250, width: '30%', background: 'white', boxShadow: '5px 5px 5px #855541' } },
 	                  _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                  _react2.default.createElement(
 	                    'span',
@@ -21863,7 +21863,7 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'span',
-	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, marginBottom: 20, color: 'gray' } },
+	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, paddingBottom: 50, color: 'gray' } },
 	                    _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
 	                  )
 	                )
@@ -53012,8 +53012,8 @@
 	          recipient: task.profile.id,
 	          text: updated.text,
 	          taskResponder: user.username,
-	          taskResponderId: user.id,
-	          taskId: taskId
+	          taskResponderId: user.id
+	
 	        });
 	        console.log("RESPONDER ID: " + _this2.s);
 	      }).then(function (response) {
@@ -53030,6 +53030,26 @@
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
 	      var taskResponder = this.state.updated.profile.username.length == 0 ? _react2.default.createElement(
+	        'div',
+	        null,
+	        ' ',
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Respond to message add link to responder will appear here'
+	        ),
+	        ' '
+	      ) : _react2.default.createElement(
+	        'div',
+	        null,
+	        ' ',
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/profile/' + this.state.updated['profile'].id },
+	          'Responder'
+	        )
+	      );
+	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
@@ -53099,34 +53119,9 @@
 	          ) : _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) }),
-	            _react2.default.createElement(
-	              'p',
-	              null,
-	              'Respond to message add link to responder will appear here'
-	            )
+	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
 	          )
 	        )
-	      ) : _react2.default.createElement(
-	        'div',
-	        null,
-	        ' ',
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Here is the profile for: ',
-	          _react2.default.createElement('br', null)
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/profile/' + this.state.updated['profile'].id },
-	          this.state.updated['profile'].username.toUpperCase()
-	        )
-	      );
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        taskResponder
 	      );
 	    }
 	  }]);
