@@ -53189,9 +53189,12 @@
 	        }
 	
 	        // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
-	        var results = response.body;
+	        var responder = response.body;
 	
-	        console.log("RESULTS: " + JSON.stringify(results));
+	        var username = responder.result.username;
+	        var email = responder.result.email;
+	        var phone = responder.result.phone;
+	        console.log("RESULTS: " + JSON.stringify(username + ' ' + email + ' ' + phone));
 	        // this.setState({
 	        //
 	        //

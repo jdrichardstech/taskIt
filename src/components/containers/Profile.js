@@ -21,9 +21,13 @@ class Profile extends Component{
     }
 
     // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
-    let results = response.body
+    let responder = response.body
 
-    console.log("RESULTS: " + JSON.stringify(results))
+
+    let username = responder.result.username
+    let email = responder.result.email
+    let phone = responder.result.phone
+      console.log("RESULTS: " + JSON.stringify(username + ' ' + email + ' '+ phone))
       // this.setState({
       //
       //
