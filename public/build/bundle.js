@@ -21863,7 +21863,7 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'span',
-	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, paddingBottom: 50, color: 'gray' } },
+	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, paddingBottom: 30, color: 'gray' } },
 	                    _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
 	                  )
 	                )
@@ -53035,7 +53035,7 @@
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          'Respond to message add link to responder will appear here'
+	          'After you respond to task a link to responder profile will appear here'
 	        ),
 	        ' '
 	      ) : _react2.default.createElement(
