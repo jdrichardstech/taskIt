@@ -67,10 +67,12 @@ class Tasks extends Component {
       render(){
         const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
         let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
-
+        {/* const username = task.profile.username || 'anonymous'*/}
           return(
+
             <section id="banner" style={{paddingTop:0}}>
               <div className="content">
+                
                 <h2>Category: <span style={{color:'#f56a6a', paddingLeft:6,fontSize:'.8em'}}>{this.props.tasks.selectedCategory.toUpperCase()}</span></h2>
                 <ul>
                 {(this.props.tasks[this.props.tasks.selectedCategory] == null) ? null: this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
@@ -86,7 +88,7 @@ class Tasks extends Component {
 
                           <center>  <h3 style={{color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</h3>  </center>
 
-
+                          {/* <span style = {{float:'right'}}>{username}</span>*/}
                             <span style={{float:'right', fontSize:'.9em',paddingTop:25,color:'gray'}}>{DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}
                             </span>
 

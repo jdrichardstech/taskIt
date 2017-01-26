@@ -30,10 +30,60 @@ class Authenticate extends Component {
 
   register(event){
     // console.log('register: ' + JSON.stringify(this.state.credentials))
+    if(this.state.credentials.username.length==0){
+      swal({
+      title: 'OOPS',
+      text: 'Fill in username please',
+      type: 'error',
+
+    })
+    return
+  }
+
+    if(this.state.credentials.phone.length==0){
+      swal({
+      title: 'OOPS',
+      text: 'Fill in phone please',
+      type: 'error',
+
+    })
+    return
+  }
+
+    if(this.state.credentials.email.length==0){
+      swal({
+      title: 'OOPS',
+      text: 'Fill in email please',
+      type: 'error',
+
+    })
+    return
+  }
+
+    if(this.state.credentials.password.length==0){
+      swal({
+      title: 'OOPS',
+      text: 'Fill in password please',
+      type: 'error'
+
+    })
+    return
+    }
+
      this.props.onRegister(this.state.credentials)
   }
 
   login(event){
+    if(this.state.credentials.username.length==0 || this.state.credentials.password.length==0){
+      swal({
+      title: 'OOPS',
+      text: 'Fill in a username and password please',
+      type: 'error',
+
+    })
+    return
+    }
+
     this.props.onLogin(this.state.credentials)
     // console.log('login'+ JSON.stringify(this.state.credentials))
   }
