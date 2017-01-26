@@ -53045,7 +53045,8 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/profile/' + this.state.updated['profile'].id },
-	          'Responder'
+	          'View Profile for ',
+	          this.state.updated['profile'].username
 	        )
 	      );
 	      return _react2.default.createElement(
@@ -53118,7 +53119,8 @@
 	          ) : _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
+	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) }),
+	            taskResponder
 	          )
 	        )
 	      );
