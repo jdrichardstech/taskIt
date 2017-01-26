@@ -21863,7 +21863,7 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'span',
-	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, paddingBottom: 20, color: 'gray' } },
+	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, marginBottom: 20, color: 'gray' } },
 	                    _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
 	                  )
 	                )
