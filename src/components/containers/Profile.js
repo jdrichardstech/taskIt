@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class Profile extends Component{
 
   componentDidMount(){
-    console.log("PROFILECONTAINER: "+JSON.stringify(this.props.params.id) )
+    console.log("PROFILECONTAINER: "+JSON.stringify(this.props.params) )
   }
 
   render(){
