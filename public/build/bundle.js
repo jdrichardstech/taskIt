@@ -53117,7 +53117,11 @@
 	          this.state.updated['profile'].username.toUpperCase()
 	        )
 	      );
-	      return _react2.default.createElement('div', null);
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        taskResponder
+	      );
 	    }
 	  }]);
 	
