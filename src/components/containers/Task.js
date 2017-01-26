@@ -36,7 +36,8 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
 
     return  this.props.notify({
         recipient: task.profile.id,
-        text: updated.text
+        text: updated.text,
+        taskResponder: user.username
       })
     })
     .then(response=>{

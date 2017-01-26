@@ -52965,7 +52965,8 @@
 	
 	        return _this2.props.notify({
 	          recipient: task.profile.id,
-	          text: updated.text
+	          text: updated.text,
+	          taskResponder: user.username
 	        });
 	      }).then(function (response) {
 	        alert("Thanks for replying! Good Luck!");
