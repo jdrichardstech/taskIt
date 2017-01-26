@@ -53180,8 +53180,8 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
-	      var url = 'https://api.themoviedb.org/3/search/movie?api_key=4160bdc56f74445097c8012631f85743&language=en-US&query=' + urlMovieName + '&page=1&include_adult=false';
-	
+	      var responderId = this.props.info.params.id;
+	      var url = '/api/profile/' + responderId;
 	      _superagent2.default.get(url).query(null).set('Accept', 'application/json').end(function (err, response) {
 	        if (err) {
 	          alert('ERROR: ' + err);

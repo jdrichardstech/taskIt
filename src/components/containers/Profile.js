@@ -8,8 +8,8 @@ class Profile extends Component{
 
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
-    var url = `https://api.themoviedb.org/3/search/movie?api_key=4160bdc56f74445097c8012631f85743&language=en-US&query=${urlMovieName}&page=1&include_adult=false`
-
+    let responderId = this.props.info.params.id
+    var url = '/api/profile/'+responderId
   superagent
   .get(url)
   .query(null)
