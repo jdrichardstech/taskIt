@@ -45148,7 +45148,17 @@
 	  }, {
 	    key: 'login',
 	    value: function login(event) {
-	      if (this.state.credentials.username.length == 0 || this.state.credentials.password.length == 0) {
+	      if (this.state.credentials.username.length == 0) {
+	        swal({
+	          title: 'OOPS',
+	          text: 'Fill in a username and password please',
+	          type: 'error'
+	
+	        });
+	        return;
+	      }
+	
+	      if (this.state.credentials.password.length == 0) {
 	        swal({
 	          title: 'OOPS',
 	          text: 'Fill in a username and password please',
