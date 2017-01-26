@@ -53543,7 +53543,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_containers.Profile, null)
+	        _react2.default.createElement(_containers.Profile, props)
 	      );
 	    }
 	  }]);
