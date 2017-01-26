@@ -59,7 +59,7 @@ class Account extends Component{
           <Authenticate onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
           :
           <div>
-           <h2>Hello<span style={{color:'#f56a6a'}}>{this.props.user.username.toUpperCase()}</span></h2>
+           <h2>Hello <span style={{color:'#f56a6a'}}> {this.props.user.username.toUpperCase()}</span></h2>
 
             <button onClick={this.logout.bind(this)}>Logout</button>
         </div>

@@ -21863,7 +21863,7 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'span',
-	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
+	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, paddingBottom: 20, color: 'gray' } },
 	                    _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
 	                  )
 	                )
@@ -52875,10 +52875,11 @@
 	          _react2.default.createElement(
 	            'h2',
 	            null,
-	            'Hello',
+	            'Hello ',
 	            _react2.default.createElement(
 	              'span',
 	              { style: { color: '#f56a6a' } },
+	              ' ',
 	              this.props.user.username.toUpperCase()
 	            )
 	          ),
@@ -53026,7 +53027,17 @@
 	      var task = this.props.tasks[taskId];
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
-	      var taskResponder = _react2.default.createElement(
+	      var taskResponder = this.state.updated.profile.username.length == 0 ? _react2.default.createElement(
+	        'div',
+	        null,
+	        ' ',
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Respond to message add link to responder will appear here'
+	        ),
+	        ' '
+	      ) : _react2.default.createElement(
 	        'div',
 	        null,
 	        ' ',
