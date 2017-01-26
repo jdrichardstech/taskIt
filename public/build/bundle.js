@@ -53470,7 +53470,7 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.id));
+	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.params.id));
 	    }
 	  }, {
 	    key: 'render',
