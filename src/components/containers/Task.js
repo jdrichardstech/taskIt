@@ -25,7 +25,7 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
       id: user.id,
       username: user.username
     }
-  
+
 
     updated['task']= this.props.params.id
 
@@ -56,6 +56,7 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
     const task = this.props.tasks[taskId]
     const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
     let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
+    const taskResponder = (this.state.taskResponderId==null) ? null : <div> <Link to={'/profile/'+this.state.taskResponderId}>Responder</Link></div>
     return(
 
 
@@ -82,8 +83,11 @@ console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.in
           <hr style={{border:'2px solid #f56a6a',background:'#f56a6a',margin:'50px 0 50px 0'}}/>
           <div style={{marginBottom:100}}>
               {(this.props.account.user == null) ? <h2 style={{color:'gray'}}>Please login or register to reply </h2>
-                :
-              <ClaimTask onSubmit={this.submitMessage.bind(this)} />
+            :<div>
+            <ClaimTask onSubmit={this.submitMessage.bind(this)} />
+            {taskResponder}
+            </div>
+
             }
           </div>
         </div>

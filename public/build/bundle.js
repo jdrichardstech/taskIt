@@ -52877,14 +52877,9 @@
 	            null,
 	            'Hello',
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/profile/' + this.props.user.id },
-	              ' ',
-	              _react2.default.createElement(
-	                'span',
-	                { style: { color: '#f56a6a' } },
-	                this.props.user.username.toUpperCase()
-	              )
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              this.props.user.username.toUpperCase()
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -53016,6 +53011,16 @@
 	      var task = this.props.tasks[taskId];
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
+	      var taskResponder = this.state.taskResponderId == null ? null : _react2.default.createElement(
+	        'div',
+	        null,
+	        ' ',
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/profile/' + this.state.taskResponderId },
+	          'Responder'
+	        )
+	      );
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -53083,7 +53088,12 @@
 	            'h2',
 	            { style: { color: 'gray' } },
 	            'Please login or register to reply '
-	          ) : _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
+	          ) : _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) }),
+	            taskResponder
+	          )
 	        )
 	      );
 	    }
