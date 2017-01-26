@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import superagent from 'superagent'
 
 
 
@@ -8,7 +8,20 @@ class Profile extends Component{
 
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id) )
+    superagent
+  .get(url)
+  .query(null)
+  .set('Accept', 'application/json')
+  .end((err, response) => {
+    if (err){
+      alert('ERROR: '+err)
+      return
+    }
   }
+  let results = response.body.results
+  console.log("RESULTS: " + JSON.stringify(results))
+}
+
 
 
   render(){
