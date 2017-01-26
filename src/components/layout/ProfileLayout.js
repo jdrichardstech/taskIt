@@ -4,7 +4,7 @@ import { Profile } from '../containers'
 
 
 class ProfileLayout extends Component{
-  componentDidUpdate(){
+  componentDidMount(){
     console.log("PROFILELAYOUT: " + JSON.stringify(this.props))
   }
   render(){

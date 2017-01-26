@@ -53533,8 +53533,8 @@
 	  }
 	
 	  _createClass(ProfileLayout, [{
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
 	      console.log("PROFILELAYOUT: " + JSON.stringify(this.props));
 	    }
 	  }, {
