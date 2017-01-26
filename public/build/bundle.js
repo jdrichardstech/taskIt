@@ -53195,35 +53195,32 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.params.id));
-	      //   let responderId = this.props.info.params.id
-	      //   var url = '/api/profile/'+responderId
-	      // superagent
-	      // .get(url)
-	      // .query(null)
-	      // .set('Accept', 'application/json')
-	      // .end((err, response) => {
-	      //   if (err){
-	      //     alert('ERROR: '+err)
-	      //     return
-	      //   }
-	      //
-	      //   // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
-	      //   let responder = response.body
-	      //
-	      //
-	      //   let username = responder.result.username
-	      //   let email = responder.result.email
-	      //   let phone = responder.result.phone
-	      //
-	      //     this.setState({
-	      //       username,
-	      //       email,
-	      //       phone
-	      //
-	      //     })
-	      //       console.log("STATE: " + JSON.stringify(this.state.username + ' ' + this.state.email + ' '+ this.state.phone))
-	      //   })
+	      var responderId = this.props.info.params.id;
+	      var url = '/api/profile/' + responderId;
+	      _superagent2.default.get(url).query(null).set('Accept', 'application/json').end(function (err, response) {
+	        if (err) {
+	          alert('ERROR: ' + err);
+	          return;
+	        }
+	
+	        // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
+	        var responder = response.body;
+	
+	        var username = responder.result.username;
+	        var email = responder.result.email;
+	        var phone = responder.result.phone;
+	
+	        _this2.setState({
+	          username: username,
+	          email: email,
+	          phone: phone
+	
+	        });
+	        console.log("STATE: " + JSON.stringify(_this2.state.username + ' ' + _this2.state.email + ' ' + _this2.state.phone));
+	      });
 	    }
 	  }, {
 	    key: 'render',
