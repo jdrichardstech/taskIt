@@ -53173,12 +53173,17 @@
 	  function Profile() {
 	    _classCallCheck(this, Profile);
 	
-	    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this));
+	
+	    _this.state = {};
+	    return _this;
 	  }
 	
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var responderId = this.props.info.params.id;
 	      var url = '/api/profile/' + responderId;
@@ -53194,13 +53199,14 @@
 	        var username = responder.result.username;
 	        var email = responder.result.email;
 	        var phone = responder.result.phone;
-	        console.log("RESULTS: " + JSON.stringify(username + ' ' + email + ' ' + phone));
-	        // this.setState({
-	        //   username,
-	        //   email,
-	        //   phone
-	        //
-	        // })
+	
+	        _this2.setState({
+	          username: username,
+	          email: email,
+	          phone: phone
+	
+	        });
+	        console.log("RESULTS: " + JSON.stringify(_this2.state.username + ' ' + thie.state.email + ' ' + _this2.state.phone));
 	      });
 	    }
 	  }, {

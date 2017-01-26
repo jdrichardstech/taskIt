@@ -5,6 +5,12 @@ import superagent from 'superagent'
 
 
 class Profile extends Component{
+  constructor(){
+    super()
+    this.state={
+
+    }
+  }
 
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
@@ -27,13 +33,14 @@ class Profile extends Component{
     let username = responder.result.username
     let email = responder.result.email
     let phone = responder.result.phone
-      console.log("RESULTS: " + JSON.stringify(username + ' ' + email + ' '+ phone))
-      // this.setState({
-      //   username,
-      //   email,
-      //   phone
-      //
-      // })
+
+      this.setState({
+        username,
+        email,
+        phone
+
+      })
+        console.log("RESULTS: " + JSON.stringify(this.state.username + ' ' + thie.state.email + ' '+ this.state.phone))
     })
   }
 
