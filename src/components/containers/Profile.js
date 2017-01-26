@@ -14,34 +14,34 @@ class Profile extends Component{
 
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.params.id))
-    let responderId = this.props.info.params.id
-    var url = '/api/profile/'+responderId
-  superagent
-  .get(url)
-  .query(null)
-  .set('Accept', 'application/json')
-  .end((err, response) => {
-    if (err){
-      alert('ERROR: '+err)
-      return
-    }
-
-    // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
-    let responder = response.body
-
-
-    let username = responder.result.username
-    let email = responder.result.email
-    let phone = responder.result.phone
-
-      this.setState({
-        username,
-        email,
-        phone
-
-      })
-        console.log("STATE: " + JSON.stringify(this.state.username + ' ' + this.state.email + ' '+ this.state.phone))
-    })
+  //   let responderId = this.props.info.params.id
+  //   var url = '/api/profile/'+responderId
+  // superagent
+  // .get(url)
+  // .query(null)
+  // .set('Accept', 'application/json')
+  // .end((err, response) => {
+  //   if (err){
+  //     alert('ERROR: '+err)
+  //     return
+  //   }
+  //
+  //   // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
+  //   let responder = response.body
+  //
+  //
+  //   let username = responder.result.username
+  //   let email = responder.result.email
+  //   let phone = responder.result.phone
+  //
+  //     this.setState({
+  //       username,
+  //       email,
+  //       phone
+  //
+  //     })
+  //       console.log("STATE: " + JSON.stringify(this.state.username + ' ' + this.state.email + ' '+ this.state.phone))
+  //   })
   }
 
 
