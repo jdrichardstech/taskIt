@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Authenticate } from '../view'
 import { connect } from 'react-redux'
 import actions from '../../actions'
+import { Link } from 'react-router'
 
 
 
@@ -58,7 +59,8 @@ class Account extends Component{
           <Authenticate onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
           :
           <div>
-            <h2>Hello <span style={{color:'#f56a6a'}}>{this.props.user.username.toUpperCase()}</span></h2>
+           <h2>Hello<Link to={'/profile/'+this.props.user.id}> <span style={{color:'#f56a6a'}}>{this.props.user.username.toUpperCase()}</span></Link></h2>
+
             <button onClick={this.logout.bind(this)}>Logout</button>
         </div>
         }

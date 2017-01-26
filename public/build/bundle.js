@@ -62,6 +62,8 @@
 	
 	var _store2 = _interopRequireDefault(_store);
 	
+	var _containers = __webpack_require__(180);
+	
 	var _reactRouter = __webpack_require__(352);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -82,7 +84,8 @@
 	    _reactRouter.Router,
 	    { history: _reactRouter.browserHistory },
 	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _layout.Home }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/task/:id', component: _layout.Split })
+	    _react2.default.createElement(_reactRouter.Route, { path: '/task/:id', component: _layout.Split }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'profile/:id', component: _layout.ProfileLayout })
 	  )
 	);
 	
@@ -21524,7 +21527,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Split = exports.Home = undefined;
+	exports.ProfileLayout = exports.Split = exports.Home = undefined;
 	
 	var _Home = __webpack_require__(179);
 	
@@ -21534,10 +21537,15 @@
 	
 	var _Split2 = _interopRequireDefault(_Split);
 	
+	var _ProfileLayout = __webpack_require__(416);
+	
+	var _ProfileLayout2 = _interopRequireDefault(_ProfileLayout);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.Home = _Home2.default;
 	exports.Split = _Split2.default;
+	exports.ProfileLayout = _ProfileLayout2.default;
 
 /***/ },
 /* 179 */
@@ -21556,6 +21564,8 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _containers = __webpack_require__(180);
+	
+	var _layout = __webpack_require__(178);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21675,7 +21685,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Task = exports.Account = exports.Categories = exports.Tasks = undefined;
+	exports.Profile = exports.Task = exports.Account = exports.Categories = exports.Tasks = undefined;
 	
 	var _Tasks = __webpack_require__(181);
 	
@@ -21693,12 +21703,17 @@
 	
 	var _Task2 = _interopRequireDefault(_Task);
 	
+	var _Profile = __webpack_require__(415);
+	
+	var _Profile2 = _interopRequireDefault(_Profile);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.Tasks = _Tasks2.default;
 	exports.Categories = _Categories2.default;
 	exports.Account = _Account2.default;
 	exports.Task = _Task2.default;
+	exports.Profile = _Profile2.default;
 
 /***/ },
 /* 181 */
@@ -45102,72 +45117,71 @@
 	  }, {
 	    key: 'register',
 	    value: function register(event) {
-	      // console.log('register: ' + JSON.stringify(this.state.credentials))
-	      //   if(this.state.credentials.username.length==0){
-	      //     swal({
-	      //     title: 'OOPS',
-	      //     text: 'Fill in username please',
-	      //     type: 'error',
-	      //
-	      //   })
-	      //   return
-	      // }
-	      //
-	      //   if(this.state.credentials.phone.length==0){
-	      //     swal({
-	      //     title: 'OOPS',
-	      //     text: 'Fill in phone please',
-	      //     type: 'error',
-	      //
-	      //   })
-	      //   return
-	      // }
-	      //
-	      //   if(this.state.credentials.email.length==0){
-	      //     swal({
-	      //     title: 'OOPS',
-	      //     text: 'Fill in email please',
-	      //     type: 'error',
-	      //
-	      //   })
-	      //   return
-	      // }
-	      //
-	      //   if(this.state.credentials.password.length==0){
-	      //     swal({
-	      //     title: 'OOPS',
-	      //     text: 'Fill in password please',
-	      //     type: 'error'
-	      //
-	      //   })
-	      //   return
-	      //   }
+	      console.log('register: ' + JSON.stringify(this.state.credentials));
+	      if (this.state.credentials.username.length == 0) {
+	        swal({
+	          title: 'OOPS',
+	          text: 'Fill in username please',
+	          type: 'error'
+	
+	        });
+	        return;
+	      }
+	
+	      if (this.state.credentials.phone.length == 0) {
+	        swal({
+	          title: 'OOPS',
+	          text: 'Fill in phone please',
+	          type: 'error'
+	
+	        });
+	        return;
+	      }
+	
+	      if (this.state.credentials.email.length == 0) {
+	        swal({
+	          title: 'OOPS',
+	          text: 'Fill in email please',
+	          type: 'error'
+	
+	        });
+	        return;
+	      }
+	
+	      if (this.state.credentials.password.length == 0) {
+	        swal({
+	          title: 'OOPS',
+	          text: 'Fill in password please',
+	          type: 'error'
+	
+	        });
+	        return;
+	      }
 	
 	      this.props.onRegister(this.state.credentials);
 	    }
 	  }, {
 	    key: 'login',
 	    value: function login(event) {
-	      // if(this.state.credentials.username.length==0 ){
-	      //   swal({
-	      //   title: 'OOPS',
-	      //   text: 'Fill in a username and password please',
-	      //   type: 'error',
-	      //
-	      // })
-	      // return
-	      // }
-	      //
-	      // if(this.state.credentials.password.length==0 ){
-	      //   swal({
-	      //   title: 'OOPS',
-	      //   text: 'Fill in a username and password please',
-	      //   type: 'error',
-	      //
-	      // })
-	      // return
-	      // }
+	      if (this.state.credentials.email.length == 0) {
+	        swal({
+	          title: 'OOPS',
+	          text: 'Fill in a email and password please',
+	          type: 'error'
 	
+	        });
+	        return;
+	      }
+	
+	      if (this.state.credentials.password.length == 0) {
+	        swal({
+	          title: 'OOPS',
+	          text: 'Fill in a username and password please',
+	          type: 'error'
+	
+	        });
+	        return;
+	      }
 	
 	      this.props.onLogin(this.state.credentials);
 	      // console.log('login'+ JSON.stringify(this.state.credentials))
@@ -52795,6 +52809,8 @@
 	
 	var _actions2 = _interopRequireDefault(_actions);
 	
+	var _reactRouter = __webpack_require__(352);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52859,11 +52875,16 @@
 	          _react2.default.createElement(
 	            'h2',
 	            null,
-	            'Hello ',
+	            'Hello',
 	            _react2.default.createElement(
-	              'span',
-	              { style: { color: '#f56a6a' } },
-	              this.props.user.username.toUpperCase()
+	              _reactRouter.Link,
+	              { to: '/profile/' + this.props.user.id },
+	              ' ',
+	              _react2.default.createElement(
+	                'span',
+	                { style: { color: '#f56a6a' } },
+	                this.props.user.username.toUpperCase()
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -53382,6 +53403,123 @@
 	      return state;
 	  }
 	};
+
+/***/ },
+/* 415 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(313);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Profile = function (_Component) {
+	  _inherits(Profile, _Component);
+	
+	  function Profile() {
+	    _classCallCheck(this, Profile);
+	
+	    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+	  }
+	
+	  _createClass(Profile, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log("ID: " + JSON.stringify(this.props.profile));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Profile container'
+	      );
+	    }
+	  }]);
+	
+	  return Profile;
+	}(_react.Component);
+	
+	var stateToProps = function stateToProps(state) {
+	  return {
+	    profile: state.account.user
+	  };
+	};
+	
+	var dispatchToProps = function dispatchToProps(dispatch) {
+	  return {};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile);
+
+/***/ },
+/* 416 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _containers = __webpack_require__(180);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ProfileLayout = function (_Component) {
+	  _inherits(ProfileLayout, _Component);
+	
+	  function ProfileLayout() {
+	    _classCallCheck(this, ProfileLayout);
+	
+	    return _possibleConstructorReturn(this, (ProfileLayout.__proto__ || Object.getPrototypeOf(ProfileLayout)).apply(this, arguments));
+	  }
+	
+	  _createClass(ProfileLayout, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_containers.Profile, null)
+	      );
+	    }
+	  }]);
+	
+	  return ProfileLayout;
+	}(_react.Component);
+	
+	exports.default = ProfileLayout;
 
 /***/ }
 /******/ ]);

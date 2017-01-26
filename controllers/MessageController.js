@@ -20,7 +20,7 @@ module.exports = {
               resolve(messages)
           }else{
             var list=[]
-            messages.forEach(function(messages, i){
+            messages.forEach(function(message, i){
               list.push(message.summary())
             })
             resolve(list)
