@@ -53189,7 +53189,7 @@
 	        }
 	
 	        // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
-	        var results = response.body.results;
+	        var results = response.body;
 	
 	        console.log("RESULTS: " + results);
 	        // this.setState({

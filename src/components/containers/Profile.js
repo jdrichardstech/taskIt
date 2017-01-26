@@ -21,7 +21,7 @@ class Profile extends Component{
     }
 
     // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
-    let results = response.body.results
+    let results = response.body
 
     console.log("RESULTS: " + results)
       // this.setState({
