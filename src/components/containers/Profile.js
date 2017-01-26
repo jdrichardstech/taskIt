@@ -47,8 +47,11 @@ class Profile extends Component{
 
   render(){
     return(
-      <div>
-      <h2>Responder Profile</h2>
+      <div style={{pading:30}}>
+      <h2>Profile for Your Claimaint</h2>
+      User Name: {this.state.username}<br />
+      Email: {this.state.email}<br />
+      Phone: {this.state.phone}
 
       </div>
     )

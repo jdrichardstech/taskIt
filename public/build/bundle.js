@@ -53214,12 +53214,20 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { style: { pading: 30 } },
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'Responder Profile'
-	        )
+	          'Profile for Your Claimaint'
+	        ),
+	        'User Name: ',
+	        this.state.username,
+	        _react2.default.createElement('br', null),
+	        'Email: ',
+	        this.state.email,
+	        _react2.default.createElement('br', null),
+	        'Phone: ',
+	        this.state.phone
 	      );
 	    }
 	  }]);
