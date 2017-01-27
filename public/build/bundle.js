@@ -53275,30 +53275,40 @@
 	        'div',
 	        { style: { padding: 30 } },
 	        _react2.default.createElement(
-	          'h2',
+	          'h1',
 	          null,
 	          'Profile for Your Claimaint'
 	        ),
 	        _react2.default.createElement(
-	          'strong',
+	          'h2',
 	          null,
-	          'User Name: '
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'User Name: '
+	          ),
+	          this.state.updated.username
 	        ),
-	        this.state.updated.username,
-	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
-	          'strong',
+	          'h2',
 	          null,
-	          'Email: '
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'Email: '
+	          ),
+	          this.state.updated.email
 	        ),
-	        this.state.updated.email,
-	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
-	          'strong',
+	          'h2',
 	          null,
-	          'Phone: '
-	        ),
-	        this.state.updated.phone
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'Phone: '
+	          ),
+	          this.state.updated.phone
+	        )
 	      );
 	    }
 	  }]);

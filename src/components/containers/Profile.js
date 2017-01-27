@@ -65,7 +65,7 @@ class Profile extends Component{
           this.setState({
             updated: updated
           })
-      
+
     })
     .catch((err)=>{
       console.log("OOPS: " + err.message)
@@ -76,10 +76,10 @@ class Profile extends Component{
   render(){
     return(
       <div style={{padding:30}}>
-      <h2>Profile for Your Claimaint</h2>
-      <strong>User Name: </strong>{this.state.updated.username}<br />
-      <strong>Email: </strong>{this.state.updated.email}<br />
-      <strong>Phone: </strong>{this.state.updated.phone}
+      <h1>Profile for Your Claimaint</h1>
+      <h2><strong>User Name: </strong>{this.state.updated.username}</h2>
+      <h2><strong>Email: </strong>{this.state.updated.email}</h2>
+      <h2><strong>Phone: </strong>{this.state.updated.phone}</h2>
 
       </div>
     )
