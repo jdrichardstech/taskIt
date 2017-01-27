@@ -53,7 +53,7 @@ class Profile extends Component{
     //   console.log("ERROR: " + err)
     //   }
     // )
-    this.props.fetchProfile(responderId)
+    this.props.fetchProfile({id:responderId})
     .then((results)=>{
       console.log("PROFILE FETCHED: "+ JSON.stringify(results))
     })
