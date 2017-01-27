@@ -35,25 +35,31 @@ class Profile extends Component{
   //     return
     // }
 
-    APIManager.get(url, null)
-    .then((response)=>{
-      // console.log("RESPONSE: " + JSON.stringify(response))
-      // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
-      let responder = response.result
-      updated['username'] = responder.username
-      updated['email'] = responder.email
-      updated['phone'] = responder.phone
-      updated['responderId'] = responderId
-      // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-        this.setState({
-          updated: updated
-        })
+    // APIManager.get(url, null)
+    // .then((response)=>{
+    //   // console.log("RESPONSE: " + JSON.stringify(response))
+    //   // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
+    //   let responder = response.result
+    //   updated['username'] = responder.username
+    //   updated['email'] = responder.email
+    //   updated['phone'] = responder.phone
+    //   updated['responderId'] = responderId
+    //   // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+    //     this.setState({
+    //       updated: updated
+    //     })
+    // })
+    // .catch((err)=>{
+    //   console.log("ERROR: " + err)
+    //   }
+    // )
+    this.props.fetchProfile(responderId)
+    .then((results)=>{
+      console.log("PROFILE FETCHED: "+ JSON.stringify(results))
     })
     .catch((err)=>{
-      console.log("ERROR: " + err)
-      }
-    )
-    // this.props.fetchProfile(updated)
+      console.log("OOPS: " + err.message)
+    })
   }
 
 

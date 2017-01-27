@@ -61,11 +61,11 @@ export default{
     }
   },
 
-  // fetchProfile: (params) => {
-  // return (dispatch) => {
-  //   return dispatch(getRequest('/api/profile', params, constants.PROFILE_RECEIVED))
-  // }
-  // },
+  fetchProfile: (params) => {
+  return (dispatch) => {
+    return dispatch(getRequest('/api/profile', params, constants.PROFILE_RECEIVED))
+  }
+  },
 
   submitMessage: (params) => {
     // console.log('submitClaim ACTIONS')

@@ -47607,11 +47607,11 @@
 	    };
 	  },
 	
-	  // fetchProfile: (params) => {
-	  // return (dispatch) => {
-	  //   return dispatch(getRequest('/api/profile', params, constants.PROFILE_RECEIVED))
-	  // }
-	  // },
+	  fetchProfile: function fetchProfile(params) {
+	    return function (dispatch) {
+	      return dispatch(getRequest('/api/profile', params, _constants2.default.PROFILE_RECEIVED));
+	    };
+	  },
 	
 	  submitMessage: function submitMessage(params) {
 	    // console.log('submitClaim ACTIONS')
@@ -53216,8 +53216,6 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
-	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
@@ -53232,22 +53230,29 @@
 	      //     return
 	      // }
 	
-	      _utils.APIManager.get(url, null).then(function (response) {
-	        // console.log("RESPONSE: " + JSON.stringify(response))
-	        // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
-	        var responder = response.result;
-	        updated['username'] = responder.username;
-	        updated['email'] = responder.email;
-	        updated['phone'] = responder.phone;
-	        updated['responderId'] = responderId;
-	        // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-	        _this2.setState({
-	          updated: updated
-	        });
+	      // APIManager.get(url, null)
+	      // .then((response)=>{
+	      //   // console.log("RESPONSE: " + JSON.stringify(response))
+	      //   // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
+	      //   let responder = response.result
+	      //   updated['username'] = responder.username
+	      //   updated['email'] = responder.email
+	      //   updated['phone'] = responder.phone
+	      //   updated['responderId'] = responderId
+	      //   // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+	      //     this.setState({
+	      //       updated: updated
+	      //     })
+	      // })
+	      // .catch((err)=>{
+	      //   console.log("ERROR: " + err)
+	      //   }
+	      // )
+	      this.props.fetchProfile(responderId).then(function (results) {
+	        console.log("PROFILE FETCHED: " + JSON.stringify(results));
 	      }).catch(function (err) {
-	        console.log("ERROR: " + err);
+	        console.log("OOPS: " + err.message);
 	      });
-	      // this.props.fetchProfile(updated)
 	    }
 	  }, {
 	    key: 'render',
@@ -53645,7 +53650,6 @@
 	    case _constants2.default.USER_LOGGED_IN:
 	      console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload));
 	      updated['user'] = action.payload;
-	
 	      return updated;
 	    default:
 	      return state;
