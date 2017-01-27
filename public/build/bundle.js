@@ -53214,7 +53214,7 @@
 	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state.updated);
-	      responderId = this.props.info.params.id;
+	      var responderId = this.props.info.params.id;
 	      var url = '/api/profile/' + responderId;
 	      _superagent2.default.get(url).query(null).set('Accept', 'application/json').end(function (err, response) {
 	        if (err) {
