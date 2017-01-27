@@ -47561,7 +47561,7 @@
 	  return function (dispatch) {
 	    return _utils.APIManager.get(path, params).then(function (response) {
 	      var payload = response.results || response.result || response.user;
-	      // console.log('Response getRequest: ' + JSON.stringify(response))
+	      console.log('Response getRequest: ' + JSON.stringify(response));
 	      dispatch({
 	        type: actionType,
 	        payload: payload,
