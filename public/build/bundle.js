@@ -47568,7 +47568,7 @@
 	        payload: payload,
 	        params: params
 	      });
-	      console.log('ACTION GET' + JSON.stringify(response));
+	      console.log('ACTION GET' + JSON.stringify(payload));
 	      return response;
 	    }).catch(function (err) {
 	      throw err;
@@ -53646,8 +53646,9 @@
 	  var updated = Object.assign({}, state);
 	  switch (action.type) {
 	    case _constants2.default.PROFILE_RECEIVED:
-	      updated['user'] = action.payload;
-	      console.log("REDUCER: " + JSON.stringify(updated));
+	      console.log("ACTION PAYLOAD:" + JSON.stringify(action.payload));
+	      // updated['user'] = action.payload
+	
 	      return updated;
 	    case _constants2.default.PROFILE_CREATED:
 	      // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))

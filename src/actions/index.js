@@ -14,7 +14,7 @@ const getRequest = (path, params, actionType) => {
           payload: payload,
           params: params
         })
-        console.log('ACTION GET' + JSON.stringify(response))
+        console.log('ACTION GET' + JSON.stringify(payload))
         return response
       })
       .catch((err)=>{
