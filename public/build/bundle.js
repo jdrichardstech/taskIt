@@ -53229,11 +53229,12 @@
 	        updated['email'] = responder.result.email;
 	        updated['phone'] = responder.result.phone;
 	        updated['responderId'] = responderId;
-	
+	        console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated));
 	        _this2.setState({
 	          updated: updated
 	        });
-	        console.log("STATE: " + JSON.stringify(_this2.state.username + ' ' + _this2.state.email + ' ' + _this2.state.phone));
+	        console.log("STATE: " + JSON.stringify(_this2.state));
+	        console.log("STATE PARTS: " + JSON.stringify(_this2.state.updated.username + ' ' + _this2.state.updated.email + ' ' + _this2.state.updated.phone));
 	      });
 	    }
 	  }, {

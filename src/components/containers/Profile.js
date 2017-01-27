@@ -39,11 +39,12 @@ class Profile extends Component{
     updated['email'] = responder.result.email
     updated['phone'] = responder.result.phone
     updated['responderId'] = responderId
-
+    console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
       this.setState({
         updated: updated
       })
-        console.log("STATE: " + JSON.stringify(this.state.username + ' ' + this.state.email + ' '+ this.state.phone))
+      console.log("STATE: " + JSON.stringify(this.state))
+        console.log("STATE PARTS: " + JSON.stringify(this.state.updated.username + ' ' + this.state.updated.email + ' '+ this.state.updated.phone))
     })
   }
 
