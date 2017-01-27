@@ -21,6 +21,7 @@ get:(url, params)=>{
         reject (new Error(response.body.message))
         return
       }
+      console.log("APIManager: " +JSON.stringify(response.body))
       resolve(response.body)
     })
 
