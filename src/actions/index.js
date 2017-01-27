@@ -14,6 +14,7 @@ const getRequest = (path, params, actionType) => {
           payload: payload,
           params: params
         })
+        console.log('ACTION GET' + JSON.stringify(response))
         return response
       })
       .catch((err)=>{
@@ -63,11 +64,8 @@ export default{
 
   fetchProfile: (params) => {
   return (dispatch) => {
-    console.log("ACTIONS Params: " + JSON.stringify(params))
-    console.log("HI ACTIONS:" + JSON.stringify(action.payload))
     return dispatch(getRequest('/api/profile', params, constants.PROFILE_RECEIVED))
-
-  }
+    }
   },
 
   submitMessage: (params) => {

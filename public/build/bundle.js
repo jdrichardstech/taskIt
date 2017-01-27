@@ -47567,6 +47567,7 @@
 	        payload: payload,
 	        params: params
 	      });
+	      console.log('ACTION GET' + JSON.stringify(response));
 	      return response;
 	    }).catch(function (err) {
 	      throw err;
@@ -47609,8 +47610,6 @@
 	
 	  fetchProfile: function fetchProfile(params) {
 	    return function (dispatch) {
-	      console.log("ACTIONS Params: " + JSON.stringify(params));
-	      console.log("HI ACTIONS:" + JSON.stringify(action.payload));
 	      return dispatch(getRequest('/api/profile', params, _constants2.default.PROFILE_RECEIVED));
 	    };
 	  },
