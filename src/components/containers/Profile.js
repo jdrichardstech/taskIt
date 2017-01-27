@@ -33,7 +33,7 @@ class Profile extends Component{
   //     return
     // }
 
-    APIManager.get(url, null,)
+    APIManager.get(url, null)
     .then((response)=>{
       // console.log("RESPONSE: " + JSON.stringify(response))
       // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
