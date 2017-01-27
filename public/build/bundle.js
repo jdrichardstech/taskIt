@@ -47610,9 +47610,9 @@
 	    };
 	  },
 	
-	  fetchProfile: function fetchProfile(params) {
+	  fetchProfile: function fetchProfile(path, params) {
 	    return function (dispatch) {
-	      return dispatch(getRequest('/api/profile', params, _constants2.default.PROFILE_RECEIVED));
+	      return dispatch(getRequest(path, params, _constants2.default.PROFILE_RECEIVED));
 	    };
 	  },
 	
@@ -53222,38 +53222,39 @@
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
-	      var url = '/api/profile/';
-	      _superagent2.default.get(url).query(responderId).set('Accept', 'application/json').end(function (err, response) {
-	        if (err) {
-	          alert('ERROR: ' + err);
-	          return;
-	        }
-	        console.log("SUPERAGENT: " + JSON.stringify(response.result));
+	      var url = '/api/profile/' + responderId;
+	      // superagent
+	      // .get(url)
+	      // .query(null)
+	      // .set('Accept', 'application/json')
+	      // .end((err, response) => {
+	      //   if (err){
+	      //     alert('ERROR: '+err)
+	      //     return
+	      // }
 	
-	        // APIManager.get(url, null)
-	        // .then((response)=>{
-	        //   // console.log("RESPONSE: " + JSON.stringify(response))
-	        //   // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
-	        //   let responder = response.result
-	        //   updated['username'] = responder.username
-	        //   updated['email'] = responder.email
-	        //   updated['phone'] = responder.phone
-	        //   updated['responderId'] = responderId
-	        //   // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-	        //     this.setState({
-	        //       updated: updated
-	        //     })
-	        // })
-	        // .catch((err)=>{
-	        //   console.log("ERROR: " + err)
-	        //   }
-	        // )
-	        // // this.props.fetchProfile({id:responderId})
-	        // .then((results)=>{
-	        //   console.log("PROFILE FETCHED: "+ JSON.stringify(results))
-	        // })
-	        // .catch((err)=>{
-	        //   console.log("OOPS: " + err.message)
+	      // APIManager.get(url, null)
+	      // .then((response)=>{
+	      //   // console.log("RESPONSE: " + JSON.stringify(response))
+	      //   // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
+	      //   let responder = response.result
+	      //   updated['username'] = responder.username
+	      //   updated['email'] = responder.email
+	      //   updated['phone'] = responder.phone
+	      //   updated['responderId'] = responderId
+	      //   // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+	      //     this.setState({
+	      //       updated: updated
+	      //     })
+	      // })
+	      // .catch((err)=>{
+	      //   console.log("ERROR: " + err)
+	      //   }
+	      // )
+	      this.props.fetchProfile(url, null).then(function (results) {
+	        console.log("PROFILE FETCHED: " + JSON.stringify(results));
+	      }).catch(function (err) {
+	        console.log("OOPS: " + err.message);
 	      });
 	    }
 	  }, {
@@ -53300,8 +53301,8 @@
 	
 	var dispatchToProps = function dispatchToProps(dispatch) {
 	  return {
-	    fetchProfile: function fetchProfile(params) {
-	      return dispatch(_actions2.default.fetchProfile(params));
+	    fetchProfile: function fetchProfile(path, params) {
+	      return dispatch(_actions2.default.fetchProfile(path, params));
 	    }
 	  };
 	};
