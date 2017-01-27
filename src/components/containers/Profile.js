@@ -65,7 +65,7 @@ class Profile extends Component{
           this.setState({
             updated: updated
           })
-      })
+      
     })
     .catch((err)=>{
       console.log("OOPS: " + err.message)
