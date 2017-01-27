@@ -21841,7 +21841,7 @@
 	                { key: i, to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-4', style: { marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
+	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
 	                  _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                  _react2.default.createElement(
 	                    'span',
@@ -53213,7 +53213,7 @@
 	      var _this2 = this;
 	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
-	      var updated = Object.assign({}, this.state.updated);
+	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
 	      var url = '/api/profile/' + responderId;
 	      _superagent2.default.get(url).query(null).set('Accept', 'application/json').end(function (err, response) {
@@ -53222,7 +53222,7 @@
 	          return;
 	        }
 	
-	        // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
+	        console.log('TASK RESPONSE BODY: ' + JSON.stringify(response.body));
 	
 	        var responder = response.body;
 	        updated['username'] = responder.result.username;

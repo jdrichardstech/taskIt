@@ -19,7 +19,7 @@ class Profile extends Component{
 
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
-    let updated = Object.assign({}, this.state.updated)
+    let updated = Object.assign({}, this.state)
     let responderId = this.props.info.params.id
     var url = '/api/profile/'+responderId
   superagent
@@ -32,7 +32,7 @@ class Profile extends Component{
       return
     }
 
-    // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
+    console.log('TASK RESPONSE BODY: '+JSON.stringify(response.body))
 
     let responder = response.body
     updated['username'] = responder.result.username
