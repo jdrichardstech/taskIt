@@ -53255,7 +53255,7 @@
 	      // )
 	      this.props.fetchProfile(url, null).then(function (response) {
 	        console.log("PROFILE FETCHED: " + JSON.stringify(response.result.taskResponder));
-	        var responder = response.result;
+	        var responder = response.result.taskResponder;
 	        updated['username'] = responder.username;
 	        updated['email'] = responder.email;
 	        updated['phone'] = responder.phone;
