@@ -43,7 +43,7 @@ class Profile extends Component{
       this.setState({
         updated: updated
       })
-      console.log("STATE: " + JSON.stringify(this.state))
+      console.log("STATE: " + JSON.stringify(this.state.updated))
         console.log("STATE PARTS: " + JSON.stringify(this.state.updated.username + ' ' + this.state.updated.email + ' '+ this.state.updated.phone))
     })
   }
@@ -53,9 +53,9 @@ class Profile extends Component{
     return(
       <div style={{padding:30}}>
       <h2>Profile for Your Claimaint</h2>
-      <strong>User Name: </strong>{this.state.username}<br />
-      <strong>Email: </strong>{this.state.email}<br />
-      <strong>Phone: </strong>{this.state.phone}
+      <strong>User Name: </strong>{this.state.updated.username}<br />
+      <strong>Email: </strong>{this.state.updated.email}<br />
+      <strong>Phone: </strong>{this.state.updated.phone}
 
       </div>
     )

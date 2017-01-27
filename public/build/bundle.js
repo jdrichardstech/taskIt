@@ -53233,7 +53233,7 @@
 	        _this2.setState({
 	          updated: updated
 	        });
-	        console.log("STATE: " + JSON.stringify(_this2.state));
+	        console.log("STATE: " + JSON.stringify(_this2.state.updated));
 	        console.log("STATE PARTS: " + JSON.stringify(_this2.state.updated.username + ' ' + _this2.state.updated.email + ' ' + _this2.state.updated.phone));
 	      });
 	    }
@@ -53253,21 +53253,21 @@
 	          null,
 	          'User Name: '
 	        ),
-	        this.state.username,
+	        this.state.updated.username,
 	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
 	          'strong',
 	          null,
 	          'Email: '
 	        ),
-	        this.state.email,
+	        this.state.updated.email,
 	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
 	          'strong',
 	          null,
 	          'Phone: '
 	        ),
-	        this.state.phone
+	        this.state.updated.phone
 	      );
 	    }
 	  }]);
