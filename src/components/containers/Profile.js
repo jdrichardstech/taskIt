@@ -38,9 +38,9 @@ class Profile extends Component{
       // console.log("RESPONSE: " + JSON.stringify(response))
       // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
       let responder = response.result
-      updated['username'] = responder.result.username
-      updated['email'] = responder.result.email
-      updated['phone'] = responder.result.phone
+      updated['username'] = responder.username
+      updated['email'] = responder.email
+      updated['phone'] = responder.phone
       updated['responderId'] = responderId
       // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
         this.setState({

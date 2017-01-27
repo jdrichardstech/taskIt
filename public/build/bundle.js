@@ -21863,7 +21863,7 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'span',
-	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
+	                    { style: { dispaly: 'block', position: 'relative', float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
 	                    _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
 	                  )
 	                )
@@ -53232,9 +53232,9 @@
 	        // console.log("RESPONSE: " + JSON.stringify(response))
 	        // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
 	        var responder = response.result;
-	        updated['username'] = responder.result.username;
-	        updated['email'] = responder.result.email;
-	        updated['phone'] = responder.result.phone;
+	        updated['username'] = responder.username;
+	        updated['email'] = responder.email;
+	        updated['phone'] = responder.phone;
 	        updated['responderId'] = responderId;
 	        // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
 	        _this2.setState({
