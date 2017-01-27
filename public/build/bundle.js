@@ -21841,7 +21841,7 @@
 	                { key: i, to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
+	                  { key: task.id, className: 'box col-md-3', style: { display: 'block', position: 'absolute', marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
 	                  _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                  _react2.default.createElement(
 	                    'span',
