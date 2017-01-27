@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import superagent from 'superagent'
 import { APIManager } from '../../utils'
+import actions from '../../actions'
+
 
 
 
@@ -51,6 +53,7 @@ class Profile extends Component{
       console.log("ERROR: " + err)
       }
     )
+    // this.props.fetchProfile(updated)
   }
 
 
@@ -76,7 +79,7 @@ const stateToProps =(state)=>{
 
 const dispatchToProps = (dispatch)=>{
   return{
-
+    fetchProfile:(params) => dispatch(actions.fetchProfile(params))
   }
 }
 

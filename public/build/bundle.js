@@ -47594,12 +47594,6 @@
 	
 	exports.default = {
 	
-	  // fetchProfile: (params) => {
-	  //   return (dispatch) => {
-	  //     return dispatch (getRequest'/)
-	  //   }
-	  // }
-	
 	  fetchTasks: function fetchTasks(params) {
 	    return function (dispatch) {
 	      return dispatch(getRequest('/api/task', params, _constants2.default.TASKS_RECEIVED));
@@ -47612,6 +47606,12 @@
 	      payload: tasks
 	    };
 	  },
+	
+	  // fetchProfile: (params) => {
+	  // return (dispatch) => {
+	  //   return dispatch(getRequest('/api/profile', params, constants.PROFILE_RECEIVED))
+	  // }
+	  // },
 	
 	  submitMessage: function submitMessage(params) {
 	    // console.log('submitClaim ACTIONS')
@@ -53182,6 +53182,10 @@
 	
 	var _utils = __webpack_require__(182);
 	
+	var _actions = __webpack_require__(350);
+	
+	var _actions2 = _interopRequireDefault(_actions);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -53243,6 +53247,7 @@
 	      }).catch(function (err) {
 	        console.log("ERROR: " + err);
 	      });
+	      // this.props.fetchProfile(updated)
 	    }
 	  }, {
 	    key: 'render',
@@ -53287,7 +53292,11 @@
 	};
 	
 	var dispatchToProps = function dispatchToProps(dispatch) {
-	  return {};
+	  return {
+	    fetchProfile: function fetchProfile(params) {
+	      return dispatch(_actions2.default.fetchProfile(params));
+	    }
+	  };
 	};
 	
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile);

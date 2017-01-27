@@ -46,11 +46,7 @@ const postRequest = (path, params, actionType) => {
 
 export default{
 
-  // fetchProfile: (params) => {
-  //   return (dispatch) => {
-  //     return dispatch (getRequest'/)
-  //   }
-  // }
+
 
   fetchTasks: (params) =>{
     return (dispatch) => {
@@ -65,12 +61,20 @@ export default{
     }
   },
 
+  // fetchProfile: (params) => {
+  // return (dispatch) => {
+  //   return dispatch(getRequest('/api/profile', params, constants.PROFILE_RECEIVED))
+  // }
+  // },
+
   submitMessage: (params) => {
     // console.log('submitClaim ACTIONS')
     return (dispatch) => {
       return dispatch(postRequest('/api/message', params, constants.MESSAGE_CREATED))
     }
   },
+
+
 
   submitTask: (params) =>{
     return (dispatch) => {
