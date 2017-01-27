@@ -63,7 +63,10 @@ export default{
 
   fetchProfile: (params) => {
   return (dispatch) => {
+    console.log("ACTIONS Params: " + JSON.strigify(params))
+    console.log("HI ACTIONS:" + JSON.stringify(action.payload))
     return dispatch(getRequest('/api/profile', params, constants.PROFILE_RECEIVED))
+
   }
   },
 

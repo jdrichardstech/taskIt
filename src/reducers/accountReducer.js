@@ -12,6 +12,7 @@ export default (state=initialState, action)=>{
   switch(action.type){
     case constants.PROFILE_RECEIVED:
     updated['user'] = action.payload
+    console.log("REDUCER: " + JSON.stringify(updated))
     return updated
     case constants.PROFILE_CREATED:
     // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))

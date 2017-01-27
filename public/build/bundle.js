@@ -47609,6 +47609,8 @@
 	
 	  fetchProfile: function fetchProfile(params) {
 	    return function (dispatch) {
+	      console.log("ACTIONS Params: " + JSON.strigify(params));
+	      console.log("HI ACTIONS:" + JSON.stringify(action.payload));
 	      return dispatch(getRequest('/api/profile', params, _constants2.default.PROFILE_RECEIVED));
 	    };
 	  },
@@ -53645,6 +53647,7 @@
 	  switch (action.type) {
 	    case _constants2.default.PROFILE_RECEIVED:
 	      updated['user'] = action.payload;
+	      console.log("REDUCER: " + JSON.stringify(updated));
 	      return updated;
 	    case _constants2.default.PROFILE_CREATED:
 	      // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))
