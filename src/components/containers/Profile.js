@@ -54,8 +54,18 @@ class Profile extends Component{
     //   }
     // )
     this.props.fetchProfile(url,null)
-    .then((results)=>{
-      console.log("PROFILE FETCHED: "+ JSON.stringify(results))
+    .then((response)=>{
+      console.log("PROFILE FETCHED: "+ JSON.stringify(response))
+        let responder = response.result
+        updated['username'] = responder.username
+        updated['email'] = responder.email
+        updated['phone'] = responder.phone
+        updated['responderId'] = responderId
+        // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+          this.setState({
+            updated: updated
+          })
+      })
     })
     .catch((err)=>{
       console.log("OOPS: " + err.message)
