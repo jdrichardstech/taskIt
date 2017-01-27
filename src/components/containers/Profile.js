@@ -24,16 +24,17 @@ class Profile extends Component{
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
     let updated = Object.assign({}, this.state)
     let responderId = this.props.info.params.id
-    var url = '/api/profile/'+responderId
-  // superagent
-  // .get(url)
-  // .query(null)
-  // .set('Accept', 'application/json')
-  // .end((err, response) => {
-  //   if (err){
-  //     alert('ERROR: '+err)
-  //     return
-    // }
+    var url = '/api/profile/'
+  superagent
+  .get(url)
+  .query(responderId)
+  .set('Accept', 'application/json')
+  .end((err, response) => {
+    if (err){
+      alert('ERROR: '+err)
+      return
+    }
+    console.log("SUPERAGENT: " + JSON.stringify(response.result))
 
     // APIManager.get(url, null)
     // .then((response)=>{
@@ -53,12 +54,12 @@ class Profile extends Component{
     //   console.log("ERROR: " + err)
     //   }
     // )
-    this.props.fetchProfile({id:responderId})
-    .then((results)=>{
-      console.log("PROFILE FETCHED: "+ JSON.stringify(results))
-    })
-    .catch((err)=>{
-      console.log("OOPS: " + err.message)
+    // // this.props.fetchProfile({id:responderId})
+    // .then((results)=>{
+    //   console.log("PROFILE FETCHED: "+ JSON.stringify(results))
+    // })
+    // .catch((err)=>{
+    //   console.log("OOPS: " + err.message)
     })
   }
 
