@@ -45,6 +45,13 @@ const postRequest = (path, params, actionType) => {
 
 
 export default{
+
+  // fetchProfile: (params) => {
+  //   return (dispatch) => {
+  //     return dispatch (getRequest'/)
+  //   }
+  // }
+
   fetchTasks: (params) =>{
     return (dispatch) => {
       return dispatch(getRequest('/api/task', params, constants.TASKS_RECEIVED))

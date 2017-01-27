@@ -21841,7 +21841,7 @@
 	                { key: i, to: '/task/' + task.id },
 	                _react2.default.createElement(
 	                  'div',
-	                  { key: task.id, className: 'box col-md-3', style: { marginRight: 10, height: 250, width: '30%', background: 'white', boxShadow: '5px 5px 5px #855541' } },
+	                  { key: task.id, className: 'box col-md-4', style: { marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
 	                  _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                  _react2.default.createElement(
 	                    'span',
@@ -21863,7 +21863,7 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'span',
-	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, paddingBottom: 30, color: 'gray' } },
+	                    { style: { float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
 	                    _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
 	                  )
 	                )
@@ -47593,6 +47593,13 @@
 	};
 	
 	exports.default = {
+	
+	  // fetchProfile: (params) => {
+	  //   return (dispatch) => {
+	  //     return dispatch (getRequest'/)
+	  //   }
+	  // }
+	
 	  fetchTasks: function fetchTasks(params) {
 	    return function (dispatch) {
 	      return dispatch(getRequest('/api/task', params, _constants2.default.TASKS_RECEIVED));
@@ -47681,7 +47688,8 @@
 	  CATEGORY_SELECTED: 'CATEGORY_SELECTED',
 	  PROFILE_CREATED: 'PROFILE_CREATED',
 	  USER_LOGGED_IN: 'USER_LOGGED_IN',
-	  MESSAGE_CREATED: 'MESSAGE_CREATED'
+	  MESSAGE_CREATED: 'MESSAGE_CREATED',
+	  PROFILE_RECEIVED: 'PROFILE_RECEIVED'
 	
 	};
 
@@ -53188,7 +53196,14 @@
 	
 	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this));
 	
-	    _this.state = {};
+	    _this.state = {
+	      updated: {
+	        username: '',
+	        email: '',
+	        phone: '',
+	        responderId: ''
+	      }
+	    };
 	    return _this;
 	  }
 	
@@ -53198,7 +53213,8 @@
 	      var _this2 = this;
 	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
-	      var responderId = this.props.info.params.id;
+	      var updated = Object.assign({}, this.state.updated);
+	      responderId = this.props.info.params.id;
 	      var url = '/api/profile/' + responderId;
 	      _superagent2.default.get(url).query(null).set('Accept', 'application/json').end(function (err, response) {
 	        if (err) {
@@ -53207,17 +53223,15 @@
 	        }
 	
 	        // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
-	        var responder = response.body;
 	
-	        var username = responder.result.username;
-	        var email = responder.result.email;
-	        var phone = responder.result.phone;
+	        var responder = response.body;
+	        updated['username'] = responder.result.username;
+	        updated['email'] = responder.result.email;
+	        updated['phone'] = responder.result.phone;
+	        updated['responderId'] = responderId;
 	
 	        _this2.setState({
-	          username: username,
-	          email: email,
-	          phone: phone
-	
+	          updated: updated
 	        });
 	        console.log("STATE: " + JSON.stringify(_this2.state.username + ' ' + _this2.state.email + ' ' + _this2.state.phone));
 	      });

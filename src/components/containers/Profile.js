@@ -8,13 +8,19 @@ class Profile extends Component{
   constructor(){
     super()
     this.state={
-
+      updated:{
+        username:'',
+        email:'',
+        phone:'',
+        responderId:''
+      }
     }
   }
 
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
-    let responderId = this.props.info.params.id
+    let updated = Object.assign({}, this.state.updated)
+    responderId = this.props.info.params.id
     var url = '/api/profile/'+responderId
   superagent
   .get(url)
@@ -27,18 +33,15 @@ class Profile extends Component{
     }
 
     // console.log('DBINFO MOVIEDB NEW: '+JSON.stringify(response.body))
+
     let responder = response.body
-
-
-    let username = responder.result.username
-    let email = responder.result.email
-    let phone = responder.result.phone
+    updated['username'] = responder.result.username
+    updated['email'] = responder.result.email
+    updated['phone'] = responder.result.phone
+    updated['responderId'] = responderId
 
       this.setState({
-        username,
-        email,
-        phone
-
+        updated: updated
       })
         console.log("STATE: " + JSON.stringify(this.state.username + ' ' + this.state.email + ' '+ this.state.phone))
     })

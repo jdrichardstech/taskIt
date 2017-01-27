@@ -79,23 +79,20 @@ class Tasks extends Component {
                   return (
 
                     <Link key={i}  to={'/task/'+task.id}>
+                      <div key={task.id} className="box col-md-4" style={{marginRight:10,background:'white',padding:'.7em', boxShadow:'5px 5px 5px #855541'}}>
+                        <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
+                          <span style={{padding:'20px 0 0 10px',marginBottom:0,fontFamily:'OpenSans-Semibold, sans-serif',color:'#000',fontSize:'1.1em'}}> Task {i+1}</span>
+                          <hr />
+                        {/*}    <h3>Category: {task.category}</h3>*/}
 
-                    <div key={task.id} className="box col-md-3" style={{marginRight:10,height:250, width:'30%',background:'white', boxShadow:'5px 5px 5px #855541'}}>
-                      <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
-                        <span style={{padding:'20px 0 0 10px',marginBottom:0,fontFamily:'OpenSans-Semibold, sans-serif',color:'#000',fontSize:'1.1em'}}> Task {i+1}</span>
-                        <hr />
-                      {/*}    <h3>Category: {task.category}</h3>*/}
+                            <center>  <h3 style={{color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</h3>  </center>
 
-                          <center>  <h3 style={{color:'#f56a6a'}}>{TextUtils.capitalize(task.title)}</h3>  </center>
-
-                          {/* <span style = {{float:'right'}}>{username}</span>*/}
-                            <span style={{float:'right', fontSize:'.9em',paddingTop:25,paddingBottom:30,color:'gray'}}>{DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}
-                            </span>
-
-
-                    </div>
-
-                      </Link>
+                            {/* <span style = {{float:'right'}}>{username}</span>*/}
+                              <span style={{float:'right', fontSize:'.9em',paddingTop:25,color:'gray'}}>
+                                {DateUtils.formattedDate(this.props.tasks[task.id].timestamp)}
+                              </span>
+                      </div>
+                    </Link>
 
                   )
                 })}

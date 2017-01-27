@@ -20,7 +20,7 @@ class Home extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-2" >
-                
+
                   <Categories />
             </div>
 
