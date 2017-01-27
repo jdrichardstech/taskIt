@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import superagent from 'superagent'
+import { APIManager } from '../../utils'
 
 
 
@@ -22,30 +23,40 @@ class Profile extends Component{
     let updated = Object.assign({}, this.state)
     let responderId = this.props.info.params.id
     var url = '/api/profile/'+responderId
-  superagent
-  .get(url)
-  .query(null)
-  .set('Accept', 'application/json')
-  .end((err, response) => {
-    if (err){
-      alert('ERROR: '+err)
-      return
-    }
+  // superagent
+  // .get(url)
+  // .query(null)
+  // .set('Accept', 'application/json')
+  // .end((err, response) => {
+  //   if (err){
+  //     alert('ERROR: '+err)
+  //     return
+    // }
 
-    console.log('TASK RESPONSE BODY: '+JSON.stringify(response.body))
-
-    let responder = response.body
-    updated['username'] = responder.result.username
-    updated['email'] = responder.result.email
-    updated['phone'] = responder.result.phone
-    updated['responderId'] = responderId
-    console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-      this.setState({
-        updated: updated
-      })
-      console.log("STATE: " + JSON.stringify(this.state.updated))
-        console.log("STATE PARTS: " + JSON.stringify(this.state.updated.username + ' ' + this.state.updated.email + ' '+ this.state.updated.phone))
+    APIManager.get(url, null,)
+    .then((response)=>{
+      console.log("RESPONSE: " + JSON.stringify(response))
+      console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
     })
+    .catch((err)=>{
+      console.log("ERROR: " + err)
+    }
+    )
+
+    console.log('TASK RESPONSE BODY: '+JSON.stringify(response.result))
+
+    // let responder = response.body
+    // updated['username'] = responder.result.username
+    // updated['email'] = responder.result.email
+    // updated['phone'] = responder.result.phone
+    // updated['responderId'] = responderId
+    // // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+    //   this.setState({
+    //     updated: updated
+    //   })
+      // console.log("STATE: " + JSON.stringify(this.state.updated))
+        // console.log("STATE PARTS: " + JSON.stringify(this.state.updated.username + ' ' + this.state.updated.email + ' '+ this.state.updated.phone))
+    // })
   }
 
 

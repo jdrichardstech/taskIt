@@ -53180,6 +53180,8 @@
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
+	var _utils = __webpack_require__(182);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -53210,32 +53212,41 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
-	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
 	      var url = '/api/profile/' + responderId;
-	      _superagent2.default.get(url).query(null).set('Accept', 'application/json').end(function (err, response) {
-	        if (err) {
-	          alert('ERROR: ' + err);
-	          return;
-	        }
+	      // superagent
+	      // .get(url)
+	      // .query(null)
+	      // .set('Accept', 'application/json')
+	      // .end((err, response) => {
+	      //   if (err){
+	      //     alert('ERROR: '+err)
+	      //     return
+	      // }
 	
-	        console.log('TASK RESPONSE BODY: ' + JSON.stringify(response.body));
-	
-	        var responder = response.body;
-	        updated['username'] = responder.result.username;
-	        updated['email'] = responder.result.email;
-	        updated['phone'] = responder.result.phone;
-	        updated['responderId'] = responderId;
-	        console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated));
-	        _this2.setState({
-	          updated: updated
-	        });
-	        console.log("STATE: " + JSON.stringify(_this2.state.updated));
-	        console.log("STATE PARTS: " + JSON.stringify(_this2.state.updated.username + ' ' + _this2.state.updated.email + ' ' + _this2.state.updated.phone));
+	      _utils.APIManager.get(url, null).then(function (response) {
+	        console.log("RESPONSE: " + JSON.stringify(response));
+	        console.log("RESPONSE RESULT: " + JSON.stringify(response.result));
+	      }).catch(function (err) {
+	        console.log("ERROR: " + err);
 	      });
+	
+	      console.log('TASK RESPONSE BODY: ' + JSON.stringify(response.result));
+	
+	      // let responder = response.body
+	      // updated['username'] = responder.result.username
+	      // updated['email'] = responder.result.email
+	      // updated['phone'] = responder.result.phone
+	      // updated['responderId'] = responderId
+	      // // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+	      //   this.setState({
+	      //     updated: updated
+	      //   })
+	      // console.log("STATE: " + JSON.stringify(this.state.updated))
+	      // console.log("STATE PARTS: " + JSON.stringify(this.state.updated.username + ' ' + this.state.updated.email + ' '+ this.state.updated.phone))
+	      // })
 	    }
 	  }, {
 	    key: 'render',
