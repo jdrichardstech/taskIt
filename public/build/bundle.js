@@ -21954,6 +21954,7 @@
 	
 	  get: function get(url, params) {
 	    return new _bluebird2.default(function (resolve, reject) {
+	      console.log("PARAMS APIManager: " + JSON.stringify(params));
 	      _superagent2.default.get(url).query(params).set('Accept', 'application/json').end(function (err, response) {
 	        if (err) {
 	          reject(err);
@@ -47561,7 +47562,7 @@
 	  return function (dispatch) {
 	    return _utils.APIManager.get(path, params).then(function (response) {
 	      var payload = response.results || response.result || response.user;
-	      console.log('Response getRequest: ' + JSON.stringify(response));
+	      console.log('Response getRequest params: ' + JSON.stringify(params));
 	      dispatch({
 	        type: actionType,
 	        payload: payload,

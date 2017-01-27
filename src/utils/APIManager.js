@@ -6,6 +6,7 @@ export default{
 
 get:(url, params)=>{
   return new Promise((resolve,reject)=>{
+    console.log("PARAMS APIManager: " + JSON.stringify(params))
     superagent
     .get(url)
     .query(params)
