@@ -21954,7 +21954,7 @@
 	
 	  get: function get(url, params) {
 	    return new _bluebird2.default(function (resolve, reject) {
-	      console.log("PARAMS APIManager: " + JSON.stringify(params));
+	      // console.log("PARAMS APIManager: " + JSON.stringify(params))
 	      _superagent2.default.get(url).query(params).set('Accept', 'application/json').end(function (err, response) {
 	        if (err) {
 	          reject(err);
@@ -21965,7 +21965,7 @@
 	          reject(new Error(response.body.message));
 	          return;
 	        }
-	        console.log("APIManager: " + JSON.stringify(response.body));
+	        // console.log("APIManager: " +JSON.stringify(response.body))
 	        resolve(response.body);
 	      });
 	    });
@@ -47563,13 +47563,13 @@
 	  return function (dispatch) {
 	    return _utils.APIManager.get(path, params).then(function (response) {
 	      var payload = response.results || response.result || response.user;
-	      console.log('Response getRequest params: ' + JSON.stringify(params));
+	      //  console.log('Response getRequest params: ' + JSON.stringify(params))
 	      dispatch({
 	        type: actionType,
 	        payload: payload,
 	        params: params
 	      });
-	      console.log('ACTION GET' + JSON.stringify(payload));
+	      // console.log('ACTION GET' + JSON.stringify(payload))
 	      return response;
 	    }).catch(function (err) {
 	      throw err;
@@ -53254,7 +53254,7 @@
 	      //   }
 	      // )
 	      this.props.fetchProfile(url, null).then(function (response) {
-	        console.log("PROFILE FETCHED: " + JSON.stringify(response));
+	        console.log("PROFILE FETCHED: " + JSON.stringify(response.result.taskResponder));
 	        var responder = response.result;
 	        updated['username'] = responder.username;
 	        updated['email'] = responder.email;
@@ -53658,7 +53658,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var initialState = {
-	  user: null
+	  user: null,
+	  taskResponder: null
 	};
 	
 	exports.default = function () {
@@ -53670,7 +53671,8 @@
 	    case _constants2.default.PROFILE_RECEIVED:
 	      console.log("ACTION PAYLOAD:" + JSON.stringify(action.payload));
 	      // updated['user'] = action.payload
-	
+	      updated['taskResponder'] = action.payload;
+	      console.log("TASKRESPONDER REDUCER: " + JSON.stringify(updated));
 	      return updated;
 	    case _constants2.default.PROFILE_CREATED:
 	      // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))

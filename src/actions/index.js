@@ -8,13 +8,13 @@ const getRequest = (path, params, actionType) => {
     APIManager.get(path, params)
       .then((response)=>{
         const payload= response.results || response.result || response.user
-         console.log('Response getRequest params: ' + JSON.stringify(params))
+        //  console.log('Response getRequest params: ' + JSON.stringify(params))
         dispatch({
           type: actionType,
           payload: payload,
           params: params
         })
-        console.log('ACTION GET' + JSON.stringify(payload))
+        // console.log('ACTION GET' + JSON.stringify(payload))
         return response
       })
       .catch((err)=>{

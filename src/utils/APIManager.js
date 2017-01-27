@@ -6,7 +6,7 @@ export default{
 
 get:(url, params)=>{
   return new Promise((resolve,reject)=>{
-    console.log("PARAMS APIManager: " + JSON.stringify(params))
+    // console.log("PARAMS APIManager: " + JSON.stringify(params))
     superagent
     .get(url)
     .query(params)
@@ -21,7 +21,7 @@ get:(url, params)=>{
         reject (new Error(response.body.message))
         return
       }
-      console.log("APIManager: " +JSON.stringify(response.body))
+      // console.log("APIManager: " +JSON.stringify(response.body))
       resolve(response.body)
     })
 

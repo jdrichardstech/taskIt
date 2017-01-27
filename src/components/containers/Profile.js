@@ -55,7 +55,7 @@ class Profile extends Component{
     // )
     this.props.fetchProfile(url,null)
     .then((response)=>{
-      console.log("PROFILE FETCHED: "+ JSON.stringify(response))
+      console.log("PROFILE FETCHED: "+ JSON.stringify(response.result.taskResponder))
         let responder = response.result
         updated['username'] = responder.username
         updated['email'] = responder.email
