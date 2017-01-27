@@ -35,28 +35,22 @@ class Profile extends Component{
 
     APIManager.get(url, null,)
     .then((response)=>{
-      console.log("RESPONSE: " + JSON.stringify(response))
-      console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
+      // console.log("RESPONSE: " + JSON.stringify(response))
+      // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
+      let responder = response.result
+      updated['username'] = responder.result.username
+      updated['email'] = responder.result.email
+      updated['phone'] = responder.result.phone
+      updated['responderId'] = responderId
+      // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+        this.setState({
+          updated: updated
+        })
     })
     .catch((err)=>{
       console.log("ERROR: " + err)
-    }
+      }
     )
-
-    console.log('TASK RESPONSE BODY: '+JSON.stringify(response.result))
-
-    // let responder = response.body
-    // updated['username'] = responder.result.username
-    // updated['email'] = responder.result.email
-    // updated['phone'] = responder.result.phone
-    // updated['responderId'] = responderId
-    // // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-    //   this.setState({
-    //     updated: updated
-    //   })
-      // console.log("STATE: " + JSON.stringify(this.state.updated))
-        // console.log("STATE PARTS: " + JSON.stringify(this.state.updated.username + ' ' + this.state.updated.email + ' '+ this.state.updated.phone))
-    // })
   }
 
 

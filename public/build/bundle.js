@@ -53212,6 +53212,8 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
@@ -53227,26 +53229,20 @@
 	      // }
 	
 	      _utils.APIManager.get(url, null).then(function (response) {
-	        console.log("RESPONSE: " + JSON.stringify(response));
-	        console.log("RESPONSE RESULT: " + JSON.stringify(response.result));
+	        // console.log("RESPONSE: " + JSON.stringify(response))
+	        // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
+	        var responder = response.result;
+	        updated['username'] = responder.result.username;
+	        updated['email'] = responder.result.email;
+	        updated['phone'] = responder.result.phone;
+	        updated['responderId'] = responderId;
+	        // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+	        _this2.setState({
+	          updated: updated
+	        });
 	      }).catch(function (err) {
 	        console.log("ERROR: " + err);
 	      });
-	
-	      console.log('TASK RESPONSE BODY: ' + JSON.stringify(response.result));
-	
-	      // let responder = response.body
-	      // updated['username'] = responder.result.username
-	      // updated['email'] = responder.result.email
-	      // updated['phone'] = responder.result.phone
-	      // updated['responderId'] = responderId
-	      // // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-	      //   this.setState({
-	      //     updated: updated
-	      //   })
-	      // console.log("STATE: " + JSON.stringify(this.state.updated))
-	      // console.log("STATE PARTS: " + JSON.stringify(this.state.updated.username + ' ' + this.state.updated.email + ' '+ this.state.updated.phone))
-	      // })
 	    }
 	  }, {
 	    key: 'render',
