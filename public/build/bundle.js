@@ -53109,13 +53109,13 @@
 	        return _react2.default.createElement(
 	          'li',
 	          null,
-	          message.text,
-	          ' by ',
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: '/profile/' + message.profile.id },
 	            message.profile.username
-	          )
+	          ),
+	          ' says: ',
+	          message.text
 	        );
 	      });
 	      return _react2.default.createElement(
@@ -53182,8 +53182,13 @@
 	          'div',
 	          null,
 	          _react2.default.createElement(
-	            'ul',
+	            'ol',
 	            null,
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'Responses:'
+	            ),
 	            content
 	          )
 	        ),
