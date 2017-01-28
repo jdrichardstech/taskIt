@@ -10,7 +10,7 @@ class ProfileLayout extends Component{
   render(){
     return(
       <div>
-      <Profile {info={this.props}}  />
+      <Profile info={this.props}  />
       </div>
     )
   }
