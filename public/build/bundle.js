@@ -53296,7 +53296,7 @@
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
-	      var url = '/api/profile/' + this.props.messages.profile.id;
+	      var url = '/api/profile/' + this.props.messages.task;
 	      console.log("URL: " + JSON.stringify(url));
 	      // superagent
 	      // .get(url)
