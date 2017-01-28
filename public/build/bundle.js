@@ -53293,6 +53293,8 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
@@ -53328,16 +53330,15 @@
 	      // )
 	      this.props.fetchProfile(url, null).then(function (response) {
 	        console.log("PROFILE FETCHED: " + JSON.stringify(response.result));
-	        //     // let responder = response.result.taskResponder
-	        //     // updated['username'] = responder.username
-	        //     // updated['email'] = responder.email
-	        //     // updated['phone'] = responder.phone
-	        //     // updated['responderId'] = responderId
-	        //     //  console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-	        //     //   this.setState({
-	        //     //     updated: updated
-	        //     //   })
-	        //
+	        var responder = response.result;
+	        updated['username'] = responder.username;
+	        updated['email'] = responder.email;
+	        updated['phone'] = responder.phone;
+	        updated['responderId'] = responderId;
+	        console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated));
+	        _this2.setState({
+	          updated: updated
+	        });
 	      }).catch(function (err) {
 	        console.log("OOPS: " + err.message);
 	      });
@@ -53345,50 +53346,49 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var content = this.props.taskResponder == null ? null : _react2.default.createElement(
-	        'div',
-	        { style: { padding: 30 } },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Profile for Your Claimaint'
-	        ),
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          _react2.default.createElement(
-	            'strong',
-	            null,
-	            'User Name: '
-	          ),
-	          this.props.account.taskResponder.username
-	        ),
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          _react2.default.createElement(
-	            'strong',
-	            null,
-	            'Email: '
-	          ),
-	          this.props.account.taskResponder.email
-	        ),
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          _react2.default.createElement(
-	            'strong',
-	            null,
-	            'Phone: '
-	          ),
-	          this.props.account.taskResponder.phone
-	        )
-	      );
 	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        content
+	        _react2.default.createElement(
+	          'div',
+	          { style: { padding: 30 } },
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            'Profile for Your Claimaint'
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'User Name: '
+	            ),
+	            this.props.account.taskResponder.username
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Email: '
+	            ),
+	            this.props.account.taskResponder.email
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Phone: '
+	            ),
+	            this.props.account.taskResponder.phone
+	          )
+	        )
 	      );
 	    }
 	  }]);
