@@ -53293,12 +53293,11 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
-	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
 	      var url = '/api/profile/' + this.props.messages.profile.id;
+	      console.log("URL: " + JSON.stringify(url));
 	      // superagent
 	      // .get(url)
 	      // .query(null)
@@ -53327,20 +53326,23 @@
 	      //   console.log("ERROR: " + err)
 	      //   }
 	      // )
-	      this.props.fetchProfile(url, null).then(function (response) {
-	        // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
-	        var responder = response.result.taskResponder;
-	        updated['username'] = responder.username;
-	        updated['email'] = responder.email;
-	        updated['phone'] = responder.phone;
-	        updated['responderId'] = responderId;
-	        console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated));
-	        _this2.setState({
-	          updated: updated
-	        });
-	      }).catch(function (err) {
-	        console.log("OOPS: " + err.message);
-	      });
+	      // this.props.fetchProfile(url,null)
+	      // .then((response)=>{
+	      //   // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
+	      //     let responder = response.result.taskResponder
+	      //     updated['username'] = responder.username
+	      //     updated['email'] = responder.email
+	      //     updated['phone'] = responder.phone
+	      //     updated['responderId'] = responderId
+	      //      console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+	      //       this.setState({
+	      //         updated: updated
+	      //       })
+	      //
+	      // })
+	      // .catch((err)=>{
+	      //   console.log("OOPS: " + err.message)
+	      // })
 	    }
 	  }, {
 	    key: 'render',
