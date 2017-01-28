@@ -53277,28 +53277,16 @@
 	  function Profile() {
 	    _classCallCheck(this, Profile);
 	
-	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this));
-	
-	    _this.state = {
-	      updated: {
-	        username: '',
-	        email: '',
-	        phone: '',
-	        responderId: ''
-	      }
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
 	  }
 	
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
-	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
-	      var updated = Object.assign({}, this.state);
+	
 	      var responderId = this.props.info.params.id;
-	      var url = '/api/profile/' + this.props.info.params.id;
+	      var url = '/api/profile/' + responderId;
 	      console.log("URL: " + JSON.stringify(url));
 	      // superagent
 	      // .get(url)
@@ -53330,15 +53318,6 @@
 	      // )
 	      this.props.fetchProfile(url, null).then(function (response) {
 	        console.log("PROFILE FETCHED: " + JSON.stringify(response.result));
-	        var responder = response.result;
-	        updated['username'] = responder.username;
-	        updated['email'] = responder.email;
-	        updated['phone'] = responder.phone;
-	        updated['responderId'] = responderId;
-	        console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated));
-	        _this2.setState({
-	          updated: updated
-	        });
 	      }).catch(function (err) {
 	        console.log("OOPS: " + err.message);
 	      });

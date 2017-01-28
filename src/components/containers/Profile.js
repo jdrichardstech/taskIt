@@ -8,23 +8,12 @@ import actions from '../../actions'
 
 
 class Profile extends Component{
-  constructor(){
-    super()
-    this.state={
-      updated:{
-        username:'',
-        email:'',
-        phone:'',
-        responderId:''
-      }
-    }
-  }
 
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
-    let updated = Object.assign({}, this.state)
+
     let responderId = this.props.info.params.id
-    var url = '/api/profile/'+this.props.info.params.id
+    var url = '/api/profile/'+responderId
     console.log("URL: " +JSON.stringify(url))
   // superagent
   // .get(url)
@@ -57,16 +46,6 @@ class Profile extends Component{
     this.props.fetchProfile(url,null)
     .then((response)=>{
       console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
-        let responder = response.result
-        updated['username'] = responder.username
-        updated['email'] = responder.email
-        updated['phone'] = responder.phone
-        updated['responderId'] = responderId
-         console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-          this.setState({
-            updated: updated
-          })
-
     })
     .catch((err)=>{
       console.log("OOPS: " + err.message)
