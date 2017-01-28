@@ -53345,7 +53345,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
+	      var content = this.props.taskResponder == null ? null : _react2.default.createElement(
 	        'div',
 	        { style: { padding: 30 } },
 	        _react2.default.createElement(
@@ -53383,6 +53383,12 @@
 	          ),
 	          this.props.account.taskResponder.phone
 	        )
+	      );
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        content
 	      );
 	    }
 	  }]);

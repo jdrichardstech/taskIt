@@ -75,13 +75,18 @@ class Profile extends Component{
 
 
   render(){
-    return(
-      <div style={{padding:30}}>
-      <h1>Profile for Your Claimaint</h1>
-      <h2><strong>User Name: </strong>{this.props.account.taskResponder.username}</h2>
-      <h2><strong>Email: </strong>{this.props.account.taskResponder.email}</h2>
-      <h2><strong>Phone: </strong>{this.props.account.taskResponder.phone}</h2>
+    const content=(this.props.taskResponder==null) ? null :
+    <div style={{padding:30}}>
+    <h1>Profile for Your Claimaint</h1>
+    <h2><strong>User Name: </strong>{this.props.account.taskResponder.username}</h2>
+    <h2><strong>Email: </strong>{this.props.account.taskResponder.email}</h2>
+    <h2><strong>Phone: </strong>{this.props.account.taskResponder.phone}</h2>
 
+    </div>
+
+    return(
+      <div>
+      {content}
       </div>
     )
   }
