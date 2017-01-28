@@ -53296,7 +53296,7 @@
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
-	      var url = '/api/profile/' + this.props.messages.task;
+	      var url = '/api/profile/' + this.props.params.id;
 	      console.log("URL: " + JSON.stringify(url));
 	      // superagent
 	      // .get(url)
@@ -53556,7 +53556,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_containers.Profile, { info: this.props })
+	        _react2.default.createElement(_containers.Profile, this.props)
 	      );
 	    }
 	  }]);
