@@ -53291,8 +53291,8 @@
 	  }
 	
 	  _createClass(Profile, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;

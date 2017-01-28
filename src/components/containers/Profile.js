@@ -20,7 +20,7 @@ class Profile extends Component{
     }
   }
 
-  componentDidMount(){
+  componentDidUpdate(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
     let updated = Object.assign({}, this.state)
     let responderId = this.props.info.params.id
