@@ -56,17 +56,17 @@ class Profile extends Component{
     // )
     this.props.fetchProfile(url,null)
     .then((response)=>{
-      // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
-        let responder = response.result.taskResponder
-        updated['username'] = responder.username
-        updated['email'] = responder.email
-        updated['phone'] = responder.phone
-        updated['responderId'] = responderId
-         console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-          this.setState({
-            updated: updated
-          })
-
+    //   // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
+    //     // let responder = response.result.taskResponder
+    //     // updated['username'] = responder.username
+    //     // updated['email'] = responder.email
+    //     // updated['phone'] = responder.phone
+    //     // updated['responderId'] = responderId
+    //     //  console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+    //     //   this.setState({
+    //     //     updated: updated
+    //     //   })
+    //
     })
     .catch((err)=>{
       console.log("OOPS: " + err.message)
@@ -78,9 +78,9 @@ class Profile extends Component{
     return(
       <div style={{padding:30}}>
       <h1>Profile for Your Claimaint</h1>
-      <h2><strong>User Name: </strong>{this.state.updated.username}</h2>
-      <h2><strong>Email: </strong>{this.state.updated.email}</h2>
-      <h2><strong>Phone: </strong>{this.state.updated.phone}</h2>
+      <h2><strong>User Name: </strong>{this.props.account.taskResponder.username}</h2>
+      <h2><strong>Email: </strong>{this.props.account.taskResponder.email}</h2>
+      <h2><strong>Phone: </strong>{this.props.account.taskResponder.phone}</h2>
 
       </div>
     )
@@ -90,7 +90,8 @@ class Profile extends Component{
 
 const stateToProps =(state)=>{
   return{
-    messages:state.messages
+    messages:state.messages,
+    account: state.account
   }
 }
 

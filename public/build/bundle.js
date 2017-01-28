@@ -53293,8 +53293,6 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
-	
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
@@ -53329,16 +53327,17 @@
 	      //   }
 	      // )
 	      this.props.fetchProfile(url, null).then(function (response) {
-	        // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
-	        var responder = response.result.taskResponder;
-	        updated['username'] = responder.username;
-	        updated['email'] = responder.email;
-	        updated['phone'] = responder.phone;
-	        updated['responderId'] = responderId;
-	        console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated));
-	        _this2.setState({
-	          updated: updated
-	        });
+	        //   // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
+	        //     // let responder = response.result.taskResponder
+	        //     // updated['username'] = responder.username
+	        //     // updated['email'] = responder.email
+	        //     // updated['phone'] = responder.phone
+	        //     // updated['responderId'] = responderId
+	        //     //  console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+	        //     //   this.setState({
+	        //     //     updated: updated
+	        //     //   })
+	        //
 	      }).catch(function (err) {
 	        console.log("OOPS: " + err.message);
 	      });
@@ -53362,7 +53361,7 @@
 	            null,
 	            'User Name: '
 	          ),
-	          this.state.updated.username
+	          this.props.account.taskResponder.username
 	        ),
 	        _react2.default.createElement(
 	          'h2',
@@ -53372,7 +53371,7 @@
 	            null,
 	            'Email: '
 	          ),
-	          this.state.updated.email
+	          this.props.account.taskResponder.email
 	        ),
 	        _react2.default.createElement(
 	          'h2',
@@ -53382,7 +53381,7 @@
 	            null,
 	            'Phone: '
 	          ),
-	          this.state.updated.phone
+	          this.props.account.taskResponder.phone
 	        )
 	      );
 	    }
@@ -53393,7 +53392,8 @@
 	
 	var stateToProps = function stateToProps(state) {
 	  return {
-	    messages: state.messages
+	    messages: state.messages,
+	    account: state.account
 	  };
 	};
 	
