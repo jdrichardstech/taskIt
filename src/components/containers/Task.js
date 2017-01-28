@@ -10,35 +10,50 @@ import superagent from 'superagent'
 
 
 class Task extends Component {
+
+
   componentDidMount(){
-console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)))
-console.log("TASKS: " + JSON.stringify(this.props.params.id))
-var url = '/api/message/'
-console.log("URL: " +JSON.stringify(url))
-superagent
-.get(url)
-.query(null)
-.set('Accept', 'application/json')
-.end((err, response) => {
-  if (err){
-    alert('ERROR: '+err)
-    return
-}
-console.log("MESSAGES: "+ JSON.stringify(response.body))
-let answer = response.body
-const messages = []
-answer.results.map((result, i)=>{
-  if(result.task==this.props.params.id)
-  messages.push(result)
+// console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)))
+// console.log("TASKS: " + JSON.stringify(this.props.params.id))
+// var url = '/api/message/'
+// console.log("URL: " +JSON.stringify(url))
+// superagent
+// .get(url)
+// .query(null)
+// .set('Accept', 'application/json')
+// .end((err, response) => {
+//   if (err){
+//     alert('ERROR: '+err)
+//     return
+// }
+// console.log("MESSAGES: "+ JSON.stringify(response.body))
+// let answer = response.body
+// const messages = []
+// answer.results.map((result, i)=>{
+//   if(result.task==this.props.params.id)
+//   messages.push(result)
+// })
+// let updated = Object.assign([], this.state.messages)
+// this.setState({updated:messages})
+// console.log("RESULTS: " + JSON.stringify(this.state.messages))
+//   })
+this.props.fetchMessages({task:this.props.params.id})
+.then((response)=>{
+  console.log("RESULTS: " + JSON.stringify(response.results))
+  console.log("PROPS: " + JSON.stringify(this.props.messages.list))
 })
-console.log("RESULTS: " + JSON.stringify(messages))
-  })
+.catch((err)=>{
+    console.log("ERROR: "+ err.message)
+}
+
+)
 }
 
 constructor(){
   super()
   this.state={
     updated:{
+        messages:[],
       profile:{
         id:'',
         username:'',
@@ -88,12 +103,17 @@ constructor(){
   }
 
   render(){
+
     const taskId = this.props.params.id
     const task = this.props.tasks[taskId]
+    const messages = this.props.messages.taskId
     const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
     let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
     const taskResponder = (this.state.updated.profile.username.length == 0) ? <div> <p>After you respond to task a link to responder profile will appear here</p> </div> : <div> <Link to={'/profile/'+this.state.updated['profile'].id}>View Profile for {this.state.updated['profile'].username}</Link></div>
-    return(
+  const content = (messages == null) ?  null :  messages.map((message, i)=>{
+      return <li>{message.text} by <Link to ={'/api/profile/'+message.profile.id}>{message.profile.username}</Link></li>
+    })
+  return(
 
 
         <div>
@@ -117,6 +137,11 @@ constructor(){
 
           </div>
           <hr style={{border:'2px solid #f56a6a',background:'#f56a6a',margin:'50px 0 50px 0'}}/>
+          <div>
+            <ul>
+              {content}
+            </ul>
+          </div>
           <div style={{marginBottom:100}}>
               {(this.props.account.user == null) ? <h2 style={{color:'gray'}}>Please login or register to reply </h2>
             :<div>
@@ -135,14 +160,17 @@ constructor(){
 const stateToProps = (state) => {
   return{
     tasks: state.task,
-    account: state.account
+    account: state.account,
+    messages:state.messages
   }
 }
 
 const dispatchToProps = (dispatch) => {
   return{
     submitMessage: (params) => dispatch(actions.submitMessage(params)),
-    notify: (params) => dispatch(actions.notify(params))
+    notify: (params) => dispatch(actions.notify(params)),
+    fetchMessages: (params) => dispatch(actions.fetchMessages(params)),
+    fetchProfile:(path, params) => dispatch(actions.fetchProfile(path, params))
   }
 }
 

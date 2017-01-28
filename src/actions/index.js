@@ -61,6 +61,12 @@ export default{
       payload: tasks
     }
   },
+  fetchMessages:(params) => {
+    console.log("HI ACTIONS")
+    return(dispatch)=>{
+      return dispatch(getRequest('/api/message', params, constants.MESSAGES_RECEIVED))
+    }
+  },
 
   fetchProfile: (path, params) => {
   return (dispatch) => {

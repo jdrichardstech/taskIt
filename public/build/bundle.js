@@ -47609,6 +47609,12 @@
 	      payload: tasks
 	    };
 	  },
+	  fetchMessages: function fetchMessages(params) {
+	    console.log("HI ACTIONS");
+	    return function (dispatch) {
+	      return dispatch(getRequest('/api/message', params, _constants2.default.MESSAGES_RECEIVED));
+	    };
+	  },
 	
 	  fetchProfile: function fetchProfile(path, params) {
 	    return function (dispatch) {
@@ -52981,22 +52987,35 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      console.log("SELECTED CATEGORY: " + JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)));
-	      console.log("TASKS: " + JSON.stringify(this.props.params.id));
-	      var url = '/api/message/';
-	      console.log("URL: " + JSON.stringify(url));
-	      _superagent2.default.get(url).query(null).set('Accept', 'application/json').end(function (err, response) {
-	        if (err) {
-	          alert('ERROR: ' + err);
-	          return;
-	        }
-	        console.log("MESSAGES: " + JSON.stringify(response.body));
-	        var answer = response.body;
-	        var messages = [];
-	        answer.results.map(function (result, i) {
-	          if (result.task == _this2.props.params.id) messages.push(result);
-	        });
-	        console.log("RESULTS: " + JSON.stringify(messages));
+	      // console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)))
+	      // console.log("TASKS: " + JSON.stringify(this.props.params.id))
+	      // var url = '/api/message/'
+	      // console.log("URL: " +JSON.stringify(url))
+	      // superagent
+	      // .get(url)
+	      // .query(null)
+	      // .set('Accept', 'application/json')
+	      // .end((err, response) => {
+	      //   if (err){
+	      //     alert('ERROR: '+err)
+	      //     return
+	      // }
+	      // console.log("MESSAGES: "+ JSON.stringify(response.body))
+	      // let answer = response.body
+	      // const messages = []
+	      // answer.results.map((result, i)=>{
+	      //   if(result.task==this.props.params.id)
+	      //   messages.push(result)
+	      // })
+	      // let updated = Object.assign([], this.state.messages)
+	      // this.setState({updated:messages})
+	      // console.log("RESULTS: " + JSON.stringify(this.state.messages))
+	      //   })
+	      this.props.fetchMessages({ task: this.props.params.id }).then(function (response) {
+	        console.log("RESULTS: " + JSON.stringify(response.results));
+	        console.log("PROPS: " + JSON.stringify(_this2.props.messages.list));
+	      }).catch(function (err) {
+	        console.log("ERROR: " + err.message);
 	      });
 	    }
 	  }]);
@@ -53008,6 +53027,7 @@
 	
 	    _this.state = {
 	      updated: {
+	        messages: [],
 	        profile: {
 	          id: '',
 	          username: '',
@@ -53058,8 +53078,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	
 	      var taskId = this.props.params.id;
 	      var task = this.props.tasks[taskId];
+	      var messages = this.props.messages.taskId;
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
 	      var taskResponder = this.state.updated.profile.username.length == 0 ? _react2.default.createElement(
@@ -53083,6 +53105,19 @@
 	          this.state.updated['profile'].username
 	        )
 	      );
+	      var content = messages == null ? null : messages.map(function (message, i) {
+	        return _react2.default.createElement(
+	          'li',
+	          null,
+	          message.text,
+	          ' by ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/api/profile/' + message.profile.id },
+	            message.profile.username
+	          )
+	        );
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -53145,6 +53180,15 @@
 	        _react2.default.createElement('hr', { style: { border: '2px solid #f56a6a', background: '#f56a6a', margin: '50px 0 50px 0' } }),
 	        _react2.default.createElement(
 	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'ul',
+	            null,
+	            content
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
 	          { style: { marginBottom: 100 } },
 	          this.props.account.user == null ? _react2.default.createElement(
 	            'h2',
@@ -53167,7 +53211,8 @@
 	var stateToProps = function stateToProps(state) {
 	  return {
 	    tasks: state.task,
-	    account: state.account
+	    account: state.account,
+	    messages: state.messages
 	  };
 	};
 	
@@ -53178,6 +53223,12 @@
 	    },
 	    notify: function notify(params) {
 	      return dispatch(_actions2.default.notify(params));
+	    },
+	    fetchMessages: function fetchMessages(params) {
+	      return dispatch(_actions2.default.fetchMessages(params));
+	    },
+	    fetchProfile: function fetchProfile(path, params) {
+	      return dispatch(_actions2.default.fetchProfile(path, params));
 	    }
 	  };
 	};
@@ -53538,7 +53589,8 @@
 	  configureStore: function configureStore() {
 	    var reducers = (0, _redux.combineReducers)({
 	      task: _reducers.taskReducer,
-	      account: _reducers.accountReducer
+	      account: _reducers.accountReducer,
+	      messages: _reducers.messageReducer
 	    });
 	
 	    store = (0, _redux.createStore)(reducers, (0, _redux.applyMiddleware)(_reduxThunk2.default));
@@ -53587,7 +53639,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.taskReducer = exports.accountReducer = undefined;
+	exports.messageReducer = exports.taskReducer = exports.accountReducer = undefined;
 	
 	var _taskReducer = __webpack_require__(415);
 	
@@ -53597,10 +53649,15 @@
 	
 	var _accountReducer2 = _interopRequireDefault(_accountReducer);
 	
+	var _messageReducer = __webpack_require__(417);
+	
+	var _messageReducer2 = _interopRequireDefault(_messageReducer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.accountReducer = _accountReducer2.default;
 	exports.taskReducer = _taskReducer2.default;
+	exports.messageReducer = _messageReducer2.default;
 
 /***/ },
 /* 415 */
@@ -53704,6 +53761,43 @@
 	    case _constants2.default.USER_LOGGED_IN:
 	      console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload));
 	      updated['user'] = action.payload;
+	      return updated;
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _constants = __webpack_require__(351);
+	
+	var _constants2 = _interopRequireDefault(_constants);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var initialState = {};
+	
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+	  var action = arguments[1];
+	
+	
+	  var updated = Object.assign({}, state);
+	
+	  switch (action.type) {
+	
+	    case _constants2.default.MESSAGES_RECEIVED:
+	      var taskId = action.params.task;
+	      console.log("PAYLOAD" + JSON.stringify(action.payload));
+	      updated['taskId'] = action.payload;
 	      return updated;
 	    default:
 	      return state;
