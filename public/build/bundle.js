@@ -53113,7 +53113,7 @@
 	          ' by ',
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: '/api/profile/' + message.profile.id },
+	            { to: '/profile/' + message.profile.id },
 	            message.profile.username
 	          )
 	        );
