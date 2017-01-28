@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { ClaimTask } from '../view'
 import actions from '../../actions'
 import { Link } from 'react-router'
+import superagent from 'superagent'
 
 
 
@@ -11,9 +12,29 @@ import { Link } from 'react-router'
 class Task extends Component {
   componentDidMount(){
 console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)))
+console.log("TASKS: " + JSON.stringify(this.props.params.id))
+var url = '/api/message/'
+console.log("URL: " +JSON.stringify(url))
+superagent
+.get(url)
+.query(null)
+.set('Accept', 'application/json')
+.end((err, response) => {
+  if (err){
+    alert('ERROR: '+err)
+    return
+}
+console.log("MESSAGES: "+ JSON.stringify(response.body))
+let answer = response.body
+const messages = []
+answer.results.map((result, i)=>{
+  if(result.task==this.props.params.id)
+  messages.push(result)
+})
+console.log("RESULTS: " + JSON.stringify(messages))
+  })
+}
 
-
-  }
 constructor(){
   super()
   this.state={
@@ -34,7 +55,7 @@ constructor(){
     const user = this.props.account.user
     updated['profile'] = {
       id: user.id,
-      username: user.username
+      username: user.username,
     }
 
 

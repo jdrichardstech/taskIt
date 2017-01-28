@@ -38,7 +38,7 @@ module.exports = {
         if(isRaw){
           resolve(message)
         }else{
-          resolve(message.summary())
+          resolve(message)
         }
 
       })

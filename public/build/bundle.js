@@ -47692,7 +47692,8 @@
 	  PROFILE_CREATED: 'PROFILE_CREATED',
 	  USER_LOGGED_IN: 'USER_LOGGED_IN',
 	  MESSAGE_CREATED: 'MESSAGE_CREATED',
-	  PROFILE_RECEIVED: 'PROFILE_RECEIVED'
+	  PROFILE_RECEIVED: 'PROFILE_RECEIVED',
+	  MESSAGES_RECEIVED: 'MESSAGES_RECEIVED'
 	
 	};
 
@@ -52960,6 +52961,10 @@
 	
 	var _reactRouter = __webpack_require__(352);
 	
+	var _superagent = __webpack_require__(184);
+	
+	var _superagent2 = _interopRequireDefault(_superagent);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52974,7 +52979,25 @@
 	  _createClass(Task, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+	
 	      console.log("SELECTED CATEGORY: " + JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)));
+	      console.log("TASKS: " + JSON.stringify(this.props.params.id));
+	      var url = '/api/message/';
+	      console.log("URL: " + JSON.stringify(url));
+	      _superagent2.default.get(url).query(null).set('Accept', 'application/json').end(function (err, response) {
+	        if (err) {
+	          alert('ERROR: ' + err);
+	          return;
+	        }
+	        console.log("MESSAGES: " + JSON.stringify(response.body));
+	        var answer = response.body;
+	        var messages = [];
+	        answer.results.map(function (result, i) {
+	          if (result.task == _this2.props.params.id) messages.push(result);
+	        });
+	        console.log("RESULTS: " + JSON.stringify(messages));
+	      });
 	    }
 	  }]);
 	
@@ -52998,7 +53021,7 @@
 	  _createClass(Task, [{
 	    key: 'submitMessage',
 	    value: function submitMessage(message) {
-	      var _this2 = this;
+	      var _this3 = this;
 	
 	      // console.log("CLAIM: " + JSON.stringify(reply))
 	      event.preventDefault();
@@ -53019,7 +53042,7 @@
 	      this.props.submitMessage(updated).then(function (response) {
 	        // console.log("MESSAGE CREATED: " + JSON.stringify(response))
 	
-	        return _this2.props.notify({
+	        return _this3.props.notify({
 	          recipient: task.profile.id,
 	          text: updated.text,
 	          taskResponder: user.username,
@@ -53254,7 +53277,7 @@
 	      //   }
 	      // )
 	      this.props.fetchProfile(url, null).then(function (response) {
-	        console.log("PROFILE FETCHED: " + JSON.stringify(response.result.taskResponder));
+	        // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
 	        var responder = response.result.taskResponder;
 	        updated['username'] = responder.username;
 	        updated['email'] = responder.email;
