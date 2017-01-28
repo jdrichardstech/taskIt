@@ -53288,9 +53288,9 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
+	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.params.id));
 	
-	      var responderId = this.props.info.params.id;
+	      var responderId = this.props.params.id;
 	      var url = '/api/profile/' + responderId;
 	      console.log("URL: " + JSON.stringify(url));
 	      // superagent
