@@ -53366,7 +53366,7 @@
 	              null,
 	              'User Name: '
 	            ),
-	            this.props.account.taskResponder.username
+	            this.state.updated.username
 	          ),
 	          _react2.default.createElement(
 	            'h2',
@@ -53376,7 +53376,7 @@
 	              null,
 	              'Email: '
 	            ),
-	            this.props.account.taskResponder.email
+	            this.state.updated.email
 	          ),
 	          _react2.default.createElement(
 	            'h2',
@@ -53386,7 +53386,7 @@
 	              null,
 	              'Phone: '
 	            ),
-	            this.props.account.taskResponder.phone
+	            this.state.updated.phone
 	          )
 	        )
 	      );
