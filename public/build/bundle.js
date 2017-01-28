@@ -53550,7 +53550,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_containers.Profile, { info: this.props })
+	        _react2.default.createElement(_containers.Profile, this.props)
 	      );
 	    }
 	  }]);
