@@ -20,7 +20,7 @@ class Profile extends Component{
     }
   }
 
-  componentDidUpdate(){
+  componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
     let updated = Object.assign({}, this.state)
     let responderId = this.props.info.params.id
@@ -56,7 +56,7 @@ class Profile extends Component{
     // )
     this.props.fetchProfile(url,null)
     .then((response)=>{
-    //   // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
+      console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
     //     // let responder = response.result.taskResponder
     //     // updated['username'] = responder.username
     //     // updated['email'] = responder.email

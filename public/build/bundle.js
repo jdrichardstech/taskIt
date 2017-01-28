@@ -53291,8 +53291,8 @@
 	  }
 	
 	  _createClass(Profile, [{
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
@@ -53327,7 +53327,7 @@
 	      //   }
 	      // )
 	      this.props.fetchProfile(url, null).then(function (response) {
-	        //   // console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
+	        console.log("PROFILE FETCHED: " + JSON.stringify(response.result));
 	        //     // let responder = response.result.taskResponder
 	        //     // updated['username'] = responder.username
 	        //     // updated['email'] = responder.email
