@@ -24,7 +24,7 @@ class Profile extends Component{
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.info.params.id))
     let updated = Object.assign({}, this.state)
     let responderId = this.props.info.params.id
-    var url = '/api/profile/'+responderId
+    var url = '/api/profile/'+this.props.messages.profile.id
   // superagent
   // .get(url)
   // .query(null)
@@ -61,7 +61,7 @@ class Profile extends Component{
         updated['email'] = responder.email
         updated['phone'] = responder.phone
         updated['responderId'] = responderId
-        // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+         console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
           this.setState({
             updated: updated
           })
@@ -89,7 +89,7 @@ class Profile extends Component{
 
 const stateToProps =(state)=>{
   return{
-
+    messages:state.messages
   }
 }
 

@@ -53298,7 +53298,7 @@
 	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.info.params.id));
 	      var updated = Object.assign({}, this.state);
 	      var responderId = this.props.info.params.id;
-	      var url = '/api/profile/' + responderId;
+	      var url = '/api/profile/' + this.props.messages.profile.id;
 	      // superagent
 	      // .get(url)
 	      // .query(null)
@@ -53334,7 +53334,7 @@
 	        updated['email'] = responder.email;
 	        updated['phone'] = responder.phone;
 	        updated['responderId'] = responderId;
-	        // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
+	        console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated));
 	        _this2.setState({
 	          updated: updated
 	        });
@@ -53391,7 +53391,9 @@
 	}(_react.Component);
 	
 	var stateToProps = function stateToProps(state) {
-	  return {};
+	  return {
+	    messages: state.messages
+	  };
 	};
 	
 	var dispatchToProps = function dispatchToProps(dispatch) {
