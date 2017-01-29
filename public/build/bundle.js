@@ -53125,67 +53125,42 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: '9u' },
+	          { className: 'box', style: { padding: '10px 0 0 10px', width: '40%', background: 'rgba(253,217,71,0.1)', boxShadow: '5px 5px 5px #855541' } },
 	          _react2.default.createElement(
 	            'div',
-	            { className: '4u' },
+	            { style: { marginBottom: 30 } },
+	            _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'box', style: { padding: '10px 0 0 10px', width: '40%', background: 'rgba(253,217,71,0.1)', boxShadow: '5px 5px 5px #855541' } },
-	              _react2.default.createElement(
-	                'div',
-	                { style: { marginBottom: 30 } },
-	                _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
-	                _react2.default.createElement(
-	                  'span',
-	                  { style: { padding: '10px 10px 30px 20px' } },
-	                  'Requested ',
-	                  _utils.DateUtils.formattedDate(task.timestamp)
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                  'center',
-	                  null,
-	                  _react2.default.createElement('hr', { style: { paddingRight: 10, width: '75%' } })
-	                ),
-	                _react2.default.createElement(
-	                  'h2',
-	                  { style: { marginBottom: 15 } },
-	                  _react2.default.createElement(
-	                    'span',
-	                    { style: { color: '#000' } },
-	                    _utils.TextUtils.capitalize(task.title)
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'h3',
-	                  { style: { marginBottom: 50 } },
-	                  _react2.default.createElement(
-	                    'span',
-	                    { style: { color: '#f56a6a' } },
-	                    _utils.TextUtils.capitalize(task.description)
-	                  )
-	                )
-	              )
+	              'span',
+	              { style: { padding: '10px 10px 30px 20px' } },
+	              'Requested ',
+	              _utils.DateUtils.formattedDate(task.timestamp)
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: '4u' },
+	            null,
 	            _react2.default.createElement(
-	              'div',
-	              { style: { marginBottom: 100 } },
-	              this.props.account.user == null ? _react2.default.createElement(
-	                'h2',
-	                { style: { color: 'gray' } },
-	                'Please login or register to reply '
-	              ) : _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
+	              'center',
+	              null,
+	              _react2.default.createElement('hr', { style: { paddingRight: 10, width: '75%' } })
+	            ),
+	            _react2.default.createElement(
+	              'h2',
+	              { style: { marginBottom: 15 } },
+	              _react2.default.createElement(
+	                'span',
+	                { style: { color: '#000' } },
+	                _utils.TextUtils.capitalize(task.title)
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'h3',
+	              { style: { marginBottom: 50 } },
+	              _react2.default.createElement(
+	                'span',
+	                { style: { color: '#f56a6a' } },
+	                _utils.TextUtils.capitalize(task.description)
 	              )
 	            )
 	          )
@@ -53207,6 +53182,19 @@
 	              )
 	            ),
 	            content
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { style: { marginBottom: 100 } },
+	          this.props.account.user == null ? _react2.default.createElement(
+	            'h2',
+	            { style: { color: 'gray' } },
+	            'Please login or register to reply '
+	          ) : _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
 	          )
 	        )
 	      );
