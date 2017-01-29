@@ -111,7 +111,7 @@ constructor(){
     let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
     const taskResponder = (this.state.updated.profile.username.length == 0) ? <div> <p>After you respond to task a link to responder profile will appear here</p> </div> : <div> <Link to={'/profile/'+this.state.updated['profile'].id}>View Profile for {this.state.updated['profile'].username}</Link></div>
   const content = (messages == null) ?  null :  messages.map((message, i)=>{
-      return <div> <li><Link to ={'/profile/'+message.profile.id}><span style={{color:'#fff'}}>{message.profile.username}</span></Link> says: {message.text}</li><hr style={{background:'#ddd'}}/></div>
+      return <div> <li><Link to ={'/profile/'+message.profile.id}><span>{message.profile.username}</span></Link> says: {message.text}</li></div>
     })
   return(
 
@@ -138,7 +138,7 @@ constructor(){
           </div>
           <hr style={{border:'2px solid #f56a6a',background:'#f56a6a',margin:'50px 0 50px 0'}}/>
           <div>
-            <ol style={{background:'rgba(245, 106, 106,0.6)', color:'#000',padding:'0,0,15px,15px'}}>
+            <ol>
               <h2>Responses:</h2>
               {content}
             </ol>

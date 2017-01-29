@@ -53118,14 +53118,13 @@
 	              { to: '/profile/' + message.profile.id },
 	              _react2.default.createElement(
 	                'span',
-	                { style: { color: '#fff' } },
+	                null,
 	                message.profile.username
 	              )
 	            ),
 	            ' says: ',
 	            message.text
-	          ),
-	          _react2.default.createElement('hr', { style: { background: '#ddd' } })
+	          )
 	        );
 	      });
 	      return _react2.default.createElement(
@@ -53193,7 +53192,7 @@
 	          null,
 	          _react2.default.createElement(
 	            'ol',
-	            { style: { background: 'rgba(245, 106, 106,0.6)', color: '#000', padding: '0,0,15px,15px' } },
+	            null,
 	            _react2.default.createElement(
 	              'h2',
 	              null,
