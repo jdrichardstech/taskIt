@@ -138,7 +138,7 @@ constructor(){
           </div>
           <hr style={{border:'2px solid #f56a6a',background:'#f56a6a',margin:'50px 0 50px 0'}}/>
           <div>
-            <ol>
+            <ol style={{background:'rgb(245, 106, 106)', color:'#fff'}}>
               <h2>Responses:</h2>
               {content}
             </ol>

@@ -53183,7 +53183,7 @@
 	          null,
 	          _react2.default.createElement(
 	            'ol',
-	            null,
+	            { style: { background: 'rgb(245, 106, 106)', color: '#fff' } },
 	            _react2.default.createElement(
 	              'h2',
 	              null,
