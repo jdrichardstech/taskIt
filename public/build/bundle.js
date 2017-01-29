@@ -53107,19 +53107,25 @@
 	      );
 	      var content = messages == null ? null : messages.map(function (message, i) {
 	        return _react2.default.createElement(
-	          'li',
+	          'div',
 	          null,
+	          ' ',
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/profile/' + message.profile.id },
+	            'li',
+	            null,
 	            _react2.default.createElement(
-	              'span',
-	              { style: { color: '#fff' } },
-	              message.profile.username
-	            )
+	              _reactRouter.Link,
+	              { to: '/profile/' + message.profile.id },
+	              _react2.default.createElement(
+	                'span',
+	                { style: { color: '#fff' } },
+	                message.profile.username
+	              )
+	            ),
+	            ' says: ',
+	            message.text
 	          ),
-	          ' says: ',
-	          message.text
+	          _react2.default.createElement('hr', { style: { background: '#ddd' } })
 	        );
 	      });
 	      return _react2.default.createElement(
@@ -53187,7 +53193,7 @@
 	          null,
 	          _react2.default.createElement(
 	            'ol',
-	            { style: { background: 'rgb(245, 106, 106)', color: '#000', paddingBottom: 15 } },
+	            { style: { background: 'rgba(245, 106, 106,0.6)', color: '#000', padding: '0,0,15px,15px' } },
 	            _react2.default.createElement(
 	              'h2',
 	              null,
