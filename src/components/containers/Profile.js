@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import superagent from 'superagent'
 import { APIManager } from '../../utils'
 import actions from '../../actions'
 
@@ -9,42 +8,21 @@ import actions from '../../actions'
 
 class Profile extends Component{
 
+componentWillMount(){
+  this.context.router.push(this.context.router.location.pathname)
+}
+
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.params.id))
-
+    console.log("ROUTER:" + this.context.router)
     let responderId = this.props.params.id
     var url = '/api/profile/'+responderId
     console.log("URL: " +JSON.stringify(url))
-  // superagent
-  // .get(url)
-  // .query(null)
-  // .set('Accept', 'application/json')
-  // .end((err, response) => {
-  //   if (err){
-  //     alert('ERROR: '+err)
-  //     return
-    // }
 
-    // APIManager.get(url, null)
-    // .then((response)=>{
-    //   // console.log("RESPONSE: " + JSON.stringify(response))
-    //   // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
-    //   let responder = response.result
-    //   updated['username'] = responder.username
-    //   updated['email'] = responder.email
-    //   updated['phone'] = responder.phone
-    //   updated['responderId'] = responderId
-    //   // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-    //     this.setState({
-    //       updated: updated
-    //     })
-    // })
-    // .catch((err)=>{
-    //   console.log("ERROR: " + err)
-    //   }
-    // )
     this.props.fetchProfile(url,null)
     .then((response)=>{
+      this.context.router.push(this.context.router.location.pathname)
+
       console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
     })
     .catch((err)=>{
@@ -55,6 +33,7 @@ class Profile extends Component{
 
   render(){
 
+    console.log("CONTEXT:" + JSON.stringify(this.context))
     const responderProfile= this.props.account.taskResponder
     return(
       <div>
@@ -72,6 +51,10 @@ class Profile extends Component{
       </div>
     )
   }
+}
+
+Profile.contextTypes={
+  router:React.PropTypes.object
 }
 
 

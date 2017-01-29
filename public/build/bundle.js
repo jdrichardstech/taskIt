@@ -53249,10 +53249,6 @@
 	
 	var _reactRedux = __webpack_require__(313);
 	
-	var _superagent = __webpack_require__(184);
-	
-	var _superagent2 = _interopRequireDefault(_superagent);
-	
 	var _utils = __webpack_require__(182);
 	
 	var _actions = __webpack_require__(350);
@@ -53277,42 +53273,24 @@
 	  }
 	
 	  _createClass(Profile, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.context.router.push(this.context.router.location.pathname);
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.params.id));
+	      var _this2 = this;
 	
+	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.params.id));
+	      console.log("ROUTER:" + this.context.router);
 	      var responderId = this.props.params.id;
 	      var url = '/api/profile/' + responderId;
 	      console.log("URL: " + JSON.stringify(url));
-	      // superagent
-	      // .get(url)
-	      // .query(null)
-	      // .set('Accept', 'application/json')
-	      // .end((err, response) => {
-	      //   if (err){
-	      //     alert('ERROR: '+err)
-	      //     return
-	      // }
 	
-	      // APIManager.get(url, null)
-	      // .then((response)=>{
-	      //   // console.log("RESPONSE: " + JSON.stringify(response))
-	      //   // console.log("RESPONSE RESULT: " + JSON.stringify(response.result))
-	      //   let responder = response.result
-	      //   updated['username'] = responder.username
-	      //   updated['email'] = responder.email
-	      //   updated['phone'] = responder.phone
-	      //   updated['responderId'] = responderId
-	      //   // console.log("RESPONDER PROFILE UPDATED: " + JSON.stringify(updated))
-	      //     this.setState({
-	      //       updated: updated
-	      //     })
-	      // })
-	      // .catch((err)=>{
-	      //   console.log("ERROR: " + err)
-	      //   }
-	      // )
 	      this.props.fetchProfile(url, null).then(function (response) {
+	        _this2.context.router.push(_this2.context.router.location.pathname);
+	
 	        console.log("PROFILE FETCHED: " + JSON.stringify(response.result));
 	      }).catch(function (err) {
 	        console.log("OOPS: " + err.message);
@@ -53322,6 +53300,7 @@
 	    key: 'render',
 	    value: function render() {
 	
+	      console.log("CONTEXT:" + JSON.stringify(this.context));
 	      var responderProfile = this.props.account.taskResponder;
 	      return _react2.default.createElement(
 	        'div',
@@ -53375,6 +53354,10 @@
 	
 	  return Profile;
 	}(_react.Component);
+	
+	Profile.contextTypes = {
+	  router: _react2.default.PropTypes.object
+	};
 	
 	var stateToProps = function stateToProps(state) {
 	  return {

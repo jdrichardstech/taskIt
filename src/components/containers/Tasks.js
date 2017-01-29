@@ -24,7 +24,7 @@ class Tasks extends Component {
 
       this.props.fetchTasks({category: this.props.tasks.selectedCategory})
       .then(results => {
-
+        
       })
       .catch(err => {
         alert(err)
