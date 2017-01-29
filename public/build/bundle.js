@@ -53341,9 +53341,9 @@
 	          _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Profile for Your Claimaint'
+	            'Profile for Your Responser'
 	          ),
-	          this.props.account.taskResponder == null ? null : _react2.default.createElement(
+	          responderProfile == null ? null : _react2.default.createElement(
 	            'div',
 	            null,
 	            _react2.default.createElement(

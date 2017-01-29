@@ -59,8 +59,8 @@ class Profile extends Component{
     return(
       <div>
         <div style={{padding:30}}>
-        <h1>Profile for Your Claimaint</h1>
-        {(this.props.account.taskResponder == null) ? null :
+        <h1>Profile for Your Responser</h1>
+        {(responderProfile == null) ? null :
           <div>
             <h2><strong>User Name: </strong>{responderProfile.username}</h2>
             <h2><strong>Email: </strong>{responderProfile.email}</h2>
