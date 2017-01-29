@@ -9,7 +9,8 @@ import actions from '../../actions'
 class Profile extends Component{
 
 componentWillMount(){
-  this.context.router.push(this.context.router.location.pathname)
+  this.context.router.push("/"+this.context.router.location.pathname)
+
 }
 
   componentDidMount(){

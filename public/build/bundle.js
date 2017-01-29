@@ -53275,7 +53275,7 @@
 	  _createClass(Profile, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.context.router.push(this.context.router.location.pathname);
+	      this.context.router.push("/" + this.context.router.location.pathname);
 	    }
 	  }, {
 	    key: 'componentDidMount',
