@@ -139,7 +139,9 @@ constructor(){
           <hr style={{border:'2px solid #f56a6a',background:'#f56a6a',margin:'50px 0 50px 0'}}/>
           <div>
             <ol>
-              <h2>Responses:</h2>
+              <header className="major" style={{marginBottom:0, paddingBottom:0}}>
+                <h2 style={{marginBottom:10}}>Responses:</h2>
+              </header>
               {content}
             </ol>
           </div>

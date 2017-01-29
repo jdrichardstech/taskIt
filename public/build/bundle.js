@@ -53194,9 +53194,13 @@
 	            'ol',
 	            null,
 	            _react2.default.createElement(
-	              'h2',
-	              null,
-	              'Responses:'
+	              'header',
+	              { className: 'major', style: { marginBottom: 0, paddingBottom: 0 } },
+	              _react2.default.createElement(
+	                'h2',
+	                { style: { marginBottom: 10 } },
+	                'Responses:'
+	              )
 	            ),
 	            content
 	          )
