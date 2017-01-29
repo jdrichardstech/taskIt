@@ -53084,27 +53084,6 @@
 	      var messages = this.props.messages.taskId;
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
-	      var taskResponder = this.state.updated.profile.username.length == 0 ? _react2.default.createElement(
-	        'div',
-	        null,
-	        ' ',
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'After you respond to task a link to responder profile will appear here'
-	        ),
-	        ' '
-	      ) : _react2.default.createElement(
-	        'div',
-	        null,
-	        ' ',
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/profile/' + this.state.updated['profile'].id },
-	          'View Profile for ',
-	          this.state.updated['profile'].username
-	        )
-	      );
 	      var content = messages == null ? null : messages.map(function (message, i) {
 	        return _react2.default.createElement(
 	          'div',
@@ -53146,42 +53125,67 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'box', style: { padding: '10px 0 0 10px', width: '40%', background: 'rgba(253,217,71,0.1)', boxShadow: '5px 5px 5px #855541' } },
+	          { className: '9u' },
 	          _react2.default.createElement(
 	            'div',
-	            { style: { marginBottom: 30 } },
-	            _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
+	            { className: '4u' },
 	            _react2.default.createElement(
-	              'span',
-	              { style: { padding: '10px 10px 30px 20px' } },
-	              'Requested ',
-	              _utils.DateUtils.formattedDate(task.timestamp)
+	              'div',
+	              { className: 'box', style: { padding: '10px 0 0 10px', width: '40%', background: 'rgba(253,217,71,0.1)', boxShadow: '5px 5px 5px #855541' } },
+	              _react2.default.createElement(
+	                'div',
+	                { style: { marginBottom: 30 } },
+	                _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
+	                _react2.default.createElement(
+	                  'span',
+	                  { style: { padding: '10px 10px 30px 20px' } },
+	                  'Requested ',
+	                  _utils.DateUtils.formattedDate(task.timestamp)
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                  'center',
+	                  null,
+	                  _react2.default.createElement('hr', { style: { paddingRight: 10, width: '75%' } })
+	                ),
+	                _react2.default.createElement(
+	                  'h2',
+	                  { style: { marginBottom: 15 } },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { style: { color: '#000' } },
+	                    _utils.TextUtils.capitalize(task.title)
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'h3',
+	                  { style: { marginBottom: 50 } },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { style: { color: '#f56a6a' } },
+	                    _utils.TextUtils.capitalize(task.description)
+	                  )
+	                )
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            null,
+	            { className: '4u' },
 	            _react2.default.createElement(
-	              'center',
-	              null,
-	              _react2.default.createElement('hr', { style: { paddingRight: 10, width: '75%' } })
-	            ),
-	            _react2.default.createElement(
-	              'h2',
-	              { style: { marginBottom: 15 } },
-	              _react2.default.createElement(
-	                'span',
-	                { style: { color: '#000' } },
-	                _utils.TextUtils.capitalize(task.title)
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'h3',
-	              { style: { marginBottom: 50 } },
-	              _react2.default.createElement(
-	                'span',
-	                { style: { color: '#f56a6a' } },
-	                _utils.TextUtils.capitalize(task.description)
+	              'div',
+	              { style: { marginBottom: 100 } },
+	              this.props.account.user == null ? _react2.default.createElement(
+	                'h2',
+	                { style: { color: 'gray' } },
+	                'Please login or register to reply '
+	              ) : _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
 	              )
 	            )
 	          )
@@ -53203,20 +53207,6 @@
 	              )
 	            ),
 	            content
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { style: { marginBottom: 100 } },
-	          this.props.account.user == null ? _react2.default.createElement(
-	            'h2',
-	            { style: { color: 'gray' } },
-	            'Please login or register to reply '
-	          ) : _react2.default.createElement(
-	            'div',
-	            null,
-	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) }),
-	            taskResponder
 	          )
 	        )
 	      );

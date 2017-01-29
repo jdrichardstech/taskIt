@@ -109,8 +109,7 @@ constructor(){
     const messages = this.props.messages.taskId
     const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
     let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
-    const taskResponder = (this.state.updated.profile.username.length == 0) ? <div> <p>After you respond to task a link to responder profile will appear here</p> </div> : <div> <Link to={'/profile/'+this.state.updated['profile'].id}>View Profile for {this.state.updated['profile'].username}</Link></div>
-  const content = (messages == null) ?  null :  messages.map((message, i)=>{
+    const content = (messages == null) ?  null :  messages.map((message, i)=>{
       return <div> <li><Link to ={'/profile/'+message.profile.id}><span>{message.profile.username}</span></Link> says: {message.text}</li></div>
     })
   return(
@@ -121,21 +120,36 @@ constructor(){
             <div>
               <h3 style={{color:'gray',paddingTop:30}}>Category: <span style={{color:'#f56a6a'}}>{task.category.toUpperCase()}</span></h3>
             </div>
+            <div className="9u">
+              <div className="4u">
+                <div className="box" style={{padding:'10px 0 0 10px',width:'40%',background:'rgba(253,217,71,0.1)',boxShadow:'5px 5px 5px #855541'}}>
+                  {/*}  <h2>Hi {task.profile.username}</h2>*/}
+                  <div style={{marginBottom:30}}>
+                  <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
+                   <span style={{padding:'10px 10px 30px 20px'}}>Requested {DateUtils.formattedDate(task.timestamp)}</span>
+                  </div>
+                  <div>
+                    <center><hr style={{paddingRight:10,width:'75%'}} /></center>
+                      <h2 style={{marginBottom:15}}><span style={{ color:'#000'}}>{TextUtils.capitalize(task.title)}</span></h2>
 
-          <div className="box" style={{padding:'10px 0 0 10px',width:'40%',background:'rgba(253,217,71,0.1)',boxShadow:'5px 5px 5px #855541'}}>
-            {/*}  <h2>Hi {task.profile.username}</h2>*/}
-            <div style={{marginBottom:30}}>
-            <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
-             <span style={{padding:'10px 10px 30px 20px'}}>Requested {DateUtils.formattedDate(task.timestamp)}</span>
+                    <h3 style={{marginBottom:50}}><span style={{ color:'#f56a6a'}}>{TextUtils.capitalize(task.description)}</span></h3>
+                  </div>
+
+                </div>
+              </div>
+              <div className="4u">
+                <div style={{marginBottom:100}}>
+                    {(this.props.account.user == null) ? <h2 style={{color:'gray'}}>Please login or register to reply </h2>
+                  :<div>
+                  <ClaimTask onSubmit={this.submitMessage.bind(this)} />
+
+                </div>
+
+                  }
+                </div>
+              </div>
             </div>
-            <div>
-              <center><hr style={{paddingRight:10,width:'75%'}} /></center>
-                <h2 style={{marginBottom:15}}><span style={{ color:'#000'}}>{TextUtils.capitalize(task.title)}</span></h2>
 
-              <h3 style={{marginBottom:50}}><span style={{ color:'#f56a6a'}}>{TextUtils.capitalize(task.description)}</span></h3>
-            </div>
-
-          </div>
           <hr style={{border:'2px solid #f56a6a',background:'#f56a6a',margin:'50px 0 50px 0'}}/>
           <div>
             <ol>
@@ -145,15 +159,7 @@ constructor(){
               {content}
             </ol>
           </div>
-          <div style={{marginBottom:100}}>
-              {(this.props.account.user == null) ? <h2 style={{color:'gray'}}>Please login or register to reply </h2>
-            :<div>
-            <ClaimTask onSubmit={this.submitMessage.bind(this)} />
-            {taskResponder}
-            </div>
 
-            }
-          </div>
         </div>
 
     )
