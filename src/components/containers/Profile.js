@@ -8,22 +8,15 @@ import actions from '../../actions'
 
 class Profile extends Component{
 
-// componentWillMount(){
-//   this.context.router.push("/"+this.context.router.location.pathname)
-//
-// }
+
 
   componentDidMount(){
-    console.log("PROFILECONTAINER: "+JSON.stringify(this.props.params.id))
-    console.log("ROUTER:" + this.context.router)
-    let responderId = this.props.params.id
-    var url = '/api/profile/'+responderId
-    console.log("URL: " +JSON.stringify(url))
 
-    this.props.fetchProfile(url,null)
+    let id = this.props.params.id
+  
+    this.props.fetchProfile(id)
     .then((response)=>{
-      this.context.router.push(this.context.router.location.pathname)
-
+      // this.context.router.push(this.context.router.location.pathname)
       console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
     })
     .catch((err)=>{
@@ -34,42 +27,41 @@ class Profile extends Component{
 
   render(){
 
-    console.log("CONTEXT:" + JSON.stringify(this.context))
-    const responderProfile= this.props.account.taskResponder
-    return(
-      <div>
-
-        {(responderProfile == null) ? null :
-          <div style={{padding:'0 30px 30px 30px'}}>
-          <h1>Profile for <span style={{color:'#f56a6a'}}>{responderProfile.username.toUpperCase()}</span></h1>
-          <hr style={{background:'#f56a6a'}}/>
-            <h2>User Name: <span style={{color:'#f56a6a'}}>{responderProfile.username}</span></h2>
-            <h2>Email: <span style={{color:'#f56a6a'}}>{responderProfile.email}</span></h2>
-            <h2>Phone: <span style={{color:'#f56a6a'}}>{responderProfile.phone}</span></h2>
-
-        </div>}
+    // console.log("CONTEXT:" + JSON.stringify(this.context))
+    const profile = this.props.profiles
+    if(profile == null)
+    return <div>Not Found</div>
+    else if(profile[this.props.params.id]==null)
+    return <div>Not Found</div>
+    else {
+      return(
 
 
-      </div>
-    )
+            <div style={{padding:'0 30px 30px 30px'}}>
+              <h1>Profile for <span style={{color:'#f56a6a'}}>{profile.username.toUpperCase()}</span></h1>
+              <hr style={{background:'#f56a6a'}}/>
+                <h2>User Name: <span style={{color:'#f56a6a'}}>{profile.username}</span></h2>
+                <h2>Email: <span style={{color:'#f56a6a'}}>{profile.email}</span></h2>
+                <h2>Phone: <span style={{color:'#f56a6a'}}>{profile.phone}</span></h2>
+            </div>
+      )
+    }
   }
 }
 
-// Profile.contextTypes={
-//   router:React.PropTypes.object
-// }
+
 
 
 const stateToProps =(state)=>{
   return{
-    messages:state.messages,
-    account: state.account
+
+    profiles: state.profile
   }
 }
 
 const dispatchToProps = (dispatch)=>{
   return{
-    fetchProfile:(path, params) => dispatch(actions.fetchProfile(path, params))
+    fetchProfile:(id) => dispatch(actions.fetchProfile(id))
   }
 }
 

@@ -47618,9 +47618,9 @@
 	    };
 	  },
 	
-	  fetchProfile: function fetchProfile(path, params) {
+	  fetchProfile: function fetchProfile(id) {
 	    return function (dispatch) {
-	      return dispatch(getRequest(path, params, _constants2.default.PROFILE_RECEIVED));
+	      return dispatch(getRequest('/api/profile' + id, null, _constants2.default.PROFILE_RECEIVED));
 	    };
 	  },
 	
@@ -53276,25 +53276,12 @@
 	
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
-	
-	
-	    // componentWillMount(){
-	    //   this.context.router.push("/"+this.context.router.location.pathname)
-	    //
-	    // }
-	
 	    value: function componentDidMount() {
-	      var _this2 = this;
 	
-	      console.log("PROFILECONTAINER: " + JSON.stringify(this.props.params.id));
-	      console.log("ROUTER:" + this.context.router);
-	      var responderId = this.props.params.id;
-	      var url = '/api/profile/' + responderId;
-	      console.log("URL: " + JSON.stringify(url));
+	      var id = this.props.params.id;
 	
-	      this.props.fetchProfile(url, null).then(function (response) {
-	        _this2.context.router.push(_this2.context.router.location.pathname);
-	
+	      this.props.fetchProfile(id).then(function (response) {
+	        // this.context.router.push(this.context.router.location.pathname)
 	        console.log("PROFILE FETCHED: " + JSON.stringify(response.result));
 	      }).catch(function (err) {
 	        console.log("OOPS: " + err.message);
@@ -53304,12 +53291,18 @@
 	    key: 'render',
 	    value: function render() {
 	
-	      console.log("CONTEXT:" + JSON.stringify(this.context));
-	      var responderProfile = this.props.account.taskResponder;
-	      return _react2.default.createElement(
+	      // console.log("CONTEXT:" + JSON.stringify(this.context))
+	      var profile = this.props.profiles;
+	      if (profile == null) return _react2.default.createElement(
 	        'div',
 	        null,
-	        responderProfile == null ? null : _react2.default.createElement(
+	        'Not Found'
+	      );else if (profile[this.props.params.id] == null) return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Not Found'
+	      );else {
+	        return _react2.default.createElement(
 	          'div',
 	          { style: { padding: '0 30px 30px 30px' } },
 	          _react2.default.createElement(
@@ -53319,7 +53312,7 @@
 	            _react2.default.createElement(
 	              'span',
 	              { style: { color: '#f56a6a' } },
-	              responderProfile.username.toUpperCase()
+	              profile.username.toUpperCase()
 	            )
 	          ),
 	          _react2.default.createElement('hr', { style: { background: '#f56a6a' } }),
@@ -53330,7 +53323,7 @@
 	            _react2.default.createElement(
 	              'span',
 	              { style: { color: '#f56a6a' } },
-	              responderProfile.username
+	              profile.username
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -53340,7 +53333,7 @@
 	            _react2.default.createElement(
 	              'span',
 	              { style: { color: '#f56a6a' } },
-	              responderProfile.email
+	              profile.email
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -53350,33 +53343,28 @@
 	            _react2.default.createElement(
 	              'span',
 	              { style: { color: '#f56a6a' } },
-	              responderProfile.phone
+	              profile.phone
 	            )
 	          )
-	        )
-	      );
+	        );
+	      }
 	    }
 	  }]);
 	
 	  return Profile;
 	}(_react.Component);
 	
-	// Profile.contextTypes={
-	//   router:React.PropTypes.object
-	// }
-	
-	
 	var stateToProps = function stateToProps(state) {
 	  return {
-	    messages: state.messages,
-	    account: state.account
+	
+	    profiles: state.profile
 	  };
 	};
 	
 	var dispatchToProps = function dispatchToProps(dispatch) {
 	  return {
-	    fetchProfile: function fetchProfile(path, params) {
-	      return dispatch(_actions2.default.fetchProfile(path, params));
+	    fetchProfile: function fetchProfile(id) {
+	      return dispatch(_actions2.default.fetchProfile(id));
 	    }
 	  };
 	};
@@ -53606,7 +53594,8 @@
 	    var reducers = (0, _redux.combineReducers)({
 	      task: _reducers.taskReducer,
 	      account: _reducers.accountReducer,
-	      messages: _reducers.messageReducer
+	      messages: _reducers.messageReducer,
+	      profile: _reducers.profileReducer
 	    });
 	
 	    store = (0, _redux.createStore)(reducers, (0, _redux.applyMiddleware)(_reduxThunk2.default));

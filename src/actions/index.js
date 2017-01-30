@@ -68,9 +68,9 @@ export default{
     }
   },
 
-  fetchProfile: (path, params) => {
+  fetchProfile: (id) => {
   return (dispatch) => {
-    return dispatch(getRequest(path, params, constants.PROFILE_RECEIVED))
+    return dispatch(getRequest('/api/profile'+id,null, constants.PROFILE_RECEIVED))
     }
   },
 
