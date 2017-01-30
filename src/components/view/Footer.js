@@ -5,8 +5,8 @@ import React from 'react'
 
 const Footer = () =>{
   return(
-    <footer style={{background:'#b22222',height:100,marginBottom:0,paddingBottom:0}}>
-      <p style={{color:'white',paddingTop:15,paddingLeft:15}}>&copy;JDRichardsTech 2017</p>
+    <footer style={{background:'#b22222',height:75,marginBottom:0,marginTop:50,paddingBottom:0}}>
+      <p style={{color:'white',paddingTop:25,paddingLeft:15}}>Copyright &copy;2017 JDRichardsTech </p>
 
 
     </footer>

@@ -53836,11 +53836,11 @@
 	var Footer = function Footer() {
 	  return _react2.default.createElement(
 	    'footer',
-	    { style: { background: '#b22222', height: 100, marginBottom: 0, paddingBottom: 0 } },
+	    { style: { background: '#b22222', height: 75, marginBottom: 0, marginTop: 50, paddingBottom: 0 } },
 	    _react2.default.createElement(
 	      'p',
-	      { style: { color: 'white', paddingTop: 15, paddingLeft: 15 } },
-	      '\xA9JDRichardsTech 2017'
+	      { style: { color: 'white', paddingTop: 25, paddingLeft: 15 } },
+	      'Copyright \xA92017 JDRichardsTech '
 	    )
 	  );
 	};
