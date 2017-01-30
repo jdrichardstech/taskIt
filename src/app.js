@@ -24,7 +24,7 @@ const app = (
       <Router history={browserHistory}>
         <Route path ="/" component={Home}/>
         <Route path = "/task/:id" component={Split}/>
-        <Route path ="profile/:id" component={ProfileLayout}/>
+        <Route path ="/profile/:id" component={ProfileLayout}/>
       </Router>
   </Provider>
 )

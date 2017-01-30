@@ -85,7 +85,7 @@
 	    { history: _reactRouter.browserHistory },
 	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _layout.Home }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '/task/:id', component: _layout.Split }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'profile/:id', component: _layout.ProfileLayout })
+	    _react2.default.createElement(_reactRouter.Route, { path: '/profile/:id', component: _layout.ProfileLayout })
 	  )
 	);
 	
@@ -21567,6 +21567,8 @@
 	
 	var _layout = __webpack_require__(178);
 	
+	var _view = __webpack_require__(309);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21661,11 +21663,7 @@
 	              )
 	            )
 	          ),
-	          _react2.default.createElement(
-	            'footer',
-	            { style: { marginBottom: 0, paddingBottom: 0 } },
-	            _react2.default.createElement('hr', { style: { background: '#b22222', height: 100, marginBottom: 0, paddingBottom: 0 } })
-	          )
+	          _react2.default.createElement(_view.Footer, null)
 	        )
 	      );
 	    }
@@ -44930,7 +44928,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.ClaimTask = exports.Authenticate = exports.CreateTask = undefined;
+	exports.Footer = exports.Authenticate = exports.CreateTask = undefined;
 	
 	var _CreateTask = __webpack_require__(310);
 	
@@ -44944,11 +44942,15 @@
 	
 	var _ClaimTask2 = _interopRequireDefault(_ClaimTask);
 	
+	var _Footer = __webpack_require__(418);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.CreateTask = _CreateTask2.default;
 	exports.Authenticate = _Authenticate2.default;
-	exports.ClaimTask = _ClaimTask2.default;
+	exports.Footer = _Footer2.default;
 
 /***/ },
 /* 310 */
@@ -53305,47 +53307,49 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
+	        responderProfile == null ? null : _react2.default.createElement(
 	          'div',
-	          { style: { padding: 30 } },
+	          { style: { padding: '0 30px 30px 30px' } },
 	          _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Profile for Your Responser'
+	            'Profile for ',
+	            _react2.default.createElement(
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              responderProfile.username.toUpperCase()
+	            )
 	          ),
-	          responderProfile == null ? null : _react2.default.createElement(
-	            'div',
+	          _react2.default.createElement('hr', { style: { background: '#f56a6a' } }),
+	          _react2.default.createElement(
+	            'h2',
 	            null,
 	            _react2.default.createElement(
-	              'h2',
+	              'strong',
 	              null,
-	              _react2.default.createElement(
-	                'strong',
-	                null,
-	                'User Name: '
-	              ),
-	              responderProfile.username
+	              'User Name: '
 	            ),
+	            responderProfile.username
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
 	            _react2.default.createElement(
-	              'h2',
+	              'strong',
 	              null,
-	              _react2.default.createElement(
-	                'strong',
-	                null,
-	                'Email: '
-	              ),
-	              responderProfile.email
+	              'Email: '
 	            ),
+	            responderProfile.email
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
 	            _react2.default.createElement(
-	              'h2',
+	              'strong',
 	              null,
-	              _react2.default.createElement(
-	                'strong',
-	                null,
-	                'Phone: '
-	              ),
-	              responderProfile.phone
-	            )
+	              'Phone: '
+	            ),
+	            responderProfile.phone
 	          )
 	        )
 	      );
@@ -53391,6 +53395,8 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _containers = __webpack_require__(180);
+	
+	var _view = __webpack_require__(309);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -53469,11 +53475,7 @@
 	          )
 	        )
 	      ),
-	      _react2.default.createElement(
-	        'footer',
-	        { style: { marginBottom: 0, paddingBottom: 0 } },
-	        _react2.default.createElement('hr', { style: { background: '#b22222', height: 100, marginBottom: 0, paddingBottom: 0 } })
-	      )
+	      _react2.default.createElement(_view.Footer, null)
 	    )
 	  );
 	};
@@ -53495,6 +53497,8 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _containers = __webpack_require__(180);
+	
+	var _view = __webpack_require__(309);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -53524,7 +53528,43 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_containers.Profile, this.props)
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'wrapper' },
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'main' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'inner' },
+	              _react2.default.createElement(
+	                'header',
+	                { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 30 } },
+	                _react2.default.createElement(
+	                  'h1',
+	                  { style: { fontSize: '4em' } },
+	                  'Task',
+	                  _react2.default.createElement(
+	                    'span',
+	                    { style: { color: '#f56a6a' } },
+	                    'It'
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'section',
+	                null,
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'image main' },
+	                  _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic12.jpg', alt: '' })
+	                )
+	              ),
+	              _react2.default.createElement(_containers.Profile, this.props)
+	            ),
+	            _react2.default.createElement(_view.Footer, null)
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -53775,6 +53815,36 @@
 	      return state;
 	  }
 	};
+
+/***/ },
+/* 418 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Footer = function Footer() {
+	  return _react2.default.createElement(
+	    'footer',
+	    { style: { background: '#b22222', height: 100, marginBottom: 0, paddingBottom: 0 } },
+	    _react2.default.createElement(
+	      'p',
+	      { style: { color: 'white', paddingTop: 15, paddingLeft: 15 } },
+	      '\xA9JDRichardsTech 2017'
+	    )
+	  );
+	};
+	
+	exports.default = Footer;
 
 /***/ }
 /******/ ]);

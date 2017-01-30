@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
  import { Task, Account } from '../containers'
+ import { Footer } from '../view'
 
 
 export default (props)=>{
@@ -46,11 +47,9 @@ export default (props)=>{
         </div>
 
       </div>
-      
+
     </div>
-    <footer style={{marginBottom:0,paddingBottom:0}}>
-      <hr style={{background:'#b22222',height:100,marginBottom:0,paddingBottom:0}}/>
-    </footer>
+  <Footer />
   </div>
 </div>
   )

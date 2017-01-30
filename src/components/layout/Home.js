@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
  import { Tasks, Categories, Account} from '../containers'
  import { ProfileLayout } from '../layout'
+ import { Footer } from '../view'
 
 
 
@@ -42,9 +43,7 @@ class Home extends Component {
         </div>
 
       </div>
-      <footer style={{marginBottom:0,paddingBottom:0}}>
-        <hr style={{background:'#b22222',height:100,marginBottom:0,paddingBottom:0}}/>
-      </footer>
+      <Footer />
     </div>
   </div>
     )
