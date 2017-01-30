@@ -43,9 +43,9 @@ componentWillMount(){
           <div style={{padding:'0 30px 30px 30px'}}>
           <h1>Profile for <span style={{color:'#f56a6a'}}>{responderProfile.username.toUpperCase()}</span></h1>
           <hr style={{background:'#f56a6a'}}/>
-            <h2><strong>User Name:</strong> {responderProfile.username}</h2>
-            <h2><strong>Email:</strong> {responderProfile.email}</h2>
-            <h2><strong>Phone:</strong> {responderProfile.phone}</h2>
+            <h2>User Name: <span style={{color:'#f56a6a'}}>{responderProfile.username}</span></h2>
+            <h2>Email: <span style={{color:'#f56a6a'}}>{responderProfile.email}</span></h2>
+            <h2>Phone: <span style={{color:'#f56a6a'}}>{responderProfile.phone}</span></h2>
 
         </div>}
 

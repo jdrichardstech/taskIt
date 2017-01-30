@@ -53324,35 +53324,32 @@
 	          _react2.default.createElement(
 	            'h2',
 	            null,
+	            'User Name: ',
 	            _react2.default.createElement(
-	              'strong',
-	              null,
-	              'User Name:'
-	            ),
-	            ' ',
-	            responderProfile.username
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              responderProfile.username
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'h2',
 	            null,
+	            'Email: ',
 	            _react2.default.createElement(
-	              'strong',
-	              null,
-	              'Email:'
-	            ),
-	            ' ',
-	            responderProfile.email
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              responderProfile.email
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'h2',
 	            null,
+	            'Phone: ',
 	            _react2.default.createElement(
-	              'strong',
-	              null,
-	              'Phone:'
-	            ),
-	            ' ',
-	            responderProfile.phone
+	              'span',
+	              { style: { color: '#f56a6a' } },
+	              responderProfile.phone
+	            )
 	          )
 	        )
 	      );
