@@ -53275,12 +53275,14 @@
 	  }
 	
 	  _createClass(Profile, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.context.router.push("/" + this.context.router.location.pathname);
-	    }
-	  }, {
 	    key: 'componentDidMount',
+	
+	
+	    // componentWillMount(){
+	    //   this.context.router.push("/"+this.context.router.location.pathname)
+	    //
+	    // }
+	
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
@@ -53359,9 +53361,10 @@
 	  return Profile;
 	}(_react.Component);
 	
-	Profile.contextTypes = {
-	  router: _react2.default.PropTypes.object
-	};
+	// Profile.contextTypes={
+	//   router:React.PropTypes.object
+	// }
+	
 	
 	var stateToProps = function stateToProps(state) {
 	  return {

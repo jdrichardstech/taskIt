@@ -120,7 +120,7 @@ constructor(){
             <div>
               <h3 style={{color:'gray',paddingTop:30}}>Category: <span style={{color:'#f56a6a'}}>{task.category.toUpperCase()}</span></h3>
             </div>
-            
+
           <div className="box" style={{padding:'10px 0 0 10px',width:'40%',background:'rgba(253,217,71,0.1)',boxShadow:'5px 5px 5px #855541'}}>
             {/*}  <h2>Hi {task.profile.username}</h2>*/}
             <div style={{marginBottom:30}}>

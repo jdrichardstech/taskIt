@@ -8,10 +8,10 @@ import actions from '../../actions'
 
 class Profile extends Component{
 
-componentWillMount(){
-  this.context.router.push("/"+this.context.router.location.pathname)
-
-}
+// componentWillMount(){
+//   this.context.router.push("/"+this.context.router.location.pathname)
+//
+// }
 
   componentDidMount(){
     console.log("PROFILECONTAINER: "+JSON.stringify(this.props.params.id))
@@ -55,9 +55,9 @@ componentWillMount(){
   }
 }
 
-Profile.contextTypes={
-  router:React.PropTypes.object
-}
+// Profile.contextTypes={
+//   router:React.PropTypes.object
+// }
 
 
 const stateToProps =(state)=>{
