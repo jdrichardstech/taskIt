@@ -53327,8 +53327,9 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              'User Name: '
+	              'User Name:'
 	            ),
+	            ' ',
 	            responderProfile.username
 	          ),
 	          _react2.default.createElement(
@@ -53337,8 +53338,9 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              'Email: '
+	              'Email:'
 	            ),
+	            ' ',
 	            responderProfile.email
 	          ),
 	          _react2.default.createElement(
@@ -53347,8 +53349,9 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              'Phone: '
+	              'Phone:'
 	            ),
+	            ' ',
 	            responderProfile.phone
 	          )
 	        )
@@ -53548,7 +53551,8 @@
 	                    'span',
 	                    { style: { color: '#f56a6a' } },
 	                    'It'
-	                  )
+	                  ),
+	                  ' '
 	                )
 	              ),
 	              _react2.default.createElement(
