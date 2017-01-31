@@ -28,6 +28,7 @@ class Profile extends Component{
     else if(profile[this.props.params.id]==null)
     return <div>Not Found</div>
     else {
+      profile = profile[this.props.params.id]
       return(
 
 

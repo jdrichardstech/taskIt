@@ -53273,6 +53273,7 @@
 	        null,
 	        'Not Found'
 	      );else {
+	        profile = profile[this.props.params.id];
 	        return _react2.default.createElement(
 	          'div',
 	          { style: { padding: '0 30px 30px 30px' } },
