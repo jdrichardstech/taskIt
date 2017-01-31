@@ -13,22 +13,16 @@ class Profile extends Component{
   componentDidMount(){
 
     let id = this.props.params.id
-  
+
     this.props.fetchProfile(id)
-    .then((response)=>{
-      // this.context.router.push(this.context.router.location.pathname)
-      console.log("PROFILE FETCHED: "+ JSON.stringify(response.result))
-    })
-    .catch((err)=>{
-      console.log("OOPS: " + err.message)
-    })
+
   }
 
 
   render(){
 
     // console.log("CONTEXT:" + JSON.stringify(this.context))
-    const profile = this.props.profiles
+    let profile = this.props.profiles
     if(profile == null)
     return <div>Not Found</div>
     else if(profile[this.props.params.id]==null)

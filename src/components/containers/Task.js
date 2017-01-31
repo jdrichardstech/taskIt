@@ -13,30 +13,7 @@ class Task extends Component {
 
 
   componentDidMount(){
-// console.log("SELECTED CATEGORY: "+ JSON.stringify(this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)))
-// console.log("TASKS: " + JSON.stringify(this.props.params.id))
-// var url = '/api/message/'
-// console.log("URL: " +JSON.stringify(url))
-// superagent
-// .get(url)
-// .query(null)
-// .set('Accept', 'application/json')
-// .end((err, response) => {
-//   if (err){
-//     alert('ERROR: '+err)
-//     return
-// }
-// console.log("MESSAGES: "+ JSON.stringify(response.body))
-// let answer = response.body
-// const messages = []
-// answer.results.map((result, i)=>{
-//   if(result.task==this.props.params.id)
-//   messages.push(result)
-// })
-// let updated = Object.assign([], this.state.messages)
-// this.setState({updated:messages})
-// console.log("RESULTS: " + JSON.stringify(this.state.messages))
-//   })
+
 this.props.fetchMessages({task:this.props.params.id})
 .then((response)=>{
   console.log("RESULTS: " + JSON.stringify(response.results))
