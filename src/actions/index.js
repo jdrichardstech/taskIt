@@ -7,14 +7,16 @@ const getRequest = (path, params, actionType) => {
   return (dispatch) =>
     APIManager.get(path, params)
       .then((response)=>{
+        console.log('hi actions')
         const payload= response.results || response.result || response.user
-        //  console.log('Response getRequest params: ' + JSON.stringify(params))
+         console.log('Response getRequest params: ' + JSON.stringify(response))
+         console.log('ACTION TYPE' + JSON.stringify(actionType))
+
         dispatch({
           type: actionType,
           payload: payload,
           params: params
         })
-        // console.log('ACTION GET' + JSON.stringify(payload))
         return response
       })
       .catch((err)=>{
@@ -69,6 +71,7 @@ export default{
   },
 
   fetchProfile: (id) => {
+
   return (dispatch) => {
     return dispatch(getRequest('/api/profile/'+id,null, constants.PROFILE_RECEIVED))
     }

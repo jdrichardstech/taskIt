@@ -47564,14 +47564,16 @@
 	
 	  return function (dispatch) {
 	    return _utils.APIManager.get(path, params).then(function (response) {
+	      console.log('hi actions');
 	      var payload = response.results || response.result || response.user;
-	      //  console.log('Response getRequest params: ' + JSON.stringify(params))
+	      console.log('Response getRequest params: ' + JSON.stringify(response));
+	      console.log('ACTION TYPE' + JSON.stringify(actionType));
+	
 	      dispatch({
 	        type: actionType,
 	        payload: payload,
 	        params: params
 	      });
-	      // console.log('ACTION GET' + JSON.stringify(payload))
 	      return response;
 	    }).catch(function (err) {
 	      throw err;
@@ -47619,6 +47621,7 @@
 	  },
 	
 	  fetchProfile: function fetchProfile(id) {
+	
 	    return function (dispatch) {
 	      return dispatch(getRequest('/api/profile/' + id, null, _constants2.default.PROFILE_RECEIVED));
 	    };
@@ -53262,65 +53265,57 @@
 	    key: 'render',
 	    value: function render() {
 	
-	      // console.log("CONTEXT:" + JSON.stringify(this.context))
-	      var profile = this.props.profiles;
-	      console.log("PROFILE:" + profile);
-	      if (profile == null) return _react2.default.createElement(
+	      var profile = this.props.profiles[this.props.params.id];
+	
+	      return profile == null ? _react2.default.createElement(
 	        'div',
 	        null,
-	        'Not Found'
-	      );else if (profile[this.props.params.id] == null) return _react2.default.createElement(
+	        '\'Not Found\' '
+	      ) : _react2.default.createElement(
 	        'div',
-	        null,
-	        'Not Found'
-	      );else {
-	        profile = profile[this.props.params.id];
-	        return _react2.default.createElement(
-	          'div',
-	          { style: { padding: '0 30px 30px 30px' } },
+	        { style: { padding: '0 30px 30px 30px' } },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Profile for ',
 	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'Profile for ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: { color: '#f56a6a' } },
-	              profile.username.toUpperCase()
-	            )
-	          ),
-	          _react2.default.createElement('hr', { style: { background: '#f56a6a' } }),
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'User Name: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: { color: '#f56a6a' } },
-	              profile.username
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'Email: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: { color: '#f56a6a' } },
-	              profile.email
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'Phone: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: { color: '#f56a6a' } },
-	              profile.phone
-	            )
+	            'span',
+	            { style: { color: '#f56a6a' } },
+	            profile.username.toUpperCase()
 	          )
-	        );
-	      }
+	        ),
+	        _react2.default.createElement('hr', { style: { background: '#f56a6a' } }),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'User Name: ',
+	          _react2.default.createElement(
+	            'span',
+	            { style: { color: '#f56a6a' } },
+	            profile.username
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Email: ',
+	          _react2.default.createElement(
+	            'span',
+	            { style: { color: '#f56a6a' } },
+	            profile.email
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Phone: ',
+	          _react2.default.createElement(
+	            'span',
+	            { style: { color: '#f56a6a' } },
+	            profile.phone
+	          )
+	        )
+	      );
 	    }
 	  }]);
 	
@@ -53617,7 +53612,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.messageReducer = exports.taskReducer = exports.accountReducer = undefined;
+	exports.profileReducer = exports.messageReducer = exports.taskReducer = exports.accountReducer = undefined;
 	
 	var _taskReducer = __webpack_require__(415);
 	
@@ -53631,11 +53626,16 @@
 	
 	var _messageReducer2 = _interopRequireDefault(_messageReducer);
 	
+	var _profileReducer = __webpack_require__(419);
+	
+	var _profileReducer2 = _interopRequireDefault(_profileReducer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.accountReducer = _accountReducer2.default;
 	exports.taskReducer = _taskReducer2.default;
 	exports.messageReducer = _messageReducer2.default;
+	exports.profileReducer = _profileReducer2.default;
 
 /***/ },
 /* 415 */
@@ -53716,8 +53716,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var initialState = {
-	  user: null,
-	  taskResponder: null
+	  user: null
+	
 	};
 	
 	exports.default = function () {
@@ -53726,12 +53726,7 @@
 	
 	  var updated = Object.assign({}, state);
 	  switch (action.type) {
-	    case _constants2.default.PROFILE_RECEIVED:
-	      console.log("ACTION PAYLOAD:" + JSON.stringify(action.payload));
-	      // updated['user'] = action.payload
-	      updated['taskResponder'] = action.payload;
-	      console.log("TASKRESPONDER REDUCER: " + JSON.stringify(updated));
-	      return updated;
+	
 	    case _constants2.default.PROFILE_CREATED:
 	      // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))
 	      updated['user'] = action.payload;
@@ -53811,6 +53806,40 @@
 	};
 	
 	exports.default = Footer;
+
+/***/ },
+/* 419 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _constants = __webpack_require__(351);
+	
+	var _constants2 = _interopRequireDefault(_constants);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var initialState = {};
+	
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+	  var action = arguments[1];
+	
+	  var updated = Object.assign({}, state);
+	  switch (action.type) {
+	    case _constants2.default.PROFILE_RECEIVED:
+	      console.log("PROFILE_RECEIVED:" + JSON.stringify(action.payload));
+	      var profile = action.payload;
+	      updated[profile.id] = profile;
+	      return updated;
+	    default:
+	      return state;
+	  }
+	};
 
 /***/ }
 /******/ ]);
