@@ -53264,6 +53264,7 @@
 	
 	      // console.log("CONTEXT:" + JSON.stringify(this.context))
 	      var profile = this.props.profiles;
+	      console.log("PROFILE:" + profile);
 	      if (profile == null) return _react2.default.createElement(
 	        'div',
 	        null,

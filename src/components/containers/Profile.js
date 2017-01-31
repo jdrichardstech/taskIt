@@ -23,6 +23,7 @@ class Profile extends Component{
 
     // console.log("CONTEXT:" + JSON.stringify(this.context))
     let profile = this.props.profiles
+    console.log("PROFILE:" + profile)
     if(profile == null)
     return <div>Not Found</div>
     else if(profile[this.props.params.id]==null)
@@ -30,8 +31,6 @@ class Profile extends Component{
     else {
       profile = profile[this.props.params.id]
       return(
-
-
             <div style={{padding:'0 30px 30px 30px'}}>
               <h1>Profile for <span style={{color:'#f56a6a'}}>{profile.username.toUpperCase()}</span></h1>
               <hr style={{background:'#f56a6a'}}/>
