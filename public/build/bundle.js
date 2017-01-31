@@ -47620,7 +47620,7 @@
 	
 	  fetchProfile: function fetchProfile(id) {
 	    return function (dispatch) {
-	      return dispatch(getRequest('/api/profile' + id, null, _constants2.default.PROFILE_RECEIVED));
+	      return dispatch(getRequest('/api/profile/' + id, null, _constants2.default.PROFILE_RECEIVED));
 	    };
 	  },
 	
