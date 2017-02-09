@@ -1,13 +1,9 @@
 var Tasks = require('../models/Tasks')
 var Promise = require('bluebird')
 
-
-
 module.exports = {
   get: function(params, isRaw){
     return new Promise(function(resolve, reject){
-
-
       var filters={
         sort: {timestamp: -1}
       }
@@ -28,6 +24,7 @@ module.exports = {
       })
     })
   },
+
   getById: function(id, isRaw){
     return new Promise(function(resolve, reject){
       Tasks.findById(id, function(err, task){

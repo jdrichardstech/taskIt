@@ -1,5 +1,3 @@
-
-
 export default{
   capitalize:(string) => {
     if(string == null)

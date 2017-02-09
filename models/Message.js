@@ -1,13 +1,11 @@
 var mongoose = require('mongoose')
 
-
 var MessageSchema = new mongoose.Schema({
   profile:{type:mongoose.Schema.Types.Mixed, default:{}},
   text:{type:String, default:''},
   task:{type:String, default:''},
   timestamp:{type:Date, default:Date.now}
 })
-
 
 MessageSchema.methods.summary=function(){
 var summary = {
@@ -19,6 +17,5 @@ var summary = {
 }
 return summary
 }
-
 
 module.exports = mongoose.model('MessageSchema', MessageSchema)

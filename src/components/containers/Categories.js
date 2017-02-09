@@ -5,9 +5,6 @@ import actions from '../../actions'
 
 class Categories extends Component{
 
-  compponentDidMount(){
-
-  }
   selectCategory(category, event){
     event.preventDefault()
     // console.log('selectCategory:' + category)
@@ -15,7 +12,6 @@ class Categories extends Component{
   }
 
   render(){
-
     let content =  this.props.tasks.categories.map((category, i)=>{
       const color = (category==this.props.tasks.selectedCategory) ? '#f56a6a' : '#333'
 
@@ -24,26 +20,20 @@ class Categories extends Component{
         <a   onClick={this.selectCategory.bind(this, category)} style={{color:color, paddingRight:15}} href="#">{category}</a>
         </li>
       )
-      })
+    })
 
     return(
-
-
-        <div >
-          <nav id="menu" >
-            <header className="major" style={{marginRight:200, padding:10}}>
-              <h2>Categories</h2>
-            </header>
-
-
-        <ul>{content}</ul>
-
+      <div >
+        <nav id="menu" >
+          <header className="major" style={{marginRight:200, padding:10}}>
+            <h2>Categories</h2>
+          </header>
+        	<ul>{content}</ul>
         </nav>
-          </div>
+      </div>
     )
   }
 }
-
 
 const stateToProps = (state)=>{
   return{
@@ -52,12 +42,10 @@ const stateToProps = (state)=>{
   }
 }
 
-
 const dispatchToProps = (dispatch)=> {
   return{
     selectCategory: (category) => dispatch(actions.selectCategory(category))
   }
 }
-
 
 export default connect(stateToProps,dispatchToProps)(Categories)

@@ -1,31 +1,28 @@
 import constants from '../constants'
 import { APIManager } from '../utils'
 
-
 const getRequest = (path, params, actionType) => {
+	return (dispatch) =>
+	  APIManager.get(path, params)
+	    .then((response)=>{
+	      console.log('ACTIONS GET REQUEST FUNCTION DID INVOKE')
+	      const payload= response.results || response.result || response.user
+	      console.log('ACTIONS GET REQUEST RESPONSE: ' + JSON.stringify(response))
+	      console.log('ACTION GET REQUEST TYPE: ' + JSON.stringify(actionType))
 
-  return (dispatch) =>
-    APIManager.get(path, params)
-      .then((response)=>{
-        console.log('ACTIONS GET REQUEST FUNCTION DID INVOKE')
-        const payload= response.results || response.result || response.user
-        console.log('ACTIONS GET REQUEST RESPONSE: ' + JSON.stringify(response))
-        console.log('ACTION GET REQUEST TYPE: ' + JSON.stringify(actionType))
-
-        dispatch({
-          type: actionType,
-          payload: payload,
-          params: params
-        })
-        return response
-      })
-      .catch((err)=>{
-        throw err
-      })
+	      dispatch({
+	        type: actionType,
+	        payload: payload,
+	        params: params
+	      })
+	      return response
+	    })
+	    .catch((err)=>{
+	      throw err
+	    })
 }
 
 const postRequest = (path, params, actionType) => {
-
   return (dispatch) =>
     APIManager.post(path, params)
       .then((response)=>{
@@ -42,8 +39,6 @@ const postRequest = (path, params, actionType) => {
         throw err
       })
 }
-
-
 
 export default{
 
@@ -123,11 +118,4 @@ export default{
       return dispatch(postRequest('/twilio/notify', params, null))
     }
   }
-  // taskCreated: (task) =>{
-  //   return{
-  //     type: constants.TASK_CREATED,
-  //     payload:task
-  //   }
-  //
-  // }
 }

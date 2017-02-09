@@ -1,6 +1,5 @@
 var mongoose = require('mongoose')
 
-
 var TasksSchemas = new mongoose.Schema({
   profile:{type:mongoose.Schema.Types.Mixed, default:{}},
   title:{type:String, default: ''},
@@ -8,7 +7,6 @@ var TasksSchemas = new mongoose.Schema({
   description:{type:String, default: ''},
   timestamp:{type:Date, default:Date.now}
 })
-
 
 TasksSchemas.methods.summary=function(){
 var summary = {
@@ -21,6 +19,5 @@ var summary = {
 }
 return summary
 }
-
 
 module.exports = mongoose.model('TasksSchemas', TasksSchemas)

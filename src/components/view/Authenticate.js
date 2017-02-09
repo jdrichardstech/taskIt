@@ -17,7 +17,6 @@ class Authenticate extends Component {
     }
   }
 
-
   updateCredentials(field, event){
     // console.log('updateCredentials: '+ field + "= " +event.target.value)
     let updated = Object.assign({}, this.state.credentials)
@@ -27,7 +26,6 @@ class Authenticate extends Component {
     })
   }
 
-
   register(event){
     console.log('register: ' + JSON.stringify(this.state.credentials))
     if(this.state.credentials.username.length==0){
@@ -35,30 +33,27 @@ class Authenticate extends Component {
       title: 'OOPS',
       text: 'Fill in username please',
       type: 'error',
-
-    })
-    return
-  }
+	    })
+	    return
+  	}
 
     if(this.state.credentials.phone.length==0){
       swal({
       title: 'OOPS',
       text: 'Fill in phone please',
       type: 'error',
-
-    })
-    return
-  }
+		  })
+		  return
+  	}
 
     if(this.state.credentials.email.length==0){
       swal({
       title: 'OOPS',
       text: 'Fill in email please',
       type: 'error',
-
-    })
-    return
-  }
+    	})
+    	return
+  	}
 
     if(this.state.credentials.password.length==0){
       swal({
@@ -69,7 +64,7 @@ class Authenticate extends Component {
       return
     }
 
-     this.props.onRegister(this.state.credentials)
+   this.props.onRegister(this.state.credentials)
   }
 
   login(event){
@@ -95,8 +90,7 @@ class Authenticate extends Component {
     // console.log('login'+ JSON.stringify(this.state.credentials))
   }
 
-
-  render(){
+	render(){
     return(
       <div>
         <div>
@@ -106,7 +100,6 @@ class Authenticate extends Component {
           <input onChange={this.updateCredentials.bind(this, 'email')}  placeholder="Email" type="text" /><br />
           <input onChange={this.updateCredentials.bind(this, 'password')}  placeholder="Password" type="password" /><br />
           <button onClick={this.register.bind(this)}>Join</button>
-
         </div>
         <hr />
         <div style={{marginTop:25}}>

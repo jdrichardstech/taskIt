@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import actions from '../../actions'
 import { Link } from 'react-router'
 
-
-
 class Account extends Component{
 
   componentDidMount(){
@@ -50,11 +48,8 @@ class Account extends Component{
   }
 
   render(){
-
     return(
-
       <div style={{marginBottom:100}}>
-
         {(this.props.user==null) ?
           <Authenticate onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
           :
@@ -64,9 +59,7 @@ class Account extends Component{
             <button onClick={this.logout.bind(this)}>Logout</button>
         </div>
         }
-
       </div>
-
     )
   }
 }
@@ -85,6 +78,5 @@ const dispatchToProps = (dispatch) => {
     logout: ()=>dispatch(actions.logout())
   }
 }
-
 
 export default connect(stateToProps, dispatchToProps)(Account)

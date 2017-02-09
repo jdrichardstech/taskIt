@@ -19,7 +19,7 @@ class ProfileLayout extends Component{
                   <section>
                     <span className="image main"><img style={{height:150}} src="/images/pic12.jpg" alt="" /></span>
                   </section>
-                  <Profile {...this.props}  />
+                  <Profile {...this.props} />
                 </div>
                   <Footer />
             </div>

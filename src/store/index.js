@@ -2,8 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import {taskReducer , accountReducer, messageReducer, profileReducer} from '../reducers'
 
-
-var store;
+var store
 
 export default {
 

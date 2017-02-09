@@ -1,8 +1,5 @@
 import React from 'react'
 
-
-
-
 const Footer = () =>{
   return(
     <footer style={{background:'#b22222',height:75,marginBottom:0,marginTop:50,paddingBottom:0}}>

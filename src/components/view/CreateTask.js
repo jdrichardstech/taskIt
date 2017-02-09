@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 
-
-
-
-
 class CreateTask extends Component {
   constructor(){
     super()
@@ -16,7 +12,6 @@ class CreateTask extends Component {
 
     }
   }
-
 
   updateTask(event){
     event.preventDefault()

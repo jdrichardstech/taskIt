@@ -21915,7 +21915,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _superagent = __webpack_require__(184);
@@ -21930,109 +21930,109 @@
 	
 	exports.default = {
 	
-	  get: function get(url, params) {
-	    return new _bluebird2.default(function (resolve, reject) {
-	      // console.log("PARAMS APIManager: " + JSON.stringify(params))
-	      _superagent2.default.get(url).query(params).set('Accept', 'application/json').end(function (err, response) {
-	        if (err) {
-	          reject(err);
-	          return;
-	        }
-	        if (response.body.confirmation != 'success') {
-	          // reject({message:response.body.message})
-	          reject(new Error(response.body.message));
-	          return;
-	        }
-	        // console.log("APIManager: " +JSON.stringify(response.body))
-	        resolve(response.body);
-	      });
-	    });
-	  },
-	  post: function post(url, params) {
-	    return new _bluebird2.default(function (resolve, reject) {
-	      _superagent2.default.post(url).send(params).set('Accept', 'application/json').end(function (err, response) {
-	        if (err) {
-	          reject(err);
-	          return;
-	        }
+		get: function get(url, params) {
+			return new _bluebird2.default(function (resolve, reject) {
+				// console.log("PARAMS APIManager: " + JSON.stringify(params))
+				_superagent2.default.get(url).query(params).set('Accept', 'application/json').end(function (err, response) {
+					if (err) {
+						reject(err);
+						return;
+					}
+					if (response.body.confirmation != 'success') {
+						// reject({message:response.body.message})
+						reject(new Error(response.body.message));
+						return;
+					}
+					// console.log("APIManager: " +JSON.stringify(response.body))
+					resolve(response.body);
+				});
+			});
+		},
 	
-	        if (response.body.confirmation != 'success') {
-	          // reject({message:response.body.message})
-	          reject(new Error(response.body.message));
-	          return;
-	        }
-	        resolve(response.body);
-	      });
-	    });
-	  },
-	  uploadFile: function uploadFile(url, file, params) {
-	    return new _bluebird2.default(function (resolve, reject) {
+		post: function post(url, params) {
+			return new _bluebird2.default(function (resolve, reject) {
+				_superagent2.default.post(url).send(params).set('Accept', 'application/json').end(function (err, response) {
+					if (err) {
+						reject(err);
+						return;
+					}
 	
-	      var uploadRequest = _superagent2.default.post(url);
-	      uploadRequest.attach('file', file);
+					if (response.body.confirmation != 'success') {
+						// reject({message:response.body.message})
+						reject(new Error(response.body.message));
+						return;
+					}
+					resolve(response.body);
+				});
+			});
+		},
 	
-	      if (params != null) {
-	        Object.keys(params).forEach(function (key) {
-	          uploadRequest.field(key, params[key]);
-	        });
-	      }
+		uploadFile: function uploadFile(url, file, params) {
+			return new _bluebird2.default(function (resolve, reject) {
+				var uploadRequest = _superagent2.default.post(url);
+				uploadRequest.attach('file', file);
 	
-	      uploadRequest.end(function (err, resp) {
-	        if (err) {
-	          reject(err);
-	          return;
-	        }
+				if (params != null) {
+					Object.keys(params).forEach(function (key) {
+						uploadRequest.field(key, params[key]);
+					});
+				}
 	
-	        var uploaded = resp.body;
-	        console.log('UPLOAD COMPLETE: ' + JSON.stringify(uploaded));
-	        resolve(uploaded);
-	      });
-	    });
-	  },
+				uploadRequest.end(function (err, resp) {
+					if (err) {
+						reject(err);
+						return;
+					}
 	
-	  // put: (url, body, callback) => {
-	  // 		superagent
-	  // 		.put(url)
-	  // 		.send(body)
-	  // 		.set('Accept', 'application/json')
-	  // 		.end((err, response) => {
-	  // 			if (err){
-	  // 				callback(err, null)
-	  // 				return
-	  // 			}
-	  //
-	  // 			const confirmation = response.body.confirmation
-	  // 			if (confirmation != 'success'){
-	  // 				callback({message: response.body.message}, null)
-	  // 				return
-	  // 			}
-	  //
-	  // 			callback(null, response.body)
-	  // 		})
-	  // 	},
-	  //
-	  // 	delete: () => {
-	  //
-	  // 	},
+					var uploaded = resp.body;
+					console.log('UPLOAD COMPLETE: ' + JSON.stringify(uploaded));
+					resolve(uploaded);
+				});
+			});
+		},
 	
-	  upload: function upload(endpoint, file, params, callback) {
-	    console.log('APIManager - upload: ');
-	    var uploadRequest = _superagent2.default.post(endpoint);
+		// put: (url, body, callback) => {
+		// 		superagent
+		// 		.put(url)
+		// 		.send(body)
+		// 		.set('Accept', 'application/json')
+		// 		.end((err, response) => {
+		// 			if (err){
+		// 				callback(err, null)
+		// 				return
+		// 			}
+		//
+		// 			const confirmation = response.body.confirmation
+		// 			if (confirmation != 'success'){
+		// 				callback({message: response.body.message}, null)
+		// 				return
+		// 			}
+		//
+		// 			callback(null, response.body)
+		// 		})
+		// 	},
+		//
+		// 	delete: () => {
+		//
+		// 	},
 	
-	    uploadRequest.attach('file', file);
-	    Object.keys(params).forEach(function (key) {
-	      uploadRequest.field(key, params[key]);
-	    });
+		upload: function upload(endpoint, file, params, callback) {
+			console.log('APIManager - upload: ');
+			var uploadRequest = _superagent2.default.post(endpoint);
 	
-	    uploadRequest.end(function (err, response) {
-	      if (err) {
-	        callback(err, null);
-	        return;
-	      }
-	      callback(null, response);
-	    });
-	  }
+			uploadRequest.attach('file', file);
+			Object.keys(params).forEach(function (key) {
+				uploadRequest.field(key, params[key]);
+			});
 	
+			uploadRequest.end(function (err, response) {
+				if (err) {
+					callback(err, null);
+					return;
+				}
+				callback(null, response);
+			});
+		}
 	};
 
 /***/ },
@@ -29802,10 +29802,8 @@
 	
 	//https://github.com/andreypopp/react-time
 	
-	
 	exports.default = {
 	  formattedDate: function formattedDate(date) {
-	
 	    var rightNow = Date.now();
 	    var orderDate = Date.parse(date);
 	    var twentyFourHours = '86400000';
@@ -45102,7 +45100,6 @@
 	          title: 'OOPS',
 	          text: 'Fill in username please',
 	          type: 'error'
-	
 	        });
 	        return;
 	      }
@@ -45112,7 +45109,6 @@
 	          title: 'OOPS',
 	          text: 'Fill in phone please',
 	          type: 'error'
-	
 	        });
 	        return;
 	      }
@@ -45122,7 +45118,6 @@
 	          title: 'OOPS',
 	          text: 'Fill in email please',
 	          type: 'error'
-	
 	        });
 	        return;
 	      }
@@ -47563,7 +47558,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var getRequest = function getRequest(path, params, actionType) {
-	
 	  return function (dispatch) {
 	    return _utils.APIManager.get(path, params).then(function (response) {
 	      console.log('ACTIONS GET REQUEST FUNCTION DID INVOKE');
@@ -47584,7 +47578,6 @@
 	};
 	
 	var postRequest = function postRequest(path, params, actionType) {
-	
 	  return function (dispatch) {
 	    return _utils.APIManager.post(path, params).then(function (response) {
 	      var payload = response.results || response.result || response.user;
@@ -47678,13 +47671,6 @@
 	      return dispatch(postRequest('/twilio/notify', params, null));
 	    };
 	  }
-	  // taskCreated: (task) =>{
-	  //   return{
-	  //     type: constants.TASK_CREATED,
-	  //     payload:task
-	  //   }
-	  //
-	  // }
 	};
 
 /***/ },
@@ -52736,9 +52722,6 @@
 	  }
 	
 	  _createClass(Categories, [{
-	    key: 'compponentDidMount',
-	    value: function compponentDidMount() {}
-	  }, {
 	    key: 'selectCategory',
 	    value: function selectCategory(category, event) {
 	      event.preventDefault();
@@ -52889,7 +52872,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	
 	      return _react2.default.createElement(
 	        'div',
 	        { style: { marginBottom: 100 } },
@@ -53012,16 +52994,10 @@
 	      this.props.fetchMessages({ task: this.props.params.id });
 	    }
 	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      // this.props.fetchMessages({task: this.props.params.id})
-	    }
-	  }, {
 	    key: 'submitMessage',
 	    value: function submitMessage(message) {
 	      var _this2 = this;
 	
-	      // console.log("CLAIM: " + JSON.stringify(reply))
 	      event.preventDefault();
 	      var updated = Object.assign({}, message);
 	      var user = this.props.account.user;
@@ -53057,14 +53033,10 @@
 	    value: function render() {
 	
 	      var taskId = this.props.params.id;
-	      console.log("PROFILE CONTAINER TASKID: " + JSON.stringify(taskId));
 	      var task = this.props.tasks[taskId];
-	      console.log("PROFILE CONTAINER TASK: " + JSON.stringify(task));
 	      var messages = this.props.messages[taskId];
-	      console.log("PROFILE CONTAINER RENDER Messages: " + JSON.stringify(messages));
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
-	      console.log('PROFILE CONTAINER SELECTED CATEGORY: ' + JSON.stringify(selectedCategory));
 	      var findUser = this.props.account.user == null ? _react2.default.createElement(
 	        'div',
 	        null,
@@ -53247,7 +53219,6 @@
 	  _createClass(Profile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	
 	      var id = this.props.params.id;
 	      console.log("PROFILE CONTAINER, PARAMS.ID: " + JSON.stringify(id));
 	
@@ -53258,16 +53229,36 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	
 	      var profile = this.props.profile[this.props.params.id];
 	      console.log("PROFILE CONTAINTER, profile VARIABLE IN RENDER: " + JSON.stringify(profile));
 	      return profile == null ? _react2.default.createElement(
 	        'div',
 	        null,
-	        '\'Not Found\' '
+	        'Not Found '
 	      ) : _react2.default.createElement(
 	        'div',
 	        { style: { padding: '0 30px 30px 30px' } },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Profile for ',
+	          _react2.default.createElement(
+	            'span',
+	            { style: { color: '#f56a6a' } },
+	            profile.username.toUpperCase()
+	          )
+	        ),
+	        _react2.default.createElement('hr', { style: { background: '#f56a6a' } }),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'User Name: ',
+	          _react2.default.createElement(
+	            'span',
+	            { style: { color: '#f56a6a' } },
+	            profile.username
+	          )
+	        ),
 	        _react2.default.createElement(
 	          'h2',
 	          null,
@@ -53655,36 +53646,27 @@
 		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 		var action = arguments[1];
 	
-	
 		var updated = Object.assign({}, state);
 	
 		switch (action.type) {
 			case _constants2.default.TASKS_RECEIVED:
-	
 				var keys = Object.keys(action.params);
 				keys.forEach(function (key, i) {
 					var value = action.params[key]; // delivery, dog walking...
 					updated[value] = action.payload;
 				});
-	
 				action.payload.forEach(function (task, i) {
 					updated[task.id] = task;
 				});
-				//			console.log('TASKS_RECEIVED: '+JSON.stringify(updated))
 				return updated;
-	
 			case _constants2.default.TASK_CREATED:
-				//			console.log('TASK_: '+JSON.stringify(action.tasks))
 				var currentTasks = updated[action.payload.category] ? Object.assign([], updated[action.payload.category]) : [];
 				currentTasks.unshift(action.payload);
 				updated[action.payload.category] = currentTasks;
 				return updated;
-	
 			case _constants2.default.CATEGORY_SELECTED:
-				//			console.log('CATEGORY_SELECTED: '+action.payload)
 				updated['selectedCategory'] = action.payload;
 				return updated;
-	
 			default:
 				return state;
 		}
@@ -53717,17 +53699,14 @@
 	  var updated = Object.assign({}, state);
 	
 	  switch (action.type) {
-	
 	    case _constants2.default.PROFILE_CREATED:
 	      // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))
 	      updated['user'] = action.payload;
 	      return updated;
-	
 	    case _constants2.default.USER_LOGGED_IN:
 	      console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload));
 	      updated['user'] = action.payload;
 	      return updated;
-	
 	    default:
 	      return state;
 	  }
@@ -53755,11 +53734,9 @@
 		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 		var action = arguments[1];
 	
-	
 		var updated = Object.assign({}, state);
 	
 		switch (action.type) {
-	
 			case _constants2.default.MESSAGES_RECEIVED:
 				var taskId = action.params.task;
 				console.log("PAYLOAD" + JSON.stringify(action.payload));
@@ -53799,7 +53776,7 @@
 	      console.log("PROFILE REDUCER:" + JSON.stringify(action.payload));
 	      var profile = action.payload;
 	      updated[profile.id] = profile;
-	      console.log("PROFILE REDUCER UPDATED: " + JSON.stringify(updated[profile.id]));
+	      console.log("PROFILE REDUCER UPDATED: " + JSON.stringify(updated));
 	      return updated;
 	    default:
 	      return state;

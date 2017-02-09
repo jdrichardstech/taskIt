@@ -1,16 +1,13 @@
 var Message = require('../models/Message')
 var Promise = require('bluebird')
 
-
-
 module.exports = {
   get: function(params, isRaw){
     return new Promise(function(resolve, reject){
-
-
       var filters={
         sort: {timestamp: -1}
       }
+
       Message.find(params, null, filters, function(err, messages){
           if(err){
             reject(err)
@@ -28,6 +25,7 @@ module.exports = {
       })
     })
   },
+
   getById: function(id, isRaw){
     return new Promise(function(resolve, reject){
       Message.findById(id, function(err, message){

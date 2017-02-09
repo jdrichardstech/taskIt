@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-
-
 class ClaimTask extends Component{
   constructor(){
     super()

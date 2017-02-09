@@ -1,11 +1,9 @@
 import React from 'react'
 import Time from 'react-time'  //https://github.com/andreypopp/react-time
 
-
 export default{
   formattedDate: (date) =>
   {
-  
     var rightNow = Date.now()
     var orderDate = Date.parse(date)
     var twentyFourHours = '86400000'
@@ -15,7 +13,5 @@ export default{
     else{
       return <Time value={date}titleFormat="YYYY/MM/DD HH:mm" relative />
     }
-
-
   }
 }

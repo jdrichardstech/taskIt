@@ -1,7 +1,6 @@
 import superagent from 'superagent'
 import Promise from 'bluebird'
 
-
 export default{
 
 get:(url, params)=>{
@@ -23,56 +22,55 @@ get:(url, params)=>{
       }
       // console.log("APIManager: " +JSON.stringify(response.body))
       resolve(response.body)
-    })
+	    })
+	  })
+	},
 
-  })
-},
-post:(url, params)=>{
-  return new Promise((resolve,reject)=>{
-    superagent
-    .post(url)
-    .send(params)
-    .set('Accept', 'application/json')
-    .end((err, response)=>{
-      if(err){
-        reject(err)
-        return
-      }
+	post:(url, params)=>{
+	  return new Promise((resolve,reject)=>{
+	    superagent
+	    .post(url)
+	    .send(params)
+	    .set('Accept', 'application/json')
+	    .end((err, response)=>{
+	      if(err){
+	        reject(err)
+	        return
+	      }
 
-      if(response.body.confirmation !='success'){
-        // reject({message:response.body.message})
-        reject(new Error(response.body.message))
-        return
-      }
-      resolve(response.body)
-    })
+	      if(response.body.confirmation !='success'){
+	        // reject({message:response.body.message})
+	        reject(new Error(response.body.message))
+	        return
+	      }
+	      resolve(response.body)
+	    })
+	  })
+	},
 
-  })
-},
-uploadFile: (url, file, params) => {
-  return new Promise((resolve, reject) => {
+	uploadFile: (url, file, params) => {
+	  return new Promise((resolve, reject) => {
+	    let uploadRequest = superagent.post(url)
+	    uploadRequest.attach('file', file)
 
-        let uploadRequest = superagent.post(url)
-        uploadRequest.attach('file', file)
+	    if (params != null){
+	      Object.keys(params).forEach((key) => {
+	        uploadRequest.field(key, params[key])
+	      })
+	    }
 
-        if (params != null){
-          Object.keys(params).forEach((key) => {
-            uploadRequest.field(key, params[key])
-          })
-        }
+	    uploadRequest.end((err, resp) => {
+	      if (err){
+	    reject(err)
+	            return
+	      }
 
-        uploadRequest.end((err, resp) => {
-          if (err){
-        reject(err)
-                return
-          }
-
-          const uploaded = resp.body
-          console.log('UPLOAD COMPLETE: '+JSON.stringify(uploaded))
-          resolve(uploaded)
-        })
-  })
-},
+	      const uploaded = resp.body
+	      console.log('UPLOAD COMPLETE: '+JSON.stringify(uploaded))
+	      resolve(uploaded)
+	    })
+	  })
+	},
 
 // put: (url, body, callback) => {
 // 		superagent
@@ -116,8 +114,4 @@ uploadFile: (url, file, params) => {
 			callback(null, response)
 		})
 	}
-
-
-
-
 }
