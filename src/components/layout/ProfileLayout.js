@@ -6,11 +6,10 @@ import { Footer } from '../view'
 
 class ProfileLayout extends Component{
   componentDidMount(){
-    console.log("PROFILELAYOUT: " + JSON.stringify(this.props))
+    console.log("PROFILELAYOUT THIS.PROPS: " + JSON.stringify(this.props))
   }
   render(){
     return(
-      <div>
         <div id="wrapper">
             <div id="main">
               <div className="inner">
@@ -20,14 +19,11 @@ class ProfileLayout extends Component{
                   <section>
                     <span className="image main"><img style={{height:150}} src="/images/pic12.jpg" alt="" /></span>
                   </section>
-
-                      <Profile {...this.props}  />
-                      </div>
-                    <Footer />
-                    </div>
-
-                  </div>
-      </div>
+                  <Profile {...this.props}  />
+                </div>
+                  <Footer />
+            </div>
+        </div>
     )
   }
 }

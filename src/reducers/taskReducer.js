@@ -28,7 +28,6 @@ export default (state = initialState, action) => {
 			action.payload.forEach((task, i) => {
 				updated[task.id] = task
 			})
-
 //			console.log('TASKS_RECEIVED: '+JSON.stringify(updated))
 			return updated
 
@@ -46,7 +45,5 @@ export default (state = initialState, action) => {
 
 		default:
 			return state
-
 	}
-
 }

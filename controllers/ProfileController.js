@@ -19,7 +19,7 @@ module.exports = {
             profiles.forEach(function(profile, i){
               list.push(profile.summary())
             })
-            resolve(list)
+            resolve(profiles)
           }
       })
     })
@@ -34,7 +34,7 @@ module.exports = {
         if(isRaw){
           resolve(profile)
         }else{
-          resolve(profile.summary())
+          resolve(profile)
         }
       })
     })
@@ -55,7 +55,7 @@ module.exports = {
         if(isRaw){
           resolve(profile)
         }else{
-          resolve(profile.summary())
+          resolve(profile)
         }
       })
     })

@@ -27,7 +27,6 @@ class CreateTask extends Component {
     })
   }
 
-
   submitTask(event){
     event.preventDefault()
     console.log("State: " + JSON.stringify(this.state.task))
@@ -37,17 +36,17 @@ class CreateTask extends Component {
   render(){
     return(
       <div>
-      <h2>Create Task</h2>
-      <form>
-      <input onChange={this.updateTask.bind(this)} type="text" id="title" placeholder="title" /><br />
-      <input onChange={this.updateTask.bind(this)} type="text" id="description" placeholder="description" /><br />
-      <select id="category" onChange={this.updateTask.bind(this)}>
-        <option value="delivery">Delivery</option>
-        <option value="dog walking">Dog Walking</option>
-        <option value ="house cleaning">House Cleaning</option>
-      </select><br />
-      <button onClick={this.submitTask.bind(this)} type="submit">Submit</button>
-      </form>
+        <h2>Create Task</h2>
+        <form>
+          <input onChange={this.updateTask.bind(this)} type="text" id="title" placeholder="title" /><br />
+          <input onChange={this.updateTask.bind(this)} type="text" id="description" placeholder="description" /><br />
+          <select id="category" onChange={this.updateTask.bind(this)}>
+            <option value="delivery">Delivery</option>
+            <option value="dog walking">Dog Walking</option>
+            <option value ="house cleaning">House Cleaning</option>
+          </select><br />
+          <button onClick={this.submitTask.bind(this)} type="submit">Submit</button>
+        </form>
       </div>
     )
   }

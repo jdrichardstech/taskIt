@@ -56,26 +56,15 @@
 	
 	var _layout = __webpack_require__(178);
 	
-	var _reactRedux = __webpack_require__(313);
+	var _reactRedux = __webpack_require__(314);
 	
-	var _store = __webpack_require__(412);
+	var _store = __webpack_require__(413);
 	
 	var _store2 = _interopRequireDefault(_store);
 	
-	var _containers = __webpack_require__(180);
-	
-	var _reactRouter = __webpack_require__(352);
+	var _reactRouter = __webpack_require__(353);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// const app =(
-	//   <Provider store = {store.configureStore()}>
-	//
-	//     <div>
-	//       <Home />
-	//     </div>
-	//   </Provider>
-	// )
 	
 	var app = _react2.default.createElement(
 	  _reactRedux.Provider,
@@ -21533,11 +21522,11 @@
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _Split = __webpack_require__(410);
+	var _Split = __webpack_require__(411);
 	
 	var _Split2 = _interopRequireDefault(_Split);
 	
-	var _ProfileLayout = __webpack_require__(411);
+	var _ProfileLayout = __webpack_require__(412);
 	
 	var _ProfileLayout2 = _interopRequireDefault(_ProfileLayout);
 	
@@ -21564,8 +21553,6 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _containers = __webpack_require__(180);
-	
-	var _layout = __webpack_require__(178);
 	
 	var _view = __webpack_require__(309);
 	
@@ -21689,19 +21676,19 @@
 	
 	var _Tasks2 = _interopRequireDefault(_Tasks);
 	
-	var _Categories = __webpack_require__(406);
+	var _Categories = __webpack_require__(407);
 	
 	var _Categories2 = _interopRequireDefault(_Categories);
 	
-	var _Account = __webpack_require__(407);
+	var _Account = __webpack_require__(408);
 	
 	var _Account2 = _interopRequireDefault(_Account);
 	
-	var _Task = __webpack_require__(408);
+	var _Task = __webpack_require__(409);
 	
 	var _Task2 = _interopRequireDefault(_Task);
 	
-	var _Profile = __webpack_require__(409);
+	var _Profile = __webpack_require__(410);
 	
 	var _Profile2 = _interopRequireDefault(_Profile);
 	
@@ -21733,13 +21720,13 @@
 	
 	var _view = __webpack_require__(309);
 	
-	var _reactRedux = __webpack_require__(313);
+	var _reactRedux = __webpack_require__(314);
 	
-	var _actions = __webpack_require__(350);
+	var _actions = __webpack_require__(351);
 	
 	var _actions2 = _interopRequireDefault(_actions);
 	
-	var _reactRouter = __webpack_require__(352);
+	var _reactRouter = __webpack_require__(353);
 	
 	var _reactTime = __webpack_require__(196);
 	
@@ -21761,7 +21748,6 @@
 	
 	    var _this = _possibleConstructorReturn(this, (Tasks.__proto__ || Object.getPrototypeOf(Tasks)).call(this));
 	
-	    _this.state = {};
 	    _this.getTasks = _this.getTasks.bind(_this);
 	    return _this;
 	  }
@@ -21779,7 +21765,6 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.getTasks();
-	      console.log('componentDidMount: ' + this.props.tasks.timestamp);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
@@ -21790,16 +21775,7 @@
 	    key: 'createTask',
 	    value: function createTask(task) {
 	      console.log("TASK CONTAINER: " + JSON.stringify(task));
-	      // APIManager
-	      //   .post('api/task',task)
-	      //   .then((response)=>{
-	      //     console.log('Response: ' + JSON.stringify(response))
-	      //     then.props.tasksReceived(response.result)
-	      //
-	      //   })
-	      //   .catch((err)=>{
-	      //     console.log("Error" + err)
-	      //   })
+	
 	      this.props.submitTask(task).then(function (result) {
 	        // console.log("SUBMIT TASK: " +JSON.stringify(result))
 	      }).catch(function (err) {
@@ -21815,58 +21791,62 @@
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
 	      {/* const username = task.profile.username || 'anonymous'*/}
 	      return _react2.default.createElement(
-	        'section',
-	        { id: 'banner', style: { paddingTop: 0 } },
+	        'div',
+	        null,
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'content' },
+	          'section',
+	          { id: 'banner', style: { paddingTop: 0 } },
 	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'Category: ',
+	            'div',
+	            { className: 'content' },
 	            _react2.default.createElement(
-	              'span',
-	              { style: { color: '#f56a6a', paddingLeft: 6, fontSize: '.8em' } },
-	              this.props.tasks.selectedCategory.toUpperCase()
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'ul',
-	            null,
-	            this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
-	              return _react2.default.createElement(
-	                _reactRouter.Link,
-	                { key: i, to: '/task/' + task.id },
-	                _react2.default.createElement(
-	                  'div',
-	                  { key: task.id, className: 'box col-md-3', style: { display: 'block', position: 'relative', marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
-	                  _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
+	              'h2',
+	              null,
+	              'Category: ',
+	              _react2.default.createElement(
+	                'span',
+	                { style: { color: '#f56a6a', paddingLeft: 6, fontSize: '.8em' } },
+	                this.props.tasks.selectedCategory.toUpperCase()
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'ul',
+	              null,
+	              this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
+	                return _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { key: task.id, to: '/task/' + task.id },
 	                  _react2.default.createElement(
-	                    'span',
-	                    { style: { padding: '20px 0 0 10px', marginBottom: 0, fontFamily: 'OpenSans-Semibold, sans-serif', color: '#000', fontSize: '1.1em' } },
-	                    ' Task ',
-	                    i + 1
-	                  ),
-	                  _react2.default.createElement('hr', null),
-	                  _react2.default.createElement(
-	                    'center',
-	                    null,
-	                    '  ',
+	                    'div',
+	                    { className: 'box col-md-3', style: { display: 'block', position: 'relative', marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
+	                    _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                    _react2.default.createElement(
-	                      'h3',
-	                      { style: { color: '#f56a6a' } },
-	                      _utils.TextUtils.capitalize(task.title)
+	                      'span',
+	                      { style: { padding: '20px 0 0 10px', marginBottom: 0, fontFamily: 'OpenSans-Semibold, sans-serif', color: '#000', fontSize: '1.1em' } },
+	                      ' Task ',
+	                      i + 1
 	                    ),
-	                    '  '
-	                  ),
-	                  _react2.default.createElement(
-	                    'span',
-	                    { style: { dispaly: 'block', position: 'relative', float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
-	                    _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
+	                    _react2.default.createElement('hr', null),
+	                    _react2.default.createElement(
+	                      'center',
+	                      null,
+	                      '  ',
+	                      _react2.default.createElement(
+	                        'h3',
+	                        { style: { color: '#f56a6a' } },
+	                        _utils.TextUtils.capitalize(task.title)
+	                      ),
+	                      '  '
+	                    ),
+	                    _react2.default.createElement(
+	                      'span',
+	                      { style: { dispaly: 'block', position: 'relative', float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
+	                      _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
+	                    )
 	                  )
-	                )
-	              );
-	            })
+	                );
+	              })
+	            )
 	          )
 	        )
 	      );
@@ -29825,11 +29805,6 @@
 	
 	exports.default = {
 	  formattedDate: function formattedDate(date) {
-	    // if(  <Time value={this.props.tasks[task.id].timestamp}titleFormat="YYYY/MM/DD HH:mm" relative />=='5 days ago'){
-	    //
-	    // }
-	    //if date is within 24 hours]]
-	    //dan code new Date().getTime()
 	
 	    var rightNow = Date.now();
 	    var orderDate = Date.parse(date);
@@ -44942,7 +44917,7 @@
 	
 	var _ClaimTask2 = _interopRequireDefault(_ClaimTask);
 	
-	var _Footer = __webpack_require__(418);
+	var _Footer = __webpack_require__(313);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -45157,7 +45132,6 @@
 	          title: 'OOPS',
 	          text: 'Fill in password please',
 	          type: 'error'
-	
 	        });
 	        return;
 	      }
@@ -45172,7 +45146,6 @@
 	          title: 'OOPS',
 	          text: 'Fill in a email and password please',
 	          type: 'error'
-	
 	        });
 	        return;
 	      }
@@ -45182,7 +45155,6 @@
 	          title: 'OOPS',
 	          text: 'Fill in a username and password please',
 	          type: 'error'
-	
 	        });
 	        return;
 	      }
@@ -45336,18 +45308,48 @@
 
 	'use strict';
 	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Footer = function Footer() {
+	  return _react2.default.createElement(
+	    'footer',
+	    { style: { background: '#b22222', height: 75, marginBottom: 0, marginTop: 50, paddingBottom: 0 } },
+	    _react2.default.createElement(
+	      'p',
+	      { style: { color: 'white', paddingTop: 25, paddingLeft: 15 } },
+	      'Copyright \xA92017 JDRichardsTech '
+	    )
+	  );
+	};
+	
+	exports.default = Footer;
+
+/***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
 	exports.__esModule = true;
 	exports.connect = exports.connectAdvanced = exports.Provider = undefined;
 	
-	var _Provider = __webpack_require__(314);
+	var _Provider = __webpack_require__(315);
 	
 	var _Provider2 = _interopRequireDefault(_Provider);
 	
-	var _connectAdvanced = __webpack_require__(318);
+	var _connectAdvanced = __webpack_require__(319);
 	
 	var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
 	
-	var _connect = __webpack_require__(321);
+	var _connect = __webpack_require__(322);
 	
 	var _connect2 = _interopRequireDefault(_connect);
 	
@@ -45358,7 +45360,7 @@
 	exports.connect = _connect2.default;
 
 /***/ },
-/* 314 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45368,15 +45370,15 @@
 	
 	var _react = __webpack_require__(1);
 	
-	var _Subscription = __webpack_require__(315);
+	var _Subscription = __webpack_require__(316);
 	
 	var _Subscription2 = _interopRequireDefault(_Subscription);
 	
-	var _storeShape = __webpack_require__(316);
+	var _storeShape = __webpack_require__(317);
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
-	var _warning = __webpack_require__(317);
+	var _warning = __webpack_require__(318);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -45448,7 +45450,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 315 */
+/* 316 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -45546,7 +45548,7 @@
 	exports.default = Subscription;
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45562,7 +45564,7 @@
 	});
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -45592,7 +45594,7 @@
 	}
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45603,21 +45605,21 @@
 	
 	exports.default = connectAdvanced;
 	
-	var _hoistNonReactStatics = __webpack_require__(319);
+	var _hoistNonReactStatics = __webpack_require__(320);
 	
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
 	var _react = __webpack_require__(1);
 	
-	var _Subscription = __webpack_require__(315);
+	var _Subscription = __webpack_require__(316);
 	
 	var _Subscription2 = _interopRequireDefault(_Subscription);
 	
-	var _storeShape = __webpack_require__(316);
+	var _storeShape = __webpack_require__(317);
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
@@ -45874,7 +45876,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports) {
 
 	/**
@@ -45930,7 +45932,7 @@
 
 
 /***/ },
-/* 320 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -45988,7 +45990,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 321 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45999,27 +46001,27 @@
 	
 	exports.createConnect = createConnect;
 	
-	var _connectAdvanced = __webpack_require__(318);
+	var _connectAdvanced = __webpack_require__(319);
 	
 	var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
 	
-	var _shallowEqual = __webpack_require__(322);
+	var _shallowEqual = __webpack_require__(323);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _mapDispatchToProps = __webpack_require__(323);
+	var _mapDispatchToProps = __webpack_require__(324);
 	
 	var _mapDispatchToProps2 = _interopRequireDefault(_mapDispatchToProps);
 	
-	var _mapStateToProps = __webpack_require__(346);
+	var _mapStateToProps = __webpack_require__(347);
 	
 	var _mapStateToProps2 = _interopRequireDefault(_mapStateToProps);
 	
-	var _mergeProps = __webpack_require__(347);
+	var _mergeProps = __webpack_require__(348);
 	
 	var _mergeProps2 = _interopRequireDefault(_mergeProps);
 	
-	var _selectorFactory = __webpack_require__(348);
+	var _selectorFactory = __webpack_require__(349);
 	
 	var _selectorFactory2 = _interopRequireDefault(_selectorFactory);
 	
@@ -46121,7 +46123,7 @@
 	exports.default = createConnect();
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -46149,7 +46151,7 @@
 	}
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46159,9 +46161,9 @@
 	exports.whenMapDispatchToPropsIsMissing = whenMapDispatchToPropsIsMissing;
 	exports.whenMapDispatchToPropsIsObject = whenMapDispatchToPropsIsObject;
 	
-	var _redux = __webpack_require__(324);
+	var _redux = __webpack_require__(325);
 	
-	var _wrapMapToProps = __webpack_require__(344);
+	var _wrapMapToProps = __webpack_require__(345);
 	
 	function whenMapDispatchToPropsIsFunction(mapDispatchToProps) {
 	  return typeof mapDispatchToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapDispatchToProps, 'mapDispatchToProps') : undefined;
@@ -46182,7 +46184,7 @@
 	exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46190,27 +46192,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 	
-	var _createStore = __webpack_require__(325);
+	var _createStore = __webpack_require__(326);
 	
 	var _createStore2 = _interopRequireDefault(_createStore);
 	
-	var _combineReducers = __webpack_require__(339);
+	var _combineReducers = __webpack_require__(340);
 	
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 	
-	var _bindActionCreators = __webpack_require__(341);
+	var _bindActionCreators = __webpack_require__(342);
 	
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 	
-	var _applyMiddleware = __webpack_require__(342);
+	var _applyMiddleware = __webpack_require__(343);
 	
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 	
-	var _compose = __webpack_require__(343);
+	var _compose = __webpack_require__(344);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
-	var _warning = __webpack_require__(340);
+	var _warning = __webpack_require__(341);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -46234,7 +46236,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46243,11 +46245,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 	
-	var _isPlainObject = __webpack_require__(326);
+	var _isPlainObject = __webpack_require__(327);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _symbolObservable = __webpack_require__(336);
+	var _symbolObservable = __webpack_require__(337);
 	
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 	
@@ -46500,12 +46502,12 @@
 	}
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(327),
-	    getPrototype = __webpack_require__(333),
-	    isObjectLike = __webpack_require__(335);
+	var baseGetTag = __webpack_require__(328),
+	    getPrototype = __webpack_require__(334),
+	    isObjectLike = __webpack_require__(336);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -46568,12 +46570,12 @@
 
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(328),
-	    getRawTag = __webpack_require__(331),
-	    objectToString = __webpack_require__(332);
+	var Symbol = __webpack_require__(329),
+	    getRawTag = __webpack_require__(332),
+	    objectToString = __webpack_require__(333);
 	
 	/** `Object#toString` result references. */
 	var nullTag = '[object Null]',
@@ -46602,10 +46604,10 @@
 
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(329);
+	var root = __webpack_require__(330);
 	
 	/** Built-in value references. */
 	var Symbol = root.Symbol;
@@ -46614,10 +46616,10 @@
 
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(330);
+	var freeGlobal = __webpack_require__(331);
 	
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -46629,7 +46631,7 @@
 
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -46640,10 +46642,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(328);
+	var Symbol = __webpack_require__(329);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -46692,7 +46694,7 @@
 
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -46720,10 +46722,10 @@
 
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(334);
+	var overArg = __webpack_require__(335);
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -46732,7 +46734,7 @@
 
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports) {
 
 	/**
@@ -46753,7 +46755,7 @@
 
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports) {
 
 	/**
@@ -46788,14 +46790,14 @@
 
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(337);
+	module.exports = __webpack_require__(338);
 
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -46804,7 +46806,7 @@
 	  value: true
 	});
 	
-	var _ponyfill = __webpack_require__(338);
+	var _ponyfill = __webpack_require__(339);
 	
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 	
@@ -46830,7 +46832,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(199)(module)))
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46858,7 +46860,7 @@
 	};
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46866,13 +46868,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 	
-	var _createStore = __webpack_require__(325);
+	var _createStore = __webpack_require__(326);
 	
-	var _isPlainObject = __webpack_require__(326);
+	var _isPlainObject = __webpack_require__(327);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(340);
+	var _warning = __webpack_require__(341);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -47006,7 +47008,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -47036,7 +47038,7 @@
 	}
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -47092,7 +47094,7 @@
 	}
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47103,7 +47105,7 @@
 	
 	exports['default'] = applyMiddleware;
 	
-	var _compose = __webpack_require__(343);
+	var _compose = __webpack_require__(344);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
@@ -47155,7 +47157,7 @@
 	}
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -47198,7 +47200,7 @@
 	}
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47208,7 +47210,7 @@
 	exports.getDependsOnOwnProps = getDependsOnOwnProps;
 	exports.wrapMapToPropsFunc = wrapMapToPropsFunc;
 	
-	var _verifyPlainObject = __webpack_require__(345);
+	var _verifyPlainObject = __webpack_require__(346);
 	
 	var _verifyPlainObject2 = _interopRequireDefault(_verifyPlainObject);
 	
@@ -47280,7 +47282,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47288,11 +47290,11 @@
 	exports.__esModule = true;
 	exports.default = verifyPlainObject;
 	
-	var _isPlainObject = __webpack_require__(326);
+	var _isPlainObject = __webpack_require__(327);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(317);
+	var _warning = __webpack_require__(318);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -47305,7 +47307,7 @@
 	}
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47314,7 +47316,7 @@
 	exports.whenMapStateToPropsIsFunction = whenMapStateToPropsIsFunction;
 	exports.whenMapStateToPropsIsMissing = whenMapStateToPropsIsMissing;
 	
-	var _wrapMapToProps = __webpack_require__(344);
+	var _wrapMapToProps = __webpack_require__(345);
 	
 	function whenMapStateToPropsIsFunction(mapStateToProps) {
 	  return typeof mapStateToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapStateToProps, 'mapStateToProps') : undefined;
@@ -47329,7 +47331,7 @@
 	exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47343,7 +47345,7 @@
 	exports.whenMergePropsIsFunction = whenMergePropsIsFunction;
 	exports.whenMergePropsIsOmitted = whenMergePropsIsOmitted;
 	
-	var _verifyPlainObject = __webpack_require__(345);
+	var _verifyPlainObject = __webpack_require__(346);
 	
 	var _verifyPlainObject2 = _interopRequireDefault(_verifyPlainObject);
 	
@@ -47393,7 +47395,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47403,7 +47405,7 @@
 	exports.pureFinalPropsSelectorFactory = pureFinalPropsSelectorFactory;
 	exports.default = finalPropsSelectorFactory;
 	
-	var _verifySubselectors = __webpack_require__(349);
+	var _verifySubselectors = __webpack_require__(350);
 	
 	var _verifySubselectors2 = _interopRequireDefault(_verifySubselectors);
 	
@@ -47512,7 +47514,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47520,7 +47522,7 @@
 	exports.__esModule = true;
 	exports.default = verifySubselectors;
 	
-	var _warning = __webpack_require__(317);
+	var _warning = __webpack_require__(318);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -47543,7 +47545,7 @@
 	}
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47552,7 +47554,7 @@
 	  value: true
 	});
 	
-	var _constants = __webpack_require__(351);
+	var _constants = __webpack_require__(352);
 	
 	var _constants2 = _interopRequireDefault(_constants);
 	
@@ -47564,10 +47566,10 @@
 	
 	  return function (dispatch) {
 	    return _utils.APIManager.get(path, params).then(function (response) {
-	      console.log('hi actions');
+	      console.log('ACTIONS GET REQUEST FUNCTION DID INVOKE');
 	      var payload = response.results || response.result || response.user;
-	      console.log('Response getRequest params: ' + JSON.stringify(response));
-	      console.log('ACTION TYPE' + JSON.stringify(actionType));
+	      console.log('ACTIONS GET REQUEST RESPONSE: ' + JSON.stringify(response));
+	      console.log('ACTION GET REQUEST TYPE: ' + JSON.stringify(actionType));
 	
 	      dispatch({
 	        type: actionType,
@@ -47613,15 +47615,15 @@
 	      payload: tasks
 	    };
 	  },
+	
 	  fetchMessages: function fetchMessages(params) {
-	    console.log("HI ACTIONS");
 	    return function (dispatch) {
 	      return dispatch(getRequest('/api/message', params, _constants2.default.MESSAGES_RECEIVED));
 	    };
 	  },
 	
 	  fetchProfile: function fetchProfile(id) {
-	
+	    console.log("ACTIONS FETCHPROFILE FUNCTION, ID: " + JSON.stringify(id));
 	    return function (dispatch) {
 	      return dispatch(getRequest('/api/profile/' + id, null, _constants2.default.PROFILE_RECEIVED));
 	    };
@@ -47670,12 +47672,12 @@
 	      return dispatch(getRequest('/account/logout', {}, _constants2.default.USER_LOGGED_IN));
 	    };
 	  },
+	
 	  notify: function notify(params) {
 	    return function (dispatch) {
 	      return dispatch(postRequest('/twilio/notify', params, null));
 	    };
 	  }
-	
 	  // taskCreated: (task) =>{
 	  //   return{
 	  //     type: constants.TASK_CREATED,
@@ -47683,11 +47685,10 @@
 	  //   }
 	  //
 	  // }
-	
 	};
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -47709,7 +47710,7 @@
 	};
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47717,7 +47718,7 @@
 	exports.__esModule = true;
 	exports.createMemoryHistory = exports.hashHistory = exports.browserHistory = exports.applyRouterMiddleware = exports.formatPattern = exports.useRouterHistory = exports.match = exports.routerShape = exports.locationShape = exports.RouterContext = exports.createRoutes = exports.Route = exports.Redirect = exports.IndexRoute = exports.IndexRedirect = exports.withRouter = exports.IndexLink = exports.Link = exports.Router = undefined;
 	
-	var _RouteUtils = __webpack_require__(353);
+	var _RouteUtils = __webpack_require__(354);
 	
 	Object.defineProperty(exports, 'createRoutes', {
 	  enumerable: true,
@@ -47726,7 +47727,7 @@
 	  }
 	});
 	
-	var _PropTypes = __webpack_require__(354);
+	var _PropTypes = __webpack_require__(355);
 	
 	Object.defineProperty(exports, 'locationShape', {
 	  enumerable: true,
@@ -47741,7 +47742,7 @@
 	  }
 	});
 	
-	var _PatternUtils = __webpack_require__(355);
+	var _PatternUtils = __webpack_require__(356);
 	
 	Object.defineProperty(exports, 'formatPattern', {
 	  enumerable: true,
@@ -47750,63 +47751,63 @@
 	  }
 	});
 	
-	var _Router2 = __webpack_require__(356);
+	var _Router2 = __webpack_require__(357);
 	
 	var _Router3 = _interopRequireDefault(_Router2);
 	
-	var _Link2 = __webpack_require__(372);
+	var _Link2 = __webpack_require__(373);
 	
 	var _Link3 = _interopRequireDefault(_Link2);
 	
-	var _IndexLink2 = __webpack_require__(373);
+	var _IndexLink2 = __webpack_require__(374);
 	
 	var _IndexLink3 = _interopRequireDefault(_IndexLink2);
 	
-	var _withRouter2 = __webpack_require__(374);
+	var _withRouter2 = __webpack_require__(375);
 	
 	var _withRouter3 = _interopRequireDefault(_withRouter2);
 	
-	var _IndexRedirect2 = __webpack_require__(375);
+	var _IndexRedirect2 = __webpack_require__(376);
 	
 	var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
 	
-	var _IndexRoute2 = __webpack_require__(377);
+	var _IndexRoute2 = __webpack_require__(378);
 	
 	var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
 	
-	var _Redirect2 = __webpack_require__(376);
+	var _Redirect2 = __webpack_require__(377);
 	
 	var _Redirect3 = _interopRequireDefault(_Redirect2);
 	
-	var _Route2 = __webpack_require__(378);
+	var _Route2 = __webpack_require__(379);
 	
 	var _Route3 = _interopRequireDefault(_Route2);
 	
-	var _RouterContext2 = __webpack_require__(368);
+	var _RouterContext2 = __webpack_require__(369);
 	
 	var _RouterContext3 = _interopRequireDefault(_RouterContext2);
 	
-	var _match2 = __webpack_require__(379);
+	var _match2 = __webpack_require__(380);
 	
 	var _match3 = _interopRequireDefault(_match2);
 	
-	var _useRouterHistory2 = __webpack_require__(393);
+	var _useRouterHistory2 = __webpack_require__(394);
 	
 	var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
 	
-	var _applyRouterMiddleware2 = __webpack_require__(394);
+	var _applyRouterMiddleware2 = __webpack_require__(395);
 	
 	var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
 	
-	var _browserHistory2 = __webpack_require__(395);
+	var _browserHistory2 = __webpack_require__(396);
 	
 	var _browserHistory3 = _interopRequireDefault(_browserHistory2);
 	
-	var _hashHistory2 = __webpack_require__(403);
+	var _hashHistory2 = __webpack_require__(404);
 	
 	var _hashHistory3 = _interopRequireDefault(_hashHistory2);
 	
-	var _createMemoryHistory2 = __webpack_require__(381);
+	var _createMemoryHistory2 = __webpack_require__(382);
 	
 	var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
 	
@@ -47839,7 +47840,7 @@
 	exports.createMemoryHistory = _createMemoryHistory3.default;
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47937,7 +47938,7 @@
 	}
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47970,7 +47971,7 @@
 	});
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47982,7 +47983,7 @@
 	exports.getParams = getParams;
 	exports.formatPattern = formatPattern;
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -48220,7 +48221,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -48229,7 +48230,7 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -48237,21 +48238,21 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _createTransitionManager2 = __webpack_require__(357);
+	var _createTransitionManager2 = __webpack_require__(358);
 	
 	var _createTransitionManager3 = _interopRequireDefault(_createTransitionManager2);
 	
-	var _InternalPropTypes = __webpack_require__(367);
+	var _InternalPropTypes = __webpack_require__(368);
 	
-	var _RouterContext = __webpack_require__(368);
+	var _RouterContext = __webpack_require__(369);
 	
 	var _RouterContext2 = _interopRequireDefault(_RouterContext);
 	
-	var _RouteUtils = __webpack_require__(353);
+	var _RouteUtils = __webpack_require__(354);
 	
-	var _RouterUtils = __webpack_require__(371);
+	var _RouterUtils = __webpack_require__(372);
 	
-	var _routerWarning = __webpack_require__(358);
+	var _routerWarning = __webpack_require__(359);
 	
 	var _routerWarning2 = _interopRequireDefault(_routerWarning);
 	
@@ -48401,7 +48402,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -48412,25 +48413,25 @@
 	
 	exports.default = createTransitionManager;
 	
-	var _routerWarning = __webpack_require__(358);
+	var _routerWarning = __webpack_require__(359);
 	
 	var _routerWarning2 = _interopRequireDefault(_routerWarning);
 	
-	var _computeChangedRoutes2 = __webpack_require__(360);
+	var _computeChangedRoutes2 = __webpack_require__(361);
 	
 	var _computeChangedRoutes3 = _interopRequireDefault(_computeChangedRoutes2);
 	
-	var _TransitionUtils = __webpack_require__(361);
+	var _TransitionUtils = __webpack_require__(362);
 	
-	var _isActive2 = __webpack_require__(363);
+	var _isActive2 = __webpack_require__(364);
 	
 	var _isActive3 = _interopRequireDefault(_isActive2);
 	
-	var _getComponents = __webpack_require__(364);
+	var _getComponents = __webpack_require__(365);
 	
 	var _getComponents2 = _interopRequireDefault(_getComponents);
 	
-	var _matchRoutes = __webpack_require__(366);
+	var _matchRoutes = __webpack_require__(367);
 	
 	var _matchRoutes2 = _interopRequireDefault(_matchRoutes);
 	
@@ -48682,7 +48683,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 358 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48691,7 +48692,7 @@
 	exports.default = routerWarning;
 	exports._resetWarned = _resetWarned;
 	
-	var _warning = __webpack_require__(359);
+	var _warning = __webpack_require__(360);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -48723,7 +48724,7 @@
 	}
 
 /***/ },
-/* 359 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -48790,14 +48791,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 360 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _PatternUtils = __webpack_require__(355);
+	var _PatternUtils = __webpack_require__(356);
 	
 	function routeParamsChanged(route, prevState, nextState) {
 	  if (!route.path) return false;
@@ -48872,7 +48873,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 361 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48882,7 +48883,7 @@
 	exports.runChangeHooks = runChangeHooks;
 	exports.runLeaveHooks = runLeaveHooks;
 	
-	var _AsyncUtils = __webpack_require__(362);
+	var _AsyncUtils = __webpack_require__(363);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -49032,7 +49033,7 @@
 	}
 
 /***/ },
-/* 362 */
+/* 363 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -49125,7 +49126,7 @@
 	}
 
 /***/ },
-/* 363 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49136,7 +49137,7 @@
 	
 	exports.default = isActive;
 	
-	var _PatternUtils = __webpack_require__(355);
+	var _PatternUtils = __webpack_require__(356);
 	
 	function deepEqual(a, b) {
 	  if (a == b) return true;
@@ -49282,16 +49283,16 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 364 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _AsyncUtils = __webpack_require__(362);
+	var _AsyncUtils = __webpack_require__(363);
 	
-	var _PromiseUtils = __webpack_require__(365);
+	var _PromiseUtils = __webpack_require__(366);
 	
 	function getComponentsForRoute(nextState, route, callback) {
 	  if (route.component || route.components) {
@@ -49327,7 +49328,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 365 */
+/* 366 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49339,7 +49340,7 @@
 	}
 
 /***/ },
-/* 366 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -49352,17 +49353,17 @@
 	
 	exports.default = matchRoutes;
 	
-	var _AsyncUtils = __webpack_require__(362);
+	var _AsyncUtils = __webpack_require__(363);
 	
-	var _PromiseUtils = __webpack_require__(365);
+	var _PromiseUtils = __webpack_require__(366);
 	
-	var _PatternUtils = __webpack_require__(355);
+	var _PatternUtils = __webpack_require__(356);
 	
-	var _routerWarning = __webpack_require__(358);
+	var _routerWarning = __webpack_require__(359);
 	
 	var _routerWarning2 = _interopRequireDefault(_routerWarning);
 	
-	var _RouteUtils = __webpack_require__(353);
+	var _RouteUtils = __webpack_require__(354);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -49608,7 +49609,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 367 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49645,7 +49646,7 @@
 	var routes = exports.routes = oneOfType([route, arrayOf(route)]);
 
 /***/ },
-/* 368 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -49656,7 +49657,7 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -49664,13 +49665,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _getRouteParams = __webpack_require__(369);
+	var _getRouteParams = __webpack_require__(370);
 	
 	var _getRouteParams2 = _interopRequireDefault(_getRouteParams);
 	
-	var _ContextUtils = __webpack_require__(370);
+	var _ContextUtils = __webpack_require__(371);
 	
-	var _RouteUtils = __webpack_require__(353);
+	var _RouteUtils = __webpack_require__(354);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -49784,14 +49785,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 369 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _PatternUtils = __webpack_require__(355);
+	var _PatternUtils = __webpack_require__(356);
 	
 	/**
 	 * Extracts an object of params the given route cares about from
@@ -49815,7 +49816,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 370 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49941,7 +49942,7 @@
 	}
 
 /***/ },
-/* 371 */
+/* 372 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -49974,7 +49975,7 @@
 	}
 
 /***/ },
-/* 372 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -49987,13 +49988,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _PropTypes = __webpack_require__(354);
+	var _PropTypes = __webpack_require__(355);
 	
-	var _ContextUtils = __webpack_require__(370);
+	var _ContextUtils = __webpack_require__(371);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50138,7 +50139,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 373 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50151,7 +50152,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Link = __webpack_require__(372);
+	var _Link = __webpack_require__(373);
 	
 	var _Link2 = _interopRequireDefault(_Link);
 	
@@ -50171,7 +50172,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 374 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -50182,7 +50183,7 @@
 	
 	exports.default = withRouter;
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -50190,13 +50191,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _hoistNonReactStatics = __webpack_require__(319);
+	var _hoistNonReactStatics = __webpack_require__(320);
 	
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 	
-	var _ContextUtils = __webpack_require__(370);
+	var _ContextUtils = __webpack_require__(371);
 	
-	var _PropTypes = __webpack_require__(354);
+	var _PropTypes = __webpack_require__(355);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50253,7 +50254,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 375 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -50264,19 +50265,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _routerWarning = __webpack_require__(358);
+	var _routerWarning = __webpack_require__(359);
 	
 	var _routerWarning2 = _interopRequireDefault(_routerWarning);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _Redirect = __webpack_require__(376);
+	var _Redirect = __webpack_require__(377);
 	
 	var _Redirect2 = _interopRequireDefault(_Redirect);
 	
-	var _InternalPropTypes = __webpack_require__(367);
+	var _InternalPropTypes = __webpack_require__(368);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50323,7 +50324,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 376 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -50334,15 +50335,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _RouteUtils = __webpack_require__(353);
+	var _RouteUtils = __webpack_require__(354);
 	
-	var _PatternUtils = __webpack_require__(355);
+	var _PatternUtils = __webpack_require__(356);
 	
-	var _InternalPropTypes = __webpack_require__(367);
+	var _InternalPropTypes = __webpack_require__(368);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50432,7 +50433,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 377 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -50443,17 +50444,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _routerWarning = __webpack_require__(358);
+	var _routerWarning = __webpack_require__(359);
 	
 	var _routerWarning2 = _interopRequireDefault(_routerWarning);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _RouteUtils = __webpack_require__(353);
+	var _RouteUtils = __webpack_require__(354);
 	
-	var _InternalPropTypes = __webpack_require__(367);
+	var _InternalPropTypes = __webpack_require__(368);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50499,7 +50500,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 378 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -50510,13 +50511,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _RouteUtils = __webpack_require__(353);
+	var _RouteUtils = __webpack_require__(354);
 	
-	var _InternalPropTypes = __webpack_require__(367);
+	var _InternalPropTypes = __webpack_require__(368);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50563,7 +50564,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 379 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -50572,23 +50573,23 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _Actions = __webpack_require__(380);
+	var _Actions = __webpack_require__(381);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _createMemoryHistory = __webpack_require__(381);
+	var _createMemoryHistory = __webpack_require__(382);
 	
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 	
-	var _createTransitionManager = __webpack_require__(357);
+	var _createTransitionManager = __webpack_require__(358);
 	
 	var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 	
-	var _RouteUtils = __webpack_require__(353);
+	var _RouteUtils = __webpack_require__(354);
 	
-	var _RouterUtils = __webpack_require__(371);
+	var _RouterUtils = __webpack_require__(372);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50641,7 +50642,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 380 */
+/* 381 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -50668,7 +50669,7 @@
 	var POP = exports.POP = 'POP';
 
 /***/ },
-/* 381 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50676,15 +50677,15 @@
 	exports.__esModule = true;
 	exports.default = createMemoryHistory;
 	
-	var _useQueries = __webpack_require__(382);
+	var _useQueries = __webpack_require__(383);
 	
 	var _useQueries2 = _interopRequireDefault(_useQueries);
 	
-	var _useBasename = __webpack_require__(389);
+	var _useBasename = __webpack_require__(390);
 	
 	var _useBasename2 = _interopRequireDefault(_useBasename);
 	
-	var _createMemoryHistory = __webpack_require__(390);
+	var _createMemoryHistory = __webpack_require__(391);
 	
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 	
@@ -50704,7 +50705,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 382 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50713,15 +50714,15 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _queryString = __webpack_require__(383);
+	var _queryString = __webpack_require__(384);
 	
-	var _runTransitionHook = __webpack_require__(385);
+	var _runTransitionHook = __webpack_require__(386);
 	
 	var _runTransitionHook2 = _interopRequireDefault(_runTransitionHook);
 	
-	var _LocationUtils = __webpack_require__(387);
+	var _LocationUtils = __webpack_require__(388);
 	
-	var _PathUtils = __webpack_require__(388);
+	var _PathUtils = __webpack_require__(389);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50830,11 +50831,11 @@
 	exports.default = useQueries;
 
 /***/ },
-/* 383 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var strictUriEncode = __webpack_require__(384);
+	var strictUriEncode = __webpack_require__(385);
 	var objectAssign = __webpack_require__(4);
 	
 	function encoderForArrayFormat(opts) {
@@ -51039,7 +51040,7 @@
 
 
 /***/ },
-/* 384 */
+/* 385 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51051,14 +51052,14 @@
 
 
 /***/ },
-/* 385 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
 	exports.__esModule = true;
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -51080,7 +51081,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 386 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -51147,7 +51148,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 387 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -51159,17 +51160,17 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _PathUtils = __webpack_require__(388);
+	var _PathUtils = __webpack_require__(389);
 	
-	var _Actions = __webpack_require__(380);
+	var _Actions = __webpack_require__(381);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -51245,7 +51246,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 388 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -51253,7 +51254,7 @@
 	exports.__esModule = true;
 	exports.createPath = exports.parsePath = exports.getQueryStringValueFromPath = exports.stripQueryStringValueFromPath = exports.addQueryStringValueToPath = undefined;
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -51352,7 +51353,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 389 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51361,11 +51362,11 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _runTransitionHook = __webpack_require__(385);
+	var _runTransitionHook = __webpack_require__(386);
 	
 	var _runTransitionHook2 = _interopRequireDefault(_runTransitionHook);
 	
-	var _PathUtils = __webpack_require__(388);
+	var _PathUtils = __webpack_require__(389);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -51466,7 +51467,7 @@
 	exports.default = useBasename;
 
 /***/ },
-/* 390 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -51475,23 +51476,23 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _LocationUtils = __webpack_require__(387);
+	var _LocationUtils = __webpack_require__(388);
 	
-	var _PathUtils = __webpack_require__(388);
+	var _PathUtils = __webpack_require__(389);
 	
-	var _createHistory = __webpack_require__(391);
+	var _createHistory = __webpack_require__(392);
 	
 	var _createHistory2 = _interopRequireDefault(_createHistory);
 	
-	var _Actions = __webpack_require__(380);
+	var _Actions = __webpack_require__(381);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -51612,24 +51613,24 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 391 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _AsyncUtils = __webpack_require__(392);
+	var _AsyncUtils = __webpack_require__(393);
 	
-	var _PathUtils = __webpack_require__(388);
+	var _PathUtils = __webpack_require__(389);
 	
-	var _runTransitionHook = __webpack_require__(385);
+	var _runTransitionHook = __webpack_require__(386);
 	
 	var _runTransitionHook2 = _interopRequireDefault(_runTransitionHook);
 	
-	var _Actions = __webpack_require__(380);
+	var _Actions = __webpack_require__(381);
 	
-	var _LocationUtils = __webpack_require__(387);
+	var _LocationUtils = __webpack_require__(388);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -51793,7 +51794,7 @@
 	exports.default = createHistory;
 
 /***/ },
-/* 392 */
+/* 393 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -51854,7 +51855,7 @@
 	};
 
 /***/ },
-/* 393 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51862,11 +51863,11 @@
 	exports.__esModule = true;
 	exports.default = useRouterHistory;
 	
-	var _useQueries = __webpack_require__(382);
+	var _useQueries = __webpack_require__(383);
 	
 	var _useQueries2 = _interopRequireDefault(_useQueries);
 	
-	var _useBasename = __webpack_require__(389);
+	var _useBasename = __webpack_require__(390);
 	
 	var _useBasename2 = _interopRequireDefault(_useBasename);
 	
@@ -51881,7 +51882,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 394 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -51894,11 +51895,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _RouterContext = __webpack_require__(368);
+	var _RouterContext = __webpack_require__(369);
 	
 	var _RouterContext2 = _interopRequireDefault(_RouterContext);
 	
-	var _routerWarning = __webpack_require__(358);
+	var _routerWarning = __webpack_require__(359);
 	
 	var _routerWarning2 = _interopRequireDefault(_routerWarning);
 	
@@ -51944,18 +51945,18 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 395 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _createBrowserHistory = __webpack_require__(396);
+	var _createBrowserHistory = __webpack_require__(397);
 	
 	var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
 	
-	var _createRouterHistory = __webpack_require__(402);
+	var _createRouterHistory = __webpack_require__(403);
 	
 	var _createRouterHistory2 = _interopRequireDefault(_createRouterHistory);
 	
@@ -51965,7 +51966,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 396 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -51974,23 +51975,23 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _ExecutionEnvironment = __webpack_require__(397);
+	var _ExecutionEnvironment = __webpack_require__(398);
 	
-	var _BrowserProtocol = __webpack_require__(398);
+	var _BrowserProtocol = __webpack_require__(399);
 	
 	var BrowserProtocol = _interopRequireWildcard(_BrowserProtocol);
 	
-	var _RefreshProtocol = __webpack_require__(401);
+	var _RefreshProtocol = __webpack_require__(402);
 	
 	var RefreshProtocol = _interopRequireWildcard(_RefreshProtocol);
 	
-	var _DOMUtils = __webpack_require__(399);
+	var _DOMUtils = __webpack_require__(400);
 	
-	var _createHistory = __webpack_require__(391);
+	var _createHistory = __webpack_require__(392);
 	
 	var _createHistory2 = _interopRequireDefault(_createHistory);
 	
@@ -52064,7 +52065,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 397 */
+/* 398 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52073,7 +52074,7 @@
 	var canUseDOM = exports.canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 /***/ },
-/* 398 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52081,15 +52082,15 @@
 	exports.__esModule = true;
 	exports.go = exports.replaceLocation = exports.pushLocation = exports.startListener = exports.getUserConfirmation = exports.getCurrentLocation = undefined;
 	
-	var _LocationUtils = __webpack_require__(387);
+	var _LocationUtils = __webpack_require__(388);
 	
-	var _DOMUtils = __webpack_require__(399);
+	var _DOMUtils = __webpack_require__(400);
 	
-	var _DOMStateStorage = __webpack_require__(400);
+	var _DOMStateStorage = __webpack_require__(401);
 	
-	var _PathUtils = __webpack_require__(388);
+	var _PathUtils = __webpack_require__(389);
 	
-	var _ExecutionEnvironment = __webpack_require__(397);
+	var _ExecutionEnvironment = __webpack_require__(398);
 	
 	var PopStateEvent = 'popstate';
 	var HashChangeEvent = 'hashchange';
@@ -52176,7 +52177,7 @@
 	};
 
 /***/ },
-/* 399 */
+/* 400 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52221,7 +52222,7 @@
 	};
 
 /***/ },
-/* 400 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -52229,7 +52230,7 @@
 	exports.__esModule = true;
 	exports.readState = exports.saveState = undefined;
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -52312,7 +52313,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 401 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52320,7 +52321,7 @@
 	exports.__esModule = true;
 	exports.replaceLocation = exports.pushLocation = exports.getCurrentLocation = exports.go = exports.getUserConfirmation = undefined;
 	
-	var _BrowserProtocol = __webpack_require__(398);
+	var _BrowserProtocol = __webpack_require__(399);
 	
 	Object.defineProperty(exports, 'getUserConfirmation', {
 	  enumerable: true,
@@ -52335,9 +52336,9 @@
 	  }
 	});
 	
-	var _LocationUtils = __webpack_require__(387);
+	var _LocationUtils = __webpack_require__(388);
 	
-	var _PathUtils = __webpack_require__(388);
+	var _PathUtils = __webpack_require__(389);
 	
 	var getCurrentLocation = exports.getCurrentLocation = function getCurrentLocation() {
 	  return (0, _LocationUtils.createLocation)(window.location);
@@ -52354,7 +52355,7 @@
 	};
 
 /***/ },
-/* 402 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52367,7 +52368,7 @@
 	  return history;
 	};
 	
-	var _useRouterHistory = __webpack_require__(393);
+	var _useRouterHistory = __webpack_require__(394);
 	
 	var _useRouterHistory2 = _interopRequireDefault(_useRouterHistory);
 	
@@ -52378,18 +52379,18 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 403 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _createHashHistory = __webpack_require__(404);
+	var _createHashHistory = __webpack_require__(405);
 	
 	var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
 	
-	var _createRouterHistory = __webpack_require__(402);
+	var _createRouterHistory = __webpack_require__(403);
 	
 	var _createRouterHistory2 = _interopRequireDefault(_createRouterHistory);
 	
@@ -52399,7 +52400,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 404 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -52408,23 +52409,23 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _invariant = __webpack_require__(320);
+	var _invariant = __webpack_require__(321);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _ExecutionEnvironment = __webpack_require__(397);
+	var _ExecutionEnvironment = __webpack_require__(398);
 	
-	var _DOMUtils = __webpack_require__(399);
+	var _DOMUtils = __webpack_require__(400);
 	
-	var _HashProtocol = __webpack_require__(405);
+	var _HashProtocol = __webpack_require__(406);
 	
 	var HashProtocol = _interopRequireWildcard(_HashProtocol);
 	
-	var _createHistory = __webpack_require__(391);
+	var _createHistory = __webpack_require__(392);
 	
 	var _createHistory2 = _interopRequireDefault(_createHistory);
 	
@@ -52552,7 +52553,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 405 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -52560,7 +52561,7 @@
 	exports.__esModule = true;
 	exports.replaceLocation = exports.pushLocation = exports.startListener = exports.getCurrentLocation = exports.go = exports.getUserConfirmation = undefined;
 	
-	var _BrowserProtocol = __webpack_require__(398);
+	var _BrowserProtocol = __webpack_require__(399);
 	
 	Object.defineProperty(exports, 'getUserConfirmation', {
 	  enumerable: true,
@@ -52575,17 +52576,17 @@
 	  }
 	});
 	
-	var _warning = __webpack_require__(386);
+	var _warning = __webpack_require__(387);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _LocationUtils = __webpack_require__(387);
+	var _LocationUtils = __webpack_require__(388);
 	
-	var _DOMUtils = __webpack_require__(399);
+	var _DOMUtils = __webpack_require__(400);
 	
-	var _DOMStateStorage = __webpack_require__(400);
+	var _DOMStateStorage = __webpack_require__(401);
 	
-	var _PathUtils = __webpack_require__(388);
+	var _PathUtils = __webpack_require__(389);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -52694,7 +52695,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 406 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52711,9 +52712,9 @@
 	
 	var _utils = __webpack_require__(182);
 	
-	var _reactRedux = __webpack_require__(313);
+	var _reactRedux = __webpack_require__(314);
 	
-	var _actions = __webpack_require__(350);
+	var _actions = __webpack_require__(351);
 	
 	var _actions2 = _interopRequireDefault(_actions);
 	
@@ -52809,7 +52810,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Categories);
 
 /***/ },
-/* 407 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52826,13 +52827,13 @@
 	
 	var _view = __webpack_require__(309);
 	
-	var _reactRedux = __webpack_require__(313);
+	var _reactRedux = __webpack_require__(314);
 	
-	var _actions = __webpack_require__(350);
+	var _actions = __webpack_require__(351);
 	
 	var _actions2 = _interopRequireDefault(_actions);
 	
-	var _reactRouter = __webpack_require__(352);
+	var _reactRouter = __webpack_require__(353);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -52945,7 +52946,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Account);
 
 /***/ },
-/* 408 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52962,15 +52963,15 @@
 	
 	var _utils = __webpack_require__(182);
 	
-	var _reactRedux = __webpack_require__(313);
+	var _reactRedux = __webpack_require__(314);
 	
 	var _view = __webpack_require__(309);
 	
-	var _actions = __webpack_require__(350);
+	var _actions = __webpack_require__(351);
 	
 	var _actions2 = _interopRequireDefault(_actions);
 	
-	var _reactRouter = __webpack_require__(352);
+	var _reactRouter = __webpack_require__(353);
 	
 	var _superagent = __webpack_require__(184);
 	
@@ -52986,20 +52987,6 @@
 	
 	var Task = function (_Component) {
 	  _inherits(Task, _Component);
-	
-	  _createClass(Task, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-	
-	      this.props.fetchMessages({ task: this.props.params.id }).then(function (response) {
-	        console.log("RESULTS: " + JSON.stringify(response.results));
-	        console.log("PROPS: " + JSON.stringify(_this2.props.messages.list));
-	      }).catch(function (err) {
-	        console.log("ERROR: " + err.message);
-	      });
-	    }
-	  }]);
 	
 	  function Task() {
 	    _classCallCheck(this, Task);
@@ -53020,9 +53007,19 @@
 	  }
 	
 	  _createClass(Task, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.fetchMessages({ task: this.props.params.id });
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      // this.props.fetchMessages({task: this.props.params.id})
+	    }
+	  }, {
 	    key: 'submitMessage',
 	    value: function submitMessage(message) {
-	      var _this3 = this;
+	      var _this2 = this;
 	
 	      // console.log("CLAIM: " + JSON.stringify(reply))
 	      event.preventDefault();
@@ -53034,21 +53031,20 @@
 	      };
 	
 	      updated['task'] = this.props.params.id;
-	
 	      var taskId = this.props.params.id;
 	      var task = this.props.tasks[taskId];
+	
 	      this.setState({
 	        updated: updated
 	      });
+	
 	      this.props.submitMessage(updated).then(function (response) {
 	        // console.log("MESSAGE CREATED: " + JSON.stringify(response))
-	
-	        return _this3.props.notify({
+	        return _this2.props.notify({
 	          recipient: task.profile.id,
 	          text: updated.text,
 	          taskResponder: user.username,
 	          taskResponderId: user.id
-	
 	        });
 	      }).then(function (response) {
 	        alert("Thanks for replying! Good Luck!");
@@ -53061,32 +53057,24 @@
 	    value: function render() {
 	
 	      var taskId = this.props.params.id;
+	      console.log("PROFILE CONTAINER TASKID: " + JSON.stringify(taskId));
 	      var task = this.props.tasks[taskId];
-	      var messages = this.props.messages.taskId;
+	      console.log("PROFILE CONTAINER TASK: " + JSON.stringify(task));
+	      var messages = this.props.messages[taskId];
+	      console.log("PROFILE CONTAINER RENDER Messages: " + JSON.stringify(messages));
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
-	      var content = messages == null ? null : messages.map(function (message, i) {
-	        return _react2.default.createElement(
-	          'div',
-	          null,
-	          ' ',
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/profile/' + message.profile.id },
-	              _react2.default.createElement(
-	                'span',
-	                null,
-	                message.profile.username
-	              )
-	            ),
-	            ' says: ',
-	            message.text
-	          )
-	        );
-	      });
+	      console.log('PROFILE CONTAINER SELECTED CATEGORY: ' + JSON.stringify(selectedCategory));
+	      var findUser = this.props.account.user == null ? _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          { style: { color: 'gray' } },
+	          'Ugh Please login or register to reply '
+	        )
+	      ) : null;
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -53162,22 +53150,30 @@
 	                'Responses:'
 	              )
 	            ),
-	            content
+	            messages == null ? _react2.default.createElement(
+	              'div',
+	              null,
+	              'No Replies'
+	            ) : messages.map(function (message, i) {
+	              return _react2.default.createElement(
+	                'li',
+	                { key: message.id },
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: '/profile/' + message.profile.id },
+	                  _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    message.profile.username
+	                  )
+	                ),
+	                ' says: ',
+	                message.text
+	              );
+	            })
 	          )
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { style: { marginBottom: 100 } },
-	          this.props.account.user == null ? _react2.default.createElement(
-	            'h2',
-	            { style: { color: 'gray' } },
-	            'Please login or register to reply '
-	          ) : _react2.default.createElement(
-	            'div',
-	            null,
-	            _react2.default.createElement(_view.ClaimTask, { onSubmit: this.submitMessage.bind(this) })
-	          )
-	        )
+	        _react2.default.createElement('div', { style: { marginBottom: 100 } })
 	      );
 	    }
 	  }]);
@@ -53203,9 +53199,6 @@
 	    },
 	    fetchMessages: function fetchMessages(params) {
 	      return dispatch(_actions2.default.fetchMessages(params));
-	    },
-	    fetchProfile: function fetchProfile(path, params) {
-	      return dispatch(_actions2.default.fetchProfile(path, params));
 	    }
 	  };
 	};
@@ -53213,7 +53206,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Task);
 
 /***/ },
-/* 409 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53228,11 +53221,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRedux = __webpack_require__(313);
+	var _reactRedux = __webpack_require__(314);
 	
-	var _utils = __webpack_require__(182);
-	
-	var _actions = __webpack_require__(350);
+	var _actions = __webpack_require__(351);
 	
 	var _actions2 = _interopRequireDefault(_actions);
 	
@@ -53258,6 +53249,9 @@
 	    value: function componentDidMount() {
 	
 	      var id = this.props.params.id;
+	      console.log("PROFILE CONTAINER, PARAMS.ID: " + JSON.stringify(id));
+	
+	      if (this.props.profile[id] != null) return;
 	
 	      this.props.fetchProfile(id);
 	    }
@@ -53265,8 +53259,8 @@
 	    key: 'render',
 	    value: function render() {
 	
-	      var profile = this.props.profiles[this.props.params.id];
-	
+	      var profile = this.props.profile[this.props.params.id];
+	      console.log("PROFILE CONTAINTER, profile VARIABLE IN RENDER: " + JSON.stringify(profile));
 	      return profile == null ? _react2.default.createElement(
 	        'div',
 	        null,
@@ -53274,27 +53268,6 @@
 	      ) : _react2.default.createElement(
 	        'div',
 	        { style: { padding: '0 30px 30px 30px' } },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Profile for ',
-	          _react2.default.createElement(
-	            'span',
-	            { style: { color: '#f56a6a' } },
-	            profile.username.toUpperCase()
-	          )
-	        ),
-	        _react2.default.createElement('hr', { style: { background: '#f56a6a' } }),
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'User Name: ',
-	          _react2.default.createElement(
-	            'span',
-	            { style: { color: '#f56a6a' } },
-	            profile.username
-	          )
-	        ),
 	        _react2.default.createElement(
 	          'h2',
 	          null,
@@ -53324,8 +53297,7 @@
 	
 	var stateToProps = function stateToProps(state) {
 	  return {
-	
-	    profiles: state.profile
+	    profile: state.profile
 	  };
 	};
 	
@@ -53340,7 +53312,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile);
 
 /***/ },
-/* 410 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53348,6 +53320,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
 	
@@ -53359,88 +53333,111 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { id: 'wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { id: 'main' },
-	      _react2.default.createElement(
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Split = function (_Component) {
+	  _inherits(Split, _Component);
+	
+	  function Split() {
+	    _classCallCheck(this, Split);
+	
+	    return _possibleConstructorReturn(this, (Split.__proto__ || Object.getPrototypeOf(Split)).apply(this, arguments));
+	  }
+	
+	  _createClass(Split, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
 	        'div',
-	        { className: 'inner' },
-	        _react2.default.createElement(
-	          'header',
-	          { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 30 } },
-	          _react2.default.createElement(
-	            'h2',
-	            { style: { fontSize: '2.5em' } },
-	            'Task',
-	            _react2.default.createElement(
-	              'span',
-	              { style: { color: '#f56a6a' } },
-	              'It'
-	            ),
-	            ' Order'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'section',
-	          null,
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'image main' },
-	            _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic13.jpg', alt: '' })
-	          )
-	        ),
+	        { id: 'wrapper' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'container' },
+	          { id: 'main' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'row' },
+	            { className: 'inner' },
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-md-8' },
+	              'header',
+	              { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 30 } },
 	              _react2.default.createElement(
-	                'header',
-	                { className: 'major', style: { marginBottom: 0, paddingBottom: 0 } },
+	                'h2',
+	                { style: { fontSize: '2.5em' } },
+	                'Task',
 	                _react2.default.createElement(
-	                  'h2',
-	                  { style: { marginBottom: 10 } },
-	                  'Task'
-	                )
-	              ),
+	                  'span',
+	                  { style: { color: '#f56a6a' } },
+	                  'It'
+	                ),
+	                ' Order'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'section',
+	              null,
 	              _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(_containers.Task, props)
+	                'span',
+	                { className: 'image main' },
+	                _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic13.jpg', alt: '' })
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-md-3 col-md-offset-1', style: { borderLeft: '2px solid red' } },
+	              { className: 'container' },
 	              _react2.default.createElement(
-	                'header',
-	                { className: 'major' },
+	                'div',
+	                { className: 'row' },
 	                _react2.default.createElement(
-	                  'h2',
-	                  null,
-	                  'Account'
+	                  'div',
+	                  { className: 'col-md-8' },
+	                  _react2.default.createElement(
+	                    'header',
+	                    { className: 'major', style: { marginBottom: 0, paddingBottom: 0 } },
+	                    _react2.default.createElement(
+	                      'h2',
+	                      { style: { marginBottom: 10 } },
+	                      'Task'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(_containers.Task, this.props)
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-md-3 col-md-offset-1', style: { borderLeft: '2px solid red' } },
+	                  _react2.default.createElement(
+	                    'header',
+	                    { className: 'major' },
+	                    _react2.default.createElement(
+	                      'h2',
+	                      null,
+	                      'Account'
+	                    )
+	                  ),
+	                  _react2.default.createElement(_containers.Account, null)
 	                )
-	              ),
-	              _react2.default.createElement(_containers.Account, null)
+	              )
 	            )
-	          )
+	          ),
+	          _react2.default.createElement(_view.Footer, null)
 	        )
-	      ),
-	      _react2.default.createElement(_view.Footer, null)
-	    )
-	  );
-	};
+	      );
+	    }
+	  }]);
+	
+	  return Split;
+	}(_react.Component);
+	
+	exports.default = Split;
 
 /***/ },
-/* 411 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53479,51 +53476,47 @@
 	  _createClass(ProfileLayout, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("PROFILELAYOUT: " + JSON.stringify(this.props));
+	      console.log("PROFILELAYOUT THIS.PROPS: " + JSON.stringify(this.props));
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { id: 'wrapper' },
 	        _react2.default.createElement(
 	          'div',
-	          { id: 'wrapper' },
+	          { id: 'main' },
 	          _react2.default.createElement(
 	            'div',
-	            { id: 'main' },
+	            { className: 'inner' },
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'inner' },
+	              'header',
+	              { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 30 } },
 	              _react2.default.createElement(
-	                'header',
-	                { id: 'header', style: { paddingBottom: 0, marginBottom: 0, marginTop: 0, paddingTop: 30 } },
-	                _react2.default.createElement(
-	                  'h1',
-	                  { style: { fontSize: '4em' } },
-	                  'Task',
-	                  _react2.default.createElement(
-	                    'span',
-	                    { style: { color: '#f56a6a' } },
-	                    'It'
-	                  ),
-	                  ' '
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'section',
-	                null,
+	                'h1',
+	                { style: { fontSize: '4em' } },
+	                'Task',
 	                _react2.default.createElement(
 	                  'span',
-	                  { className: 'image main' },
-	                  _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic12.jpg', alt: '' })
-	                )
-	              ),
-	              _react2.default.createElement(_containers.Profile, this.props)
+	                  { style: { color: '#f56a6a' } },
+	                  'It'
+	                ),
+	                ' '
+	              )
 	            ),
-	            _react2.default.createElement(_view.Footer, null)
-	          )
+	            _react2.default.createElement(
+	              'section',
+	              null,
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'image main' },
+	                _react2.default.createElement('img', { style: { height: 150 }, src: '/images/pic12.jpg', alt: '' })
+	              )
+	            ),
+	            _react2.default.createElement(_containers.Profile, this.props)
+	          ),
+	          _react2.default.createElement(_view.Footer, null)
 	        )
 	      );
 	    }
@@ -53535,7 +53528,7 @@
 	exports.default = ProfileLayout;
 
 /***/ },
-/* 412 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53544,13 +53537,13 @@
 	  value: true
 	});
 	
-	var _redux = __webpack_require__(324);
+	var _redux = __webpack_require__(325);
 	
-	var _reduxThunk = __webpack_require__(413);
+	var _reduxThunk = __webpack_require__(414);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reducers = __webpack_require__(414);
+	var _reducers = __webpack_require__(415);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -53576,7 +53569,7 @@
 	};
 
 /***/ },
-/* 413 */
+/* 414 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -53604,7 +53597,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 414 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53614,15 +53607,15 @@
 	});
 	exports.profileReducer = exports.messageReducer = exports.taskReducer = exports.accountReducer = undefined;
 	
-	var _taskReducer = __webpack_require__(415);
+	var _taskReducer = __webpack_require__(416);
 	
 	var _taskReducer2 = _interopRequireDefault(_taskReducer);
 	
-	var _accountReducer = __webpack_require__(416);
+	var _accountReducer = __webpack_require__(417);
 	
 	var _accountReducer2 = _interopRequireDefault(_accountReducer);
 	
-	var _messageReducer = __webpack_require__(417);
+	var _messageReducer = __webpack_require__(418);
 	
 	var _messageReducer2 = _interopRequireDefault(_messageReducer);
 	
@@ -53638,7 +53631,7 @@
 	exports.profileReducer = _profileReducer2.default;
 
 /***/ },
-/* 415 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53647,7 +53640,7 @@
 		value: true
 	});
 	
-	var _constants = __webpack_require__(351);
+	var _constants = __webpack_require__(352);
 	
 	var _constants2 = _interopRequireDefault(_constants);
 	
@@ -53677,7 +53670,6 @@
 				action.payload.forEach(function (task, i) {
 					updated[task.id] = task;
 				});
-	
 				//			console.log('TASKS_RECEIVED: '+JSON.stringify(updated))
 				return updated;
 	
@@ -53695,49 +53687,7 @@
 	
 			default:
 				return state;
-	
 		}
-	};
-
-/***/ },
-/* 416 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _constants = __webpack_require__(351);
-	
-	var _constants2 = _interopRequireDefault(_constants);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var initialState = {
-	  user: null
-	
-	};
-	
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-	
-	  var updated = Object.assign({}, state);
-	  switch (action.type) {
-	
-	    case _constants2.default.PROFILE_CREATED:
-	      // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))
-	      updated['user'] = action.payload;
-	      return updated;
-	    case _constants2.default.USER_LOGGED_IN:
-	      console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload));
-	      updated['user'] = action.payload;
-	      return updated;
-	    default:
-	      return state;
-	  }
 	};
 
 /***/ },
@@ -53750,28 +53700,34 @@
 	  value: true
 	});
 	
-	var _constants = __webpack_require__(351);
+	var _constants = __webpack_require__(352);
 	
 	var _constants2 = _interopRequireDefault(_constants);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var initialState = {};
+	var initialState = {
+	  user: null
+	};
 	
 	exports.default = function () {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 	  var action = arguments[1];
 	
-	
 	  var updated = Object.assign({}, state);
 	
 	  switch (action.type) {
 	
-	    case _constants2.default.MESSAGES_RECEIVED:
-	      var taskId = action.params.task;
-	      console.log("PAYLOAD" + JSON.stringify(action.payload));
-	      updated['taskId'] = action.payload;
+	    case _constants2.default.PROFILE_CREATED:
+	      // console.log("PROFILE_CREATED: " + JSON.stringify(action.payload))
+	      updated['user'] = action.payload;
 	      return updated;
+	
+	    case _constants2.default.USER_LOGGED_IN:
+	      console.log("USER_LOGGED_IN: " + JSON.stringify(action.payload));
+	      updated['user'] = action.payload;
+	      return updated;
+	
 	    default:
 	      return state;
 	  }
@@ -53781,31 +53737,38 @@
 /* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
-	var _react = __webpack_require__(1);
+	var _constants = __webpack_require__(352);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var _constants2 = _interopRequireDefault(_constants);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Footer = function Footer() {
-	  return _react2.default.createElement(
-	    'footer',
-	    { style: { background: '#b22222', height: 75, marginBottom: 0, marginTop: 50, paddingBottom: 0 } },
-	    _react2.default.createElement(
-	      'p',
-	      { style: { color: 'white', paddingTop: 25, paddingLeft: 15 } },
-	      'Copyright \xA92017 JDRichardsTech '
-	    )
-	  );
-	};
+	var initialState = {};
 	
-	exports.default = Footer;
+	exports.default = function () {
+		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+		var action = arguments[1];
+	
+	
+		var updated = Object.assign({}, state);
+	
+		switch (action.type) {
+	
+			case _constants2.default.MESSAGES_RECEIVED:
+				var taskId = action.params.task;
+				console.log("PAYLOAD" + JSON.stringify(action.payload));
+				updated[taskId] = action.payload;
+				return updated;
+			default:
+				return state;
+		}
+	};
 
 /***/ },
 /* 419 */
@@ -53817,7 +53780,7 @@
 	  value: true
 	});
 	
-	var _constants = __webpack_require__(351);
+	var _constants = __webpack_require__(352);
 	
 	var _constants2 = _interopRequireDefault(_constants);
 	
@@ -53829,12 +53792,14 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 	  var action = arguments[1];
 	
-	  var updated = Object.assign({}, state);
+	  var updated = Object.assign({}, initialState);
+	
 	  switch (action.type) {
 	    case _constants2.default.PROFILE_RECEIVED:
-	      console.log("PROFILE_RECEIVED:" + JSON.stringify(action.payload));
+	      console.log("PROFILE REDUCER:" + JSON.stringify(action.payload));
 	      var profile = action.payload;
 	      updated[profile.id] = profile;
+	      console.log("PROFILE REDUCER UPDATED: " + JSON.stringify(updated[profile.id]));
 	      return updated;
 	    default:
 	      return state;

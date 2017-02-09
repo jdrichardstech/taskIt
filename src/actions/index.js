@@ -7,10 +7,10 @@ const getRequest = (path, params, actionType) => {
   return (dispatch) =>
     APIManager.get(path, params)
       .then((response)=>{
-        console.log('hi actions')
+        console.log('ACTIONS GET REQUEST FUNCTION DID INVOKE')
         const payload= response.results || response.result || response.user
-         console.log('Response getRequest params: ' + JSON.stringify(response))
-         console.log('ACTION TYPE' + JSON.stringify(actionType))
+        console.log('ACTIONS GET REQUEST RESPONSE: ' + JSON.stringify(response))
+        console.log('ACTION GET REQUEST TYPE: ' + JSON.stringify(actionType))
 
         dispatch({
           type: actionType,
@@ -22,7 +22,6 @@ const getRequest = (path, params, actionType) => {
       .catch((err)=>{
         throw err
       })
-
 }
 
 const postRequest = (path, params, actionType) => {
@@ -42,38 +41,35 @@ const postRequest = (path, params, actionType) => {
       .catch((err)=>{
         throw err
       })
-
 }
 
 
 
 export default{
 
-
-
-  fetchTasks: (params) =>{
+  fetchTasks: (params) => {
     return (dispatch) => {
       return dispatch(getRequest('/api/task', params, constants.TASKS_RECEIVED))
     }
   },
 
-  tasksReceived: (tasks)=>{
+  tasksReceived: (tasks) => {
     return{
       type: constants.TASKS_RECEIVED,
       payload: tasks
     }
   },
-  fetchMessages:(params) => {
-    console.log("HI ACTIONS")
-    return(dispatch)=>{
+
+  fetchMessages: (params) => {
+    return (dispatch) => {
       return dispatch(getRequest('/api/message', params, constants.MESSAGES_RECEIVED))
     }
   },
 
   fetchProfile: (id) => {
-
-  return (dispatch) => {
-    return dispatch(getRequest('/api/profile/'+id,null, constants.PROFILE_RECEIVED))
+    console.log("ACTIONS FETCHPROFILE FUNCTION, ID: " + JSON.stringify(id))
+    return (dispatch) => {
+      return dispatch(getRequest('/api/profile/'+id, null, constants.PROFILE_RECEIVED))
     }
   },
 
@@ -84,30 +80,28 @@ export default{
     }
   },
 
-
-
-  submitTask: (params) =>{
+  submitTask: (params) => {
     return (dispatch) => {
       return dispatch(postRequest('/api/task', params, constants.TASK_CREATED))
     }
   },
 
 
-  selectCategory: (category)=>{
+  selectCategory: (category) => {
     return{
       type: constants.CATEGORY_SELECTED,
       payload: category
     }
   },
 
-  register: (credentials)=>{
-    return(dispatch) => {
+  register: (credentials) => {
+    return (dispatch) => {
       return dispatch(postRequest('/account/register', credentials, constants.PROFILE_CREATED))
     }
   },
 
-  login: (credentials)=>{
-    return(dispatch) => {
+  login: (credentials) => {
+    return (dispatch) => {
       return dispatch(postRequest('/account/login', credentials, constants.USER_LOGGED_IN))
     }
   },
@@ -115,23 +109,20 @@ export default{
   checkCurrentUser: () => {
   return (dispatch) => {
     return dispatch(getRequest('/account/currentuser', {}, constants.USER_LOGGED_IN))
+    }
+  },
+
+  logout:()=>{
+    return (dispatch)=>{
+      return dispatch(getRequest('/account/logout', {}, constants.USER_LOGGED_IN))
+    }
+  },
+
+  notify: (params) => {
+    return (dispatch) => {
+      return dispatch(postRequest('/twilio/notify', params, null))
+    }
   }
-},
-
-logout:()=>{
-  return(dispatch)=>{
-    return dispatch(getRequest('/account/logout', {}, constants.USER_LOGGED_IN))
-  }
-},
-notify:(params) => {
-  return(dispatch) => {
-    return dispatch(postRequest('/twilio/notify', params, null))
-  }
-}
-
-
-
-
   // taskCreated: (task) =>{
   //   return{
   //     type: constants.TASK_CREATED,
@@ -139,5 +130,4 @@ notify:(params) => {
   //   }
   //
   // }
-
 }

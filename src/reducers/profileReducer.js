@@ -6,16 +6,16 @@ var initialState={
 }
 
 export default (state=initialState, action)=>{
-    let updated = Object.assign({}, state)
+  let updated = Object.assign({}, initialState)
+
   switch(action.type){
     case constants.PROFILE_RECEIVED:
-    console.log("PROFILE_RECEIVED:" + JSON.stringify(action.payload))
-    let profile = action.payload
-    updated[profile.id] = profile
-    return updated
+      console.log("PROFILE REDUCER:" + JSON.stringify(action.payload))
+      let profile = action.payload
+      updated[profile.id] = profile
+      console.log("PROFILE REDUCER UPDATED: " + JSON.stringify(updated[profile.id]))
+      return updated
     default:
-    return state
+      return state
   }
-
-
 }
