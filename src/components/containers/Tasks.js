@@ -47,6 +47,7 @@ class Tasks extends Component{
   }
 
 	render(){
+		console.log("TASKS: " + JSON.stringify(this.props.tasks))
 	  const categoryIcon = ["icon fa-shopping-basket fa-2x","icon fa-tree fa-2x","icon fa-home fa-2x","icon fa-question-circle fa-2x"]
 	  let selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory)
 	  {/* const username = task.profile.username || 'anonymous'*/}

@@ -16,8 +16,8 @@ class Categories extends Component{
       const color = (category==this.props.tasks.selectedCategory) ? '#f56a6a' : '#333'
 
       return (
-        <li   key={category}>
-        <a   onClick={this.selectCategory.bind(this, category)} style={{color:color, paddingRight:15}} href="#">{category}</a>
+        <li key={category}>
+        <a onClick={this.selectCategory.bind(this, category)} style={{color:color, paddingRight:15}} href="#">{category}</a>
         </li>
       )
     })

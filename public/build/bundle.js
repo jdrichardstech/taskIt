@@ -21787,6 +21787,7 @@
 	    value: function render() {
 	      var _this2 = this;
 	
+	      console.log("TASKS: " + JSON.stringify(this.props.tasks));
 	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
 	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
 	      {/* const username = task.profile.username || 'anonymous'*/}
@@ -53650,14 +53651,18 @@
 	
 		switch (action.type) {
 			case _constants2.default.TASKS_RECEIVED:
+	
 				var keys = Object.keys(action.params);
+				// console.log("KEYS: " + JSON.stringify(keys))
 				keys.forEach(function (key, i) {
 					var value = action.params[key]; // delivery, dog walking...
 					updated[value] = action.payload;
 				});
+				console.log("UPDATED TASK REDUCER: " + JSON.stringify(updated));
 				action.payload.forEach(function (task, i) {
 					updated[task.id] = task;
 				});
+	
 				return updated;
 			case _constants2.default.TASK_CREATED:
 				var currentTasks = updated[action.payload.category] ? Object.assign([], updated[action.payload.category]) : [];

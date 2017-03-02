@@ -15,14 +15,18 @@ export default (state = initialState, action) => {
 
 	switch (action.type){
 		case constants.TASKS_RECEIVED:
+
 			const keys = Object.keys(action.params)
+			// console.log("KEYS: " + JSON.stringify(keys))
 			keys.forEach((key, i) => {
 				const value = action.params[key] // delivery, dog walking...
 				updated[value] = action.payload
 			})
+			console.log("UPDATED TASK REDUCER: " + JSON.stringify(updated))
 			action.payload.forEach((task, i) => {
 				updated[task.id] = task
 			})
+
 			return updated
 		case constants.TASK_CREATED:
 			let currentTasks = (updated[action.payload.category]) ? Object.assign([], updated[action.payload.category]) : []
