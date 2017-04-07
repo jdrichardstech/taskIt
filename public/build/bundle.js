@@ -21672,7 +21672,7 @@
 	});
 	exports.Profile = exports.Task = exports.Account = exports.Categories = exports.Tasks = undefined;
 	
-	var _Tasks = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Tasks\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _Tasks = __webpack_require__(181);
 	
 	var _Tasks2 = _interopRequireDefault(_Tasks);
 	
@@ -21701,7 +21701,186 @@
 	exports.Profile = _Profile2.default;
 
 /***/ },
-/* 181 */,
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _utils = __webpack_require__(182);
+	
+	var _view = __webpack_require__(309);
+	
+	var _reactRedux = __webpack_require__(314);
+	
+	var _actions = __webpack_require__(351);
+	
+	var _actions2 = _interopRequireDefault(_actions);
+	
+	var _reactRouter = __webpack_require__(353);
+	
+	var _reactTime = __webpack_require__(196);
+	
+	var _reactTime2 = _interopRequireDefault(_reactTime);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Tasks = function (_Component) {
+	  _inherits(Tasks, _Component);
+	
+	  function Tasks() {
+	    _classCallCheck(this, Tasks);
+	
+	    var _this = _possibleConstructorReturn(this, (Tasks.__proto__ || Object.getPrototypeOf(Tasks)).call(this));
+	
+	    _this.getTasks = _this.getTasks.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Tasks, [{
+	    key: 'getTasks',
+	    value: function getTasks() {
+	      if (this.props.tasks[this.props.tasks.selectedCategory] != null) return;
+	
+	      this.props.fetchTasks({ category: this.props.tasks.selectedCategory }).then(function (results) {}).catch(function (err) {
+	        alert(err);
+	      });
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.getTasks();
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      this.getTasks();
+	    }
+	  }, {
+	    key: 'createTask',
+	    value: function createTask(task) {
+	      console.log("TASK CONTAINER: " + JSON.stringify(task));
+	
+	      this.props.submitTask(task).then(function (result) {
+	        // console.log("SUBMIT TASK: " +JSON.stringify(result))
+	      }).catch(function (err) {
+	        console.log('ERROR:' + JSON.stringify(err));
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      console.log("TASKS: " + JSON.stringify(this.props.tasks));
+	      var categoryIcon = ["icon fa-shopping-basket fa-2x", "icon fa-tree fa-2x", "icon fa-home fa-2x", "icon fa-question-circle fa-2x"];
+	      var selectedCategory = this.props.tasks.categories.indexOf(this.props.tasks.selectedCategory);
+	      {/* const username = task.profile.username || 'anonymous'*/}
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'section',
+	          { id: 'banner', style: { paddingTop: 0 } },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'content' },
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'Category: ',
+	              _react2.default.createElement(
+	                'span',
+	                { style: { color: '#f56a6a', paddingLeft: 6, fontSize: '.8em' } },
+	                this.props.tasks.selectedCategory.toUpperCase()
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'ul',
+	              null,
+	              this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
+	                return _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { style: { width: '33.3%' }, key: task.id, to: '/task/' + task.id },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'box col-md-3', style: { display: 'block', position: 'relative', marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
+	                    _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
+	                    _react2.default.createElement(
+	                      'span',
+	                      { style: { padding: '20px 0 0 10px', marginBottom: 0, fontFamily: 'OpenSans-Semibold, sans-serif', color: '#000', fontSize: '1.1em' } },
+	                      ' Task ',
+	                      i + 1
+	                    ),
+	                    _react2.default.createElement('hr', null),
+	                    _react2.default.createElement(
+	                      'center',
+	                      null,
+	                      '  ',
+	                      _react2.default.createElement(
+	                        'h3',
+	                        { style: { color: '#f56a6a' } },
+	                        _utils.TextUtils.capitalize(task.title)
+	                      ),
+	                      '  '
+	                    ),
+	                    _react2.default.createElement(
+	                      'span',
+	                      { style: { dispaly: 'block', position: 'relative', float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
+	                      _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
+	                    )
+	                  )
+	                );
+	              })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Tasks;
+	}(_react.Component);
+	
+	var stateToProps = function stateToProps(state) {
+	  return {
+	    tasks: state.task
+	  };
+	};
+	
+	var dispatchToProps = function dispatchToProps(dispatch) {
+	  return {
+	    tasksReceived: function tasksReceived(tasks) {
+	      return dispatch(_actions2.default.tasksReceived(tasks));
+	    },
+	    // taskCreated: (task)=> dispatch(actions.tasksCreated(task)),
+	    fetchTasks: function fetchTasks(params) {
+	      return dispatch(_actions2.default.fetchTasks(params));
+	    },
+	    submitTask: function submitTask(params) {
+	      return dispatch(_actions2.default.submitTask(params));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Tasks);
+
+/***/ },
 /* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
