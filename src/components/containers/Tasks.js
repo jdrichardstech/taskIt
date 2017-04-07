@@ -56,13 +56,14 @@ class Tasks extends Component{
         <section id="banner" style={{paddingTop:0}}>
           <div className="content">
             <h2>Category: <span style={{color:'#f56a6a', paddingLeft:6,fontSize:'.8em'}}>{this.props.tasks.selectedCategory.toUpperCase()}</span></h2>
-            <ul>
+            <ul style={{listStyle:'none'}}>
               {
                 (this.props.tasks[this.props.tasks.selectedCategory] == null) ? null
                 :
                 this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
                   return (
-                    <Link style={{width:'33.3%'}} key={task.id}  to={'/task/'+task.id}>
+										<li style={{width:'33.3%'}}>
+                    <Link  key={task.id}  to={'/task/'+task.id}>
                       <div className="box col-md-3" style={{display:'block',position:'relative',marginRight:10,background:'white',padding:'.7em', boxShadow:'5px 5px 5px #855541'}}>
                         <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
                           <span style={{padding:'20px 0 0 10px',marginBottom:0,fontFamily:'OpenSans-Semibold, sans-serif',color:'#000',fontSize:'1.1em'}}> Task {i+1}</span>
@@ -75,6 +76,7 @@ class Tasks extends Component{
                           </span>
                         </div>
                       </Link>
+											</li>
                     )
                   }
                 )}

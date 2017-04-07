@@ -21812,37 +21812,41 @@
 	            ),
 	            _react2.default.createElement(
 	              'ul',
-	              null,
+	              { style: { listStyle: 'none' } },
 	              this.props.tasks[this.props.tasks.selectedCategory] == null ? null : this.props.tasks[this.props.tasks.selectedCategory].map(function (task, i) {
 	                return _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { style: { width: '33.3%' }, key: task.id, to: '/task/' + task.id },
+	                  'li',
+	                  { style: { width: '33.3%' } },
 	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'box col-md-3', style: { display: 'block', position: 'relative', marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
-	                    _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
+	                    _reactRouter.Link,
+	                    { key: task.id, to: '/task/' + task.id },
 	                    _react2.default.createElement(
-	                      'span',
-	                      { style: { padding: '20px 0 0 10px', marginBottom: 0, fontFamily: 'OpenSans-Semibold, sans-serif', color: '#000', fontSize: '1.1em' } },
-	                      ' Task ',
-	                      i + 1
-	                    ),
-	                    _react2.default.createElement('hr', null),
-	                    _react2.default.createElement(
-	                      'center',
-	                      null,
-	                      '  ',
+	                      'div',
+	                      { className: 'box col-md-3', style: { display: 'block', position: 'relative', marginRight: 10, background: 'white', padding: '.7em', boxShadow: '5px 5px 5px #855541' } },
+	                      _react2.default.createElement('span', { style: { color: 'rgb(254,187,82)' }, className: categoryIcon[selectedCategory] }),
 	                      _react2.default.createElement(
-	                        'h3',
-	                        { style: { color: '#f56a6a' } },
-	                        _utils.TextUtils.capitalize(task.title)
+	                        'span',
+	                        { style: { padding: '20px 0 0 10px', marginBottom: 0, fontFamily: 'OpenSans-Semibold, sans-serif', color: '#000', fontSize: '1.1em' } },
+	                        ' Task ',
+	                        i + 1
 	                      ),
-	                      '  '
-	                    ),
-	                    _react2.default.createElement(
-	                      'span',
-	                      { style: { dispaly: 'block', position: 'relative', float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
-	                      _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
+	                      _react2.default.createElement('hr', null),
+	                      _react2.default.createElement(
+	                        'center',
+	                        null,
+	                        '  ',
+	                        _react2.default.createElement(
+	                          'h3',
+	                          { style: { color: '#f56a6a' } },
+	                          _utils.TextUtils.capitalize(task.title)
+	                        ),
+	                        '  '
+	                      ),
+	                      _react2.default.createElement(
+	                        'span',
+	                        { style: { dispaly: 'block', position: 'relative', float: 'right', fontSize: '.9em', paddingTop: 25, color: 'gray' } },
+	                        _utils.DateUtils.formattedDate(_this2.props.tasks[task.id].timestamp)
+	                      )
 	                    )
 	                  )
 	                );
