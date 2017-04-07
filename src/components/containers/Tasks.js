@@ -62,7 +62,7 @@ class Tasks extends Component{
                 :
                 this.props.tasks[this.props.tasks.selectedCategory].map((task, i)=>{
                   return (
-										<li style={{width:'33.3%'}}>
+
                     <Link  key={task.id}  to={'/task/'+task.id}>
                       <div className="box col-md-3" style={{display:'block',position:'relative',marginRight:10,background:'white',padding:'.7em', boxShadow:'5px 5px 5px #855541'}}>
                         <span style={{color:'rgb(254,187,82)'}} className={categoryIcon[selectedCategory]}></span>
@@ -76,7 +76,7 @@ class Tasks extends Component{
                           </span>
                         </div>
                       </Link>
-											</li>
+									
                     )
                   }
                 )}
